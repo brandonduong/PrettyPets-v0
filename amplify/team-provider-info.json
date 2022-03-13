@@ -1,0 +1,46 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-prettypets-dev-02336-authRole",
+      "UnauthRoleArn": "arn:aws:iam::467265973161:role/amplify-prettypets-dev-02336-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::467265973161:role/amplify-prettypets-dev-02336-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-prettypets-dev-02336-deployment",
+      "UnauthRoleName": "amplify-prettypets-dev-02336-unauthRole",
+      "StackName": "amplify-prettypets-dev-02336",
+      "StackId": "arn:aws:cloudformation:us-east-1:467265973161:stack/amplify-prettypets-dev-02336/967dc6d0-a1c4-11ec-b7e5-0ad872bc31c5",
+      "AmplifyAppId": "d213pg8i8kt1b4",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-prettypets-dev-02336-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "prettypets78754bdf": {}
+      },
+      "function": {
+        "prettypets78754bdfDefineAuthChallenge": {
+          "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
+          "s3Key": "amplify-builds/prettypets78754bdfDefineAuthChallenge-476f304877544b78676e-build.zip"
+        },
+        "prettypets78754bdfCreateAuthChallenge": {
+          "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
+          "s3Key": "amplify-builds/prettypets78754bdfCreateAuthChallenge-34585164336a2b673235-build.zip"
+        },
+        "prettypets78754bdfVerifyAuthChallengeResponse": {
+          "RECAPTCHASECRET": "",
+          "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
+          "s3Key": "amplify-builds/prettypets78754bdfVerifyAuthChallengeResponse-514a4f71383538785148-build.zip"
+        },
+        "rollPet": {
+          "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
+          "s3Key": "amplify-builds/rollPet-6b325230323174374a45-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d213pg8i8kt1b4",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}
