@@ -19,6 +19,8 @@ type Pet @model {
   color: String!
   owner: String!
   shiny: Boolean!
+  traits: [String]
+  star: Int!
 }
 
 type Mutation {

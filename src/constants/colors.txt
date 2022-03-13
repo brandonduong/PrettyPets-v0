@@ -1,0 +1,11 @@
+Grey
+Pink
+Blue
+Black
+White
+Green
+Red
+Orange
+Yellow
+Mint
+Cyan

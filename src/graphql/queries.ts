@@ -75,6 +75,8 @@ export const getPet = /* GraphQL */ `
       color
       owner
       shiny
+      traits
+      star
       createdAt
       updatedAt
       _version
@@ -97,6 +99,8 @@ export const listPets = /* GraphQL */ `
         color
         owner
         shiny
+        traits
+        star
         createdAt
         updatedAt
         _version
@@ -128,6 +132,8 @@ export const syncPets = /* GraphQL */ `
         color
         owner
         shiny
+        traits
+        star
         createdAt
         updatedAt
         _version

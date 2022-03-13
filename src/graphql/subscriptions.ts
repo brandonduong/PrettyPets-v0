@@ -53,6 +53,8 @@ export const onCreatePet = /* GraphQL */ `
       color
       owner
       shiny
+      traits
+      star
       createdAt
       updatedAt
       _version
@@ -70,6 +72,8 @@ export const onUpdatePet = /* GraphQL */ `
       color
       owner
       shiny
+      traits
+      star
       createdAt
       updatedAt
       _version
@@ -87,6 +91,8 @@ export const onDeletePet = /* GraphQL */ `
       color
       owner
       shiny
+      traits
+      star
       createdAt
       updatedAt
       _version

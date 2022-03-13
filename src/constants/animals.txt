@@ -1,0 +1,25 @@
+Dog
+Turtle
+Rabbit
+Parrot
+Cat
+Fish
+Mouse
+Guinea Pig
+Hamster
+Capybara
+Penguin
+Hedgehog
+Pig
+Cow
+Crab
+Lobster
+Chicken
+Duck
+Owl
+Squirrel
+Panda
+Bear
+Monkey
+Otter
+Seal

@@ -11,6 +11,8 @@ export const rollPet = /* GraphQL */ `
       color
       owner
       shiny
+      traits
+      star
       createdAt
       updatedAt
       _version
@@ -82,6 +84,8 @@ export const createPet = /* GraphQL */ `
       color
       owner
       shiny
+      traits
+      star
       createdAt
       updatedAt
       _version
@@ -102,6 +106,8 @@ export const updatePet = /* GraphQL */ `
       color
       owner
       shiny
+      traits
+      star
       createdAt
       updatedAt
       _version
@@ -122,6 +128,8 @@ export const deletePet = /* GraphQL */ `
       color
       owner
       shiny
+      traits
+      star
       createdAt
       updatedAt
       _version
