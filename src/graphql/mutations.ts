@@ -5,7 +5,6 @@
 export const rollPet = /* GraphQL */ `
   mutation RollPet($email: String) {
     RollPet(email: $email) {
-      id
       animal
       nickname
       color
@@ -13,11 +12,6 @@ export const rollPet = /* GraphQL */ `
       shiny
       traits
       star
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -32,9 +26,6 @@ export const createTodo = /* GraphQL */ `
       description
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -49,9 +40,6 @@ export const updateTodo = /* GraphQL */ `
       description
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -66,9 +54,6 @@ export const deleteTodo = /* GraphQL */ `
       description
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -88,9 +73,6 @@ export const createPet = /* GraphQL */ `
       star
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -110,9 +92,6 @@ export const updatePet = /* GraphQL */ `
       star
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;
@@ -132,9 +111,6 @@ export const deletePet = /* GraphQL */ `
       star
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
   }
 `;

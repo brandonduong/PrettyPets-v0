@@ -36,9 +36,6 @@ const createPet = gql`
             star
             createdAt
             updatedAt
-            _version
-            _deleted
-            _lastChangedAt
         }
     }
 `
@@ -48,7 +45,7 @@ function getRandomInt(max, min = 0) {
 }
 
 function generateStar() {
-  let rng = getRandomInt(100);
+  let rng = getRandomInt(99);
   console.log(rng, STAR_PERCENTS);
   let star = 1;
 
@@ -67,41 +64,34 @@ function generateStar() {
 function generateTraits(stars) {
   const goodTraitChance = GOOD_TRAITS_PERCENTS[stars - 1];
   const traits = [];
-  let goodTraits = [];
-  let badTraits = [];
-  fs.readFile('../../../../../src/constants/goodtraits.txt', function (err, good) {
-    if (err) throw err;
 
-    goodTraits = good.toString().replace(/\r\n/g,'\n').split('\n');
-    goodTraits.pop() // Get rid of empty line at end of txt file
+  let goodTraits = fs.readFileSync('./goodtraits.txt')
+  goodTraits = goodTraits.toString().replace(/\r\n/g, '\n').split('\n');
+  goodTraits.pop() // Get rid of empty line at end of txt file
 
-    fs.readFile('../../../../../src/constants/badtraits.txt', function (err, bad) {
-      if (err) throw err;
+  let badTraits = fs.readFileSync('./badtraits.txt')
+  badTraits = badTraits.toString().replace(/\r\n/g, '\n').split('\n');
+  badTraits.pop() // Get rid of empty line at end of txt file
 
-      badTraits = bad.toString().replace(/\r\n/g, '\n').split('\n');
-      badTraits.pop() // Get rid of empty line at end of txt file
+  for (let i = 0; i < getRandomInt(MAX_TRAITS, MIN_TRAITS); i++) {
+    const traitRng = getRandomInt(100);
+    console.log(traitRng)
+    if (traitRng < goodTraitChance) {
+      // Get good trait
+      const rng = getRandomInt(goodTraits.length - 1);
+      const chosenTrait = goodTraits[rng];
 
-      for (let i = 0; i < getRandomInt(MAX_TRAITS, MIN_TRAITS); i++) {
-        const traitRng = getRandomInt(100);
-        console.log(traitRng)
-        if (traitRng < goodTraitChance) {
-          // Get good trait
-          const rng = getRandomInt(goodTraits.length - 1);
-          const chosenTrait = goodTraits[rng];
+      traits.push(chosenTrait);
+      goodTraits.splice(goodTraits.indexOf(chosenTrait), 1)
+    } else {
+      // Get bad trait
+      const rng = getRandomInt(badTraits.length - 1);
+      const chosenTrait = badTraits[rng];
 
-          traits.push(chosenTrait);
-          goodTraits.splice(goodTraits.indexOf(chosenTrait), 1)
-        } else {
-          // Get bad trait
-          const rng = getRandomInt(badTraits.length - 1);
-          const chosenTrait = badTraits[rng];
-
-          traits.push(chosenTrait);
-          badTraits.splice(badTraits.indexOf(chosenTrait), 1)
-        }
-      }
-    });
-  });
+      traits.push(chosenTrait);
+      badTraits.splice(badTraits.indexOf(chosenTrait), 1)
+    }
+  }
   return traits;
 }
 
@@ -120,7 +110,7 @@ function generateDefaultNickname(shiny, color, animal) {
 function generateRandomStringFromText(filename) {
   let animals = []
   let animal = ''
-  const ani = fs.readFileSync(`../../../../../src/constants/${filename}`)
+  const ani = fs.readFileSync(`./${filename}`)
   animals = ani.toString().replace(/\r\n/g, '\n').split('\n');
   animals.pop(); // Get rid of empty line at end of txt file
 
@@ -130,6 +120,7 @@ function generateRandomStringFromText(filename) {
 }
 
 exports.handler = async (event) => {
+  console.log(event.arguments)
   // Create pretty pet in GraphQL API
   try {
     const animal = generateRandomStringFromText('animals.txt')
@@ -147,6 +138,8 @@ exports.handler = async (event) => {
       star: stars
     }
 
+    console.log(petInfo)
+
     await axios({
       url: url,
       method: 'post',
@@ -159,8 +152,10 @@ exports.handler = async (event) => {
           input: petInfo
         }
       }
+    }).then(() => {
+      console.log('created pet')
     });
-    return {...petInfo, id: 'idk'};
+    return petInfo;
   } catch (err) {
     console.log('error creating todo: ', err);
   }

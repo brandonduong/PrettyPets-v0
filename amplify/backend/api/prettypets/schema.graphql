@@ -19,10 +19,20 @@ type Pet @model {
   color: String!
   owner: String!
   shiny: Boolean!
-  traits: [String]
+  traits: [String]!
+  star: Int!
+}
+
+type SimplePet {
+  animal: String!
+  nickname: String!
+  color: String!
+  owner: String!
+  shiny: Boolean!
+  traits: [String]!
   star: Int!
 }
 
 type Mutation {
-  RollPet(email: String): Pet @function(name: "rollPet-${env}")
+  RollPet(email: String): SimplePet @function(name: "rollPet-${env}")
 }

@@ -1,77 +1,65 @@
 import React, {CSSProperties, useEffect, useState} from "react";
 import {API, graphqlOperation} from "aws-amplify";
-import {listTodos} from "../graphql/queries";
-import {createTodo} from "../graphql/mutations";
-import { useAuthenticator } from '@aws-amplify/ui-react';
+import {listPets} from "../graphql/queries";
+import {rollPet} from "../graphql/mutations";
+import {useAuthenticator} from '@aws-amplify/ui-react';
 
-
-const initialState = {name: '', description: '', id: 0}
-
-interface FormState {
-  name: string;
-  description: string;
-  id: number;
+interface Pet {
+  animal: string,
+  nickname: string,
+  color: string,
+  owner: string,
+  shiny: boolean,
+  traits: [string],
+  star: number,
+  id: string,
 }
 
 function HomePage() {
-  const [formState, setFormState] = useState<FormState>(initialState)
-  const [todos, setTodos] = useState<Array<FormState>>([])
-  const { user, signOut } = useAuthenticator((context) => [context.user]);
+  const [pets, setPets] = useState<Array<Pet>>([])
+  const {user, signOut} = useAuthenticator((context) => [context.user]);
 
   useEffect(() => {
-    fetchTodos()
+    fetchPets()
   }, [])
 
-  async function fetchTodos() {
+  async function fetchPets() {
+    const filter = {
+      owner: {
+        eq: user.username
+      }
+    }
     try {
-      const todoData: any = await API.graphql(graphqlOperation(listTodos))
-      const todos = todoData.data.listTodos.items
-      setTodos(todos)
+      const petData: any = await API.graphql({query: listPets, variables: { filter: filter }})
+      console.log(petData)
+      const petArr = petData.data.listPets.items
+      setPets(petArr)
     } catch (err) {
-      console.log('error fetching todos')
+      console.log('error fetching pets: ', err)
     }
   }
 
-  async function addTodo() {
+  async function rollPetOnClick(email: string | undefined) {
+    if (!email) return
     try {
-      if (!formState.name || !formState.description) return
-      const todo = {...formState}
-      setTodos([...todos, todo])
-      setFormState(initialState)
-      await API.graphql(graphqlOperation(createTodo, {input: todo}))
+      const petData: any = await API.graphql(graphqlOperation(rollPet, {email: email}))
+      console.log('rolled: ', petData.data.RollPet)
+      setPets([...pets, petData.data.RollPet])
     } catch (err) {
-      console.log('error creating todo:', err)
+      console.log('error rolling for pet:', err)
     }
-  }
-
-  function setInput(key: string, value: string) {
-    setFormState({...formState, [key]: value})
   }
 
   return (
     <div style={container}>
       <h1>Hello {user.attributes!.preferred_username} ({user.username})</h1>
       <button onClick={signOut}>Sign out</button>
-      <br/>
-      <h2>Amplify Todos</h2>
-      <input
-        onChange={event => setInput('name', event.target.value)}
-        style={styles.input}
-        value={formState.name}
-        placeholder="Name"
-      />
-      <input
-        onChange={event => setInput('description', event.target.value)}
-        style={styles.input}
-        value={formState.description}
-        placeholder="Description"
-      />
-      <button style={styles.button} onClick={addTodo}>Create Todo</button>
+      <button style={styles.button} onClick={() => rollPetOnClick(user.username)}>Roll Pet</button>
       {
-        todos.map((todo, index) => (
-          <div key={todo.id ? todo.id : index} style={styles.todo}>
-            <p style={styles.todoName}>{todo.name}</p>
-            <p style={styles.todoDescription}>{todo.description}</p>
+        pets.map((pet, index) => (
+          <div key={pet.id ? pet.id : index} style={styles.todo}>
+            <p style={styles.todoName}>{pet.nickname}</p>
+            <p style={styles.todoDescription}>{pet.star} Star, Owner: {pet.owner}, Traits: {pet.traits}, Shiny: {pet.shiny}</p>
           </div>
         ))
       }

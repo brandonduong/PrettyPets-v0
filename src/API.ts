@@ -2,28 +2,21 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type Pet = {
-  __typename: "Pet",
-  id: string,
+export type SimplePet = {
+  __typename: "SimplePet",
   animal: string,
   nickname: string,
   color: string,
   owner: string,
   shiny: boolean,
-  traits?: Array< string | null > | null,
+  traits: Array< string | null >,
   star: number,
-  createdAt: string,
-  updatedAt: string,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
 };
 
 export type CreateTodoInput = {
   id?: string | null,
   name: string,
   description?: string | null,
-  _version?: number | null,
 };
 
 export type ModelTodoConditionInput = {
@@ -81,21 +74,16 @@ export type Todo = {
   description?: string | null,
   createdAt: string,
   updatedAt: string,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
 };
 
 export type UpdateTodoInput = {
   id: string,
   name?: string | null,
   description?: string | null,
-  _version?: number | null,
 };
 
 export type DeleteTodoInput = {
   id: string,
-  _version?: number | null,
 };
 
 export type CreatePetInput = {
@@ -105,9 +93,8 @@ export type CreatePetInput = {
   color: string,
   owner: string,
   shiny: boolean,
-  traits?: Array< string | null > | null,
+  traits: Array< string | null >,
   star: number,
-  _version?: number | null,
 };
 
 export type ModelPetConditionInput = {
@@ -142,6 +129,20 @@ export type ModelIntInput = {
   attributeType?: ModelAttributeTypes | null,
 };
 
+export type Pet = {
+  __typename: "Pet",
+  id: string,
+  animal: string,
+  nickname: string,
+  color: string,
+  owner: string,
+  shiny: boolean,
+  traits: Array< string | null >,
+  star: number,
+  createdAt: string,
+  updatedAt: string,
+};
+
 export type UpdatePetInput = {
   id: string,
   animal?: string | null,
@@ -151,12 +152,10 @@ export type UpdatePetInput = {
   shiny?: boolean | null,
   traits?: Array< string | null > | null,
   star?: number | null,
-  _version?: number | null,
 };
 
 export type DeletePetInput = {
   id: string,
-  _version?: number | null,
 };
 
 export type ModelTodoFilterInput = {
@@ -188,7 +187,6 @@ export type ModelTodoConnection = {
   __typename: "ModelTodoConnection",
   items:  Array<Todo >,
   nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type ModelPetFilterInput = {
@@ -209,7 +207,6 @@ export type ModelPetConnection = {
   __typename: "ModelPetConnection",
   items:  Array<Pet >,
   nextToken?: string | null,
-  startedAt?: number | null,
 };
 
 export type RollPetMutationVariables = {
@@ -218,20 +215,14 @@ export type RollPetMutationVariables = {
 
 export type RollPetMutation = {
   RollPet?:  {
-    __typename: "Pet",
-    id: string,
+    __typename: "SimplePet",
     animal: string,
     nickname: string,
     color: string,
     owner: string,
     shiny: boolean,
-    traits?: Array< string | null > | null,
+    traits: Array< string | null >,
     star: number,
-    createdAt: string,
-    updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -248,9 +239,6 @@ export type CreateTodoMutation = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -267,9 +255,6 @@ export type UpdateTodoMutation = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -286,9 +271,6 @@ export type DeleteTodoMutation = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -306,13 +288,10 @@ export type CreatePetMutation = {
     color: string,
     owner: string,
     shiny: boolean,
-    traits?: Array< string | null > | null,
+    traits: Array< string | null >,
     star: number,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -330,13 +309,10 @@ export type UpdatePetMutation = {
     color: string,
     owner: string,
     shiny: boolean,
-    traits?: Array< string | null > | null,
+    traits: Array< string | null >,
     star: number,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -354,13 +330,10 @@ export type DeletePetMutation = {
     color: string,
     owner: string,
     shiny: boolean,
-    traits?: Array< string | null > | null,
+    traits: Array< string | null >,
     star: number,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -376,9 +349,6 @@ export type GetTodoQuery = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -398,38 +368,8 @@ export type ListTodosQuery = {
       description?: string | null,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } >,
     nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncTodosQueryVariables = {
-  filter?: ModelTodoFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncTodosQuery = {
-  syncTodos?:  {
-    __typename: "ModelTodoConnection",
-    items:  Array< {
-      __typename: "Todo",
-      id: string,
-      name: string,
-      description?: string | null,
-      createdAt: string,
-      updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-    } >,
-    nextToken?: string | null,
-    startedAt?: number | null,
   } | null,
 };
 
@@ -446,13 +386,10 @@ export type GetPetQuery = {
     color: string,
     owner: string,
     shiny: boolean,
-    traits?: Array< string | null > | null,
+    traits: Array< string | null >,
     star: number,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -473,47 +410,12 @@ export type ListPetsQuery = {
       color: string,
       owner: string,
       shiny: boolean,
-      traits?: Array< string | null > | null,
+      traits: Array< string | null >,
       star: number,
       createdAt: string,
       updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
     } >,
     nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncPetsQueryVariables = {
-  filter?: ModelPetFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncPetsQuery = {
-  syncPets?:  {
-    __typename: "ModelPetConnection",
-    items:  Array< {
-      __typename: "Pet",
-      id: string,
-      animal: string,
-      nickname: string,
-      color: string,
-      owner: string,
-      shiny: boolean,
-      traits?: Array< string | null > | null,
-      star: number,
-      createdAt: string,
-      updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-    } >,
-    nextToken?: string | null,
-    startedAt?: number | null,
   } | null,
 };
 
@@ -525,9 +427,6 @@ export type OnCreateTodoSubscription = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -539,9 +438,6 @@ export type OnUpdateTodoSubscription = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -553,9 +449,6 @@ export type OnDeleteTodoSubscription = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -568,13 +461,10 @@ export type OnCreatePetSubscription = {
     color: string,
     owner: string,
     shiny: boolean,
-    traits?: Array< string | null > | null,
+    traits: Array< string | null >,
     star: number,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -587,13 +477,10 @@ export type OnUpdatePetSubscription = {
     color: string,
     owner: string,
     shiny: boolean,
-    traits?: Array< string | null > | null,
+    traits: Array< string | null >,
     star: number,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
 
@@ -606,12 +493,9 @@ export type OnDeletePetSubscription = {
     color: string,
     owner: string,
     shiny: boolean,
-    traits?: Array< string | null > | null,
+    traits: Array< string | null >,
     star: number,
     createdAt: string,
     updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
   } | null,
 };
