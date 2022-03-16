@@ -10,6 +10,7 @@ const gql = require('graphql-tag');
 const graphql = require('graphql');
 const fs = require('fs');
 const {print} = graphql;
+const ntc = require('ntc');
 
 const url = process.env.API_PRETTYPETS_GRAPHQLAPIENDPOINTOUTPUT
 const key = process.env.API_PRETTYPETS_GRAPHQLAPIKEYOUTPUT
@@ -30,6 +31,7 @@ const createPet = gql`
             animal
             nickname
             color
+            colorHex
             owner
             shiny
             traits
@@ -119,27 +121,30 @@ function generateRandomStringFromText(filename) {
   return animal;
 }
 
+function generateRandomColor() {
+  const colorHex = "#" + Math.floor(Math.random()*16777215).toString(16);
+  return [colorHex, ntc.name(colorHex)[1]];
+}
+
 exports.handler = async (event) => {
-  console.log(event.arguments)
   // Create pretty pet in GraphQL API
   try {
     const animal = generateRandomStringFromText('animals.txt')
-    const color = generateRandomStringFromText('colors.txt')
+    const color = generateRandomColor()
     const stars = generateStar()
     const shiny = generateShiny()
 
     const petInfo = {
       animal: animal,
       shiny: shiny,
-      color: color,
-      owner: event.arguments.email,
-      nickname: generateDefaultNickname(shiny, color, animal),
+      color: color[1],
+      colorHex: color[0],
+      owner: event.identity.username,
+      nickname: generateDefaultNickname(shiny, color[1], animal),
       traits: generateTraits(stars),
       star: stars
     }
-
     console.log(petInfo)
-
     await axios({
       url: url,
       method: 'post',
@@ -153,9 +158,10 @@ exports.handler = async (event) => {
         }
       }
     }).then(() => {
-      console.log('created pet')
+      console.log('good')
     });
-    return petInfo;
+    console.log(petInfo)
+    return {...petInfo, id: '', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString()};
   } catch (err) {
     console.log('error creating todo: ', err);
   }

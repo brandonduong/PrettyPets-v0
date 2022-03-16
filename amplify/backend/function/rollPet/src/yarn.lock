@@ -324,6 +324,11 @@ negotiator@0.6.3:
   resolved "https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
 
+ntc@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/ntc/-/ntc-0.0.1.tgz#e6548e3bc29edf42f0a87047ef239273478f752e"
+  integrity sha1-5lSOO8Ke30LwqHBH7yOSc0ePdS4=
+
 on-finished@~2.3.0:
   version "2.3.0"
   resolved "https://registry.npmjs.org/on-finished/-/on-finished-2.3.0.tgz"

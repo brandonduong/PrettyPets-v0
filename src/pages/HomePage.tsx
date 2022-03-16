@@ -20,6 +20,7 @@ function HomePage() {
   const {user, signOut} = useAuthenticator((context) => [context.user]);
 
   useEffect(() => {
+    console.log(user)
     fetchPets()
   }, [])
 
@@ -30,7 +31,7 @@ function HomePage() {
       }
     }
     try {
-      const petData: any = await API.graphql({query: listPets, variables: { filter: filter }})
+      const petData: any = await API.graphql({query: listPets, variables: { filter: filter }, authMode: 'AMAZON_COGNITO_USER_POOLS'})
       console.log(petData)
       const petArr = petData.data.listPets.items
       setPets(petArr)
@@ -42,7 +43,7 @@ function HomePage() {
   async function rollPetOnClick(email: string | undefined) {
     if (!email) return
     try {
-      const petData: any = await API.graphql(graphqlOperation(rollPet, {email: email}))
+      const petData: any = await API.graphql({query: rollPet, variables: {email: email}, authMode: 'AMAZON_COGNITO_USER_POOLS'})
       console.log('rolled: ', petData.data.RollPet)
       setPets([...pets, petData.data.RollPet])
     } catch (err) {

@@ -23,3 +23,8 @@ Bear
 Monkey
 Otter
 Seal
+Frog
+Turtle
+Axolotl
+Armadillo
+Beaver
