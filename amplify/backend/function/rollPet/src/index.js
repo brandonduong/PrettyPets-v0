@@ -11,6 +11,7 @@ const graphql = require('graphql');
 const fs = require('fs');
 const {print} = graphql;
 const ntc = require('ntc');
+const aws4  = require('aws4')
 
 const url = process.env.API_PRETTYPETS_GRAPHQLAPIENDPOINTOUTPUT
 const key = process.env.API_PRETTYPETS_GRAPHQLAPIKEYOUTPUT
@@ -20,13 +21,14 @@ const MAX_TRAITS = 3;
 const STAR_PERCENTS = [35, 25, 25, 10, 5];
 const GOOD_TRAITS_PERCENTS = [15, 30, 45, 60, 75];
 const SHINY_PERCENT = 1;
+const ROLL_PRICE = 100;
 
 const createPet = gql`
-    mutation CreatePet(
-        $input: CreatePetInput!
-        $condition: ModelPetConditionInput
+    mutation CreateWhy4(
+        $input: CreateWhy4Input!
+        $condition: ModelWhy4ConditionInput
     ) {
-        createPet(input: $input, condition: $condition) {
+        createWhy4(input: $input, condition: $condition) {
             id
             animal
             nickname
@@ -36,6 +38,40 @@ const createPet = gql`
             shiny
             traits
             star
+            createdAt
+            updatedAt
+        }
+    }
+`
+
+const listUsers = gql`
+    query ListUsers(
+        $filter: ModelUserFilterInput
+        $limit: Int
+        $nextToken: String
+    ) {
+        listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+            items {
+                id
+                email
+                prettyPoints
+                createdAt
+                updatedAt
+            }
+            nextToken
+        }
+    }
+`
+
+const updateUser = gql`
+    mutation UpdateUser(
+        $input: UpdateUserInput!
+        $condition: ModelUserConditionInput
+    ) {
+        updateUser(input: $input, condition: $condition) {
+            id
+            email
+            prettyPoints
             createdAt
             updatedAt
         }
@@ -122,12 +158,77 @@ function generateRandomStringFromText(filename) {
 }
 
 function generateRandomColor() {
-  const colorHex = "#" + Math.floor(Math.random()*16777215).toString(16);
+  const colorHex = "#" + Math.floor(Math.random() * 16777215).toString(16);
   return [colorHex, ntc.name(colorHex)[1]];
 }
 
 exports.handler = async (event) => {
+  if (!event.arguments.email) {
+    return
+  }
+  const email = event.arguments.email;
+  let pp = 0;
+  let id = '';
+
+  // Check if user has enough money
+  try {
+    const filter = {
+      email: {
+        eq: email
+      }
+    }
+
+    const graphqlData = await axios({
+      url: url,
+      method: 'post',
+      headers: {
+        'x-api-key': key
+      },
+      data: {
+        query: print(listUsers),
+        variables: { filter: filter }
+      }
+    });
+    const userData = graphqlData.data.data.listUsers.items[0]
+    if (userData) {
+      pp = userData.prettyPoints
+      id = userData.id
+      console.log(pp)
+    }
+    console.log('following user is rolling:', userData)
+  } catch (e) {
+    console.log('error getting money', e);
+  }
+
+  if (pp < ROLL_PRICE) {
+    console.log('user no money')
+    return
+  } else {
+    // Subtract pp
+    try {
+      const input = {
+        id,
+        prettyPoints: pp - ROLL_PRICE
+      }
+
+      await axios({
+        url: url,
+        method: 'post',
+        headers: {
+          'x-api-key': key
+        },
+        data: {
+          query: print(updateUser),
+          variables: { input }
+        }
+      });
+    } catch (e) {
+      console.log('error subtracting money', e);
+    }
+  }
+
   // Create pretty pet in GraphQL API
+  console.log(event)
   try {
     const animal = generateRandomStringFromText('animals.txt')
     const color = generateRandomColor()
@@ -139,13 +240,14 @@ exports.handler = async (event) => {
       shiny: shiny,
       color: color[1],
       colorHex: color[0],
-      owner: event.identity.username,
+      owner: email,
       nickname: generateDefaultNickname(shiny, color[1], animal),
       traits: generateTraits(stars),
       star: stars
     }
     console.log(petInfo)
-    await axios({
+
+    await axios(aws4.sign({
       url: url,
       method: 'post',
       headers: {
@@ -157,8 +259,11 @@ exports.handler = async (event) => {
           input: petInfo
         }
       }
-    }).then(() => {
-      console.log('good')
+    })).then((err) => {
+      console.log(err)
+      if (err.data.errors) {
+        console.log(err.data.errors)
+      }
     });
     console.log(petInfo)
     return {...petInfo, id: '', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString()};

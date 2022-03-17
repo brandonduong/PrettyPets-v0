@@ -2,6 +2,90 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateUser = /* GraphQL */ `
+  subscription OnCreateUser {
+    onCreateUser {
+      id
+      email
+      prettyPoints
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateUser = /* GraphQL */ `
+  subscription OnUpdateUser {
+    onUpdateUser {
+      id
+      email
+      prettyPoints
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteUser = /* GraphQL */ `
+  subscription OnDeleteUser {
+    onDeleteUser {
+      id
+      email
+      prettyPoints
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateWhy4 = /* GraphQL */ `
+  subscription OnCreateWhy4 {
+    onCreateWhy4 {
+      id
+      animal
+      nickname
+      color
+      colorHex
+      owner
+      shiny
+      traits
+      star
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateWhy4 = /* GraphQL */ `
+  subscription OnUpdateWhy4 {
+    onUpdateWhy4 {
+      id
+      animal
+      nickname
+      color
+      colorHex
+      owner
+      shiny
+      traits
+      star
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteWhy4 = /* GraphQL */ `
+  subscription OnDeleteWhy4 {
+    onDeleteWhy4 {
+      id
+      animal
+      nickname
+      color
+      colorHex
+      owner
+      shiny
+      traits
+      star
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateTodo = /* GraphQL */ `
   subscription OnCreateTodo {
     onCreateTodo {
@@ -35,49 +119,34 @@ export const onDeleteTodo = /* GraphQL */ `
     }
   }
 `;
-export const onCreatePet = /* GraphQL */ `
-  subscription OnCreatePet {
-    onCreatePet {
+export const onCreateTodoIAM = /* GraphQL */ `
+  subscription OnCreateTodoIAM {
+    onCreateTodoIAM {
       id
-      animal
-      nickname
-      color
-      owner
-      shiny
-      traits
-      star
+      name
+      description
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdatePet = /* GraphQL */ `
-  subscription OnUpdatePet {
-    onUpdatePet {
+export const onUpdateTodoIAM = /* GraphQL */ `
+  subscription OnUpdateTodoIAM {
+    onUpdateTodoIAM {
       id
-      animal
-      nickname
-      color
-      owner
-      shiny
-      traits
-      star
+      name
+      description
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeletePet = /* GraphQL */ `
-  subscription OnDeletePet {
-    onDeletePet {
+export const onDeleteTodoIAM = /* GraphQL */ `
+  subscription OnDeleteTodoIAM {
+    onDeleteTodoIAM {
       id
-      animal
-      nickname
-      color
-      owner
-      shiny
-      traits
-      star
+      name
+      description
       createdAt
       updatedAt
     }

@@ -1,13 +1,14 @@
 import React, {CSSProperties, useEffect, useState} from "react";
 import {API, graphqlOperation} from "aws-amplify";
-import {listPets} from "../graphql/queries";
-import {rollPet} from "../graphql/mutations";
 import {useAuthenticator} from '@aws-amplify/ui-react';
+import {listUsers, listWhy4s} from "../graphql/queries";
+import {rollPet} from "../graphql/mutations";
 
 interface Pet {
   animal: string,
   nickname: string,
   color: string,
+  colorHex: string,
   owner: string,
   shiny: boolean,
   traits: [string],
@@ -15,13 +16,21 @@ interface Pet {
   id: string,
 }
 
+interface UserData {
+  prettyPoints: number
+}
+
+const ROLL_PRICE = 100;
+
 function HomePage() {
   const [pets, setPets] = useState<Array<Pet>>([])
   const {user, signOut} = useAuthenticator((context) => [context.user]);
+  const [userData, setUserData] = useState<UserData>({prettyPoints: 0})
 
   useEffect(() => {
     console.log(user)
     fetchPets()
+    fetchUser()
   }, [])
 
   async function fetchPets() {
@@ -31,21 +40,41 @@ function HomePage() {
       }
     }
     try {
-      const petData: any = await API.graphql({query: listPets, variables: { filter: filter }, authMode: 'AMAZON_COGNITO_USER_POOLS'})
+      const petData: any = await API.graphql({query: listWhy4s, variables: { filter: filter }})
       console.log(petData)
-      const petArr = petData.data.listPets.items
+      const petArr = petData.data.listWhy4s.items
       setPets(petArr)
     } catch (err) {
       console.log('error fetching pets: ', err)
     }
   }
 
-  async function rollPetOnClick(email: string | undefined) {
-    if (!email) return
+  async function fetchUser() {
+    const filter = {
+      email: {
+        eq: user.username
+      }
+    }
     try {
-      const petData: any = await API.graphql({query: rollPet, variables: {email: email}, authMode: 'AMAZON_COGNITO_USER_POOLS'})
-      console.log('rolled: ', petData.data.RollPet)
-      setPets([...pets, petData.data.RollPet])
+      const userData: any = await API.graphql({query: listUsers, variables: { filter: filter }})
+      console.log(userData)
+      setUserData(userData.data.listUsers.items[0])
+    } catch (err) {
+      console.log('error fetching user data: ', err)
+    }
+  }
+
+  async function rollPetOnClick(email: string | undefined) {
+    if (!email || userData.prettyPoints < ROLL_PRICE) return
+    try {
+      const petData: any = await API.graphql({query: rollPet, variables: {email: email}})
+      console.log('rolled: ', petData.data.rollPet)
+      setPets([...pets, petData.data.rollPet])
+      console.log(userData)
+      let tempUserData = userData.prettyPoints
+      tempUserData -= ROLL_PRICE
+      console.log(tempUserData)
+      setUserData({prettyPoints: tempUserData})
     } catch (err) {
       console.log('error rolling for pet:', err)
     }
@@ -54,6 +83,7 @@ function HomePage() {
   return (
     <div style={container}>
       <h1>Hello {user.attributes!.preferred_username} ({user.username})</h1>
+      <h3>PrettyPoints: {userData.prettyPoints}</h3>
       <button onClick={signOut}>Sign out</button>
       <button style={styles.button} onClick={() => rollPetOnClick(user.username)}>Roll Pet</button>
       {

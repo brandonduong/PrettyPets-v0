@@ -1,0 +1,27 @@
+## [Start] Authorization Steps. **
+$util.qr($ctx.stash.put("hasAuth", true))
+#set( $isAuthorized = false )
+#if( $util.authType() == "API Key Authorization" )
+
+#end
+#if( $util.authType() == "IAM Authorization" )
+  #set( $adminRoles = ["rollPet-dev","TestTodoFunction-dev"] )
+  #foreach( $adminRole in $adminRoles )
+    #if( $ctx.identity.userArn.contains($adminRole) && $ctx.identity.userArn != $ctx.stash.authRole && $ctx.identity.userArn != $ctx.stash.unauthRole )
+      #return($util.toJson({}))
+    #end
+  #end
+  #if( !$isAuthorized )
+    #if( ($ctx.identity.userArn == $ctx.stash.authRole) || ($ctx.identity.cognitoIdentityPoolId == "us-east-1:eb34e45d-e57a-470e-91eb-4d7ef0d4f9e7" && $ctx.identity.cognitoIdentityAuthType == "authenticated") )
+      #set( $isAuthorized = true )
+    #end
+  #end
+#end
+#if( $util.authType() == "User Pool Authorization" )
+
+#end
+#if( !$isAuthorized )
+$util.unauthorized()
+#end
+$util.toJson({"version":"2018-05-29","payload":{}})
+## [End] Authorization Steps. **

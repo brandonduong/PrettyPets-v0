@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "api": {
+      "prettypets": [
+        "Query",
+        "Mutation",
+        "Subscription"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

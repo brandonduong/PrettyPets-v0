@@ -6,13 +6,18 @@
     "gqlSchemaPath": "C:\\Users\\Brand\\WebstormProjects\\prettypets\\amplify\\backend\\api\\prettypets\\schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "expirationTime": 7
+      "expirationTime": 7,
+      "apiKeyExpirationDate": "2022-03-23T08:20:43.833Z",
+      "keyDescription": ""
     },
     "conflictResolution": {},
     "additionalAuthTypes": [
       {
         "mode": "AMAZON_COGNITO_USER_POOLS",
         "cognitoUserPoolId": "authprettypets78754bdf"
+      },
+      {
+        "mode": "AWS_IAM"
       }
     ]
   }

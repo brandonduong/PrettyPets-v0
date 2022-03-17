@@ -32,7 +32,19 @@
         },
         "rollPet": {
           "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
-          "s3Key": "amplify-builds/rollPet-484f446441367774454d-build.zip"
+          "s3Key": "amplify-builds/rollPet-567a66617a6d665a4a61-build.zip"
+        },
+        "createTodoFunction": {
+          "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
+          "s3Key": "amplify-builds/createTodoFunction-7668654e36444e777248-build.zip"
+        },
+        "PostAuth": {
+          "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
+          "s3Key": "amplify-builds/PostAuth-39746e2f67674a326d55-build.zip"
+        },
+        "rollPetV2": {
+          "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
+          "s3Key": "amplify-builds/rollPetV2-506f55364d31776d7732-build.zip"
         }
       },
       "hosting": {

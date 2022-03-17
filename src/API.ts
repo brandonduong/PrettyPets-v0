@@ -2,29 +2,33 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type SimplePet = {
-  __typename: "SimplePet",
+export type Why4 = {
+  __typename: "Why4",
+  id: string,
   animal: string,
   nickname: string,
   color: string,
+  colorHex: string,
   owner: string,
   shiny: boolean,
   traits: Array< string | null >,
   star: number,
+  createdAt: string,
+  updatedAt: string,
 };
 
-export type CreateTodoInput = {
+export type CreateUserInput = {
   id?: string | null,
-  name: string,
-  description?: string | null,
+  email: string,
+  prettyPoints: number,
 };
 
-export type ModelTodoConditionInput = {
-  name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  and?: Array< ModelTodoConditionInput | null > | null,
-  or?: Array< ModelTodoConditionInput | null > | null,
-  not?: ModelTodoConditionInput | null,
+export type ModelUserConditionInput = {
+  email?: ModelStringInput | null,
+  prettyPoints?: ModelIntInput | null,
+  and?: Array< ModelUserConditionInput | null > | null,
+  or?: Array< ModelUserConditionInput | null > | null,
+  not?: ModelUserConditionInput | null,
 };
 
 export type ModelStringInput = {
@@ -67,6 +71,100 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
+export type ModelIntInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
+export type User = {
+  __typename: "User",
+  id: string,
+  email: string,
+  prettyPoints: number,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type UpdateUserInput = {
+  id: string,
+  email?: string | null,
+  prettyPoints?: number | null,
+};
+
+export type DeleteUserInput = {
+  id: string,
+};
+
+export type CreateWhy4Input = {
+  id?: string | null,
+  animal: string,
+  nickname: string,
+  color: string,
+  colorHex: string,
+  owner: string,
+  shiny: boolean,
+  traits: Array< string | null >,
+  star: number,
+};
+
+export type ModelWhy4ConditionInput = {
+  animal?: ModelStringInput | null,
+  nickname?: ModelStringInput | null,
+  color?: ModelStringInput | null,
+  colorHex?: ModelStringInput | null,
+  owner?: ModelStringInput | null,
+  shiny?: ModelBooleanInput | null,
+  traits?: ModelStringInput | null,
+  star?: ModelIntInput | null,
+  and?: Array< ModelWhy4ConditionInput | null > | null,
+  or?: Array< ModelWhy4ConditionInput | null > | null,
+  not?: ModelWhy4ConditionInput | null,
+};
+
+export type ModelBooleanInput = {
+  ne?: boolean | null,
+  eq?: boolean | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
+export type UpdateWhy4Input = {
+  id: string,
+  animal?: string | null,
+  nickname?: string | null,
+  color?: string | null,
+  colorHex?: string | null,
+  owner?: string | null,
+  shiny?: boolean | null,
+  traits?: Array< string | null > | null,
+  star?: number | null,
+};
+
+export type DeleteWhy4Input = {
+  id: string,
+};
+
+export type CreateTodoInput = {
+  id?: string | null,
+  name: string,
+  description?: string | null,
+};
+
+export type ModelTodoConditionInput = {
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  and?: Array< ModelTodoConditionInput | null > | null,
+  or?: Array< ModelTodoConditionInput | null > | null,
+  not?: ModelTodoConditionInput | null,
+};
+
 export type Todo = {
   __typename: "Todo",
   id: string,
@@ -86,85 +184,46 @@ export type DeleteTodoInput = {
   id: string,
 };
 
-export type CreatePetInput = {
+export type CreateTodoIAMInput = {
   id?: string | null,
-  animal: string,
-  nickname: string,
-  color: string,
-  owner: string,
-  shiny: boolean,
-  traits: Array< string | null >,
-  star: number,
+  name?: string | null,
+  description?: string | null,
 };
 
-export type ModelPetConditionInput = {
-  animal?: ModelStringInput | null,
-  nickname?: ModelStringInput | null,
-  color?: ModelStringInput | null,
-  owner?: ModelStringInput | null,
-  shiny?: ModelBooleanInput | null,
-  traits?: ModelStringInput | null,
-  star?: ModelIntInput | null,
-  and?: Array< ModelPetConditionInput | null > | null,
-  or?: Array< ModelPetConditionInput | null > | null,
-  not?: ModelPetConditionInput | null,
+export type ModelTodoIAMConditionInput = {
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  and?: Array< ModelTodoIAMConditionInput | null > | null,
+  or?: Array< ModelTodoIAMConditionInput | null > | null,
+  not?: ModelTodoIAMConditionInput | null,
 };
 
-export type ModelBooleanInput = {
-  ne?: boolean | null,
-  eq?: boolean | null,
-  attributeExists?: boolean | null,
-  attributeType?: ModelAttributeTypes | null,
-};
-
-export type ModelIntInput = {
-  ne?: number | null,
-  eq?: number | null,
-  le?: number | null,
-  lt?: number | null,
-  ge?: number | null,
-  gt?: number | null,
-  between?: Array< number | null > | null,
-  attributeExists?: boolean | null,
-  attributeType?: ModelAttributeTypes | null,
-};
-
-export type Pet = {
-  __typename: "Pet",
+export type TodoIAM = {
+  __typename: "TodoIAM",
   id: string,
-  animal: string,
-  nickname: string,
-  color: string,
-  owner: string,
-  shiny: boolean,
-  traits: Array< string | null >,
-  star: number,
+  name?: string | null,
+  description?: string | null,
   createdAt: string,
   updatedAt: string,
 };
 
-export type UpdatePetInput = {
+export type UpdateTodoIAMInput = {
   id: string,
-  animal?: string | null,
-  nickname?: string | null,
-  color?: string | null,
-  owner?: string | null,
-  shiny?: boolean | null,
-  traits?: Array< string | null > | null,
-  star?: number | null,
+  name?: string | null,
+  description?: string | null,
 };
 
-export type DeletePetInput = {
+export type DeleteTodoIAMInput = {
   id: string,
 };
 
-export type ModelTodoFilterInput = {
+export type ModelUserFilterInput = {
   id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  and?: Array< ModelTodoFilterInput | null > | null,
-  or?: Array< ModelTodoFilterInput | null > | null,
-  not?: ModelTodoFilterInput | null,
+  email?: ModelStringInput | null,
+  prettyPoints?: ModelIntInput | null,
+  and?: Array< ModelUserFilterInput | null > | null,
+  or?: Array< ModelUserFilterInput | null > | null,
+  not?: ModelUserFilterInput | null,
 };
 
 export type ModelIDInput = {
@@ -183,29 +242,60 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
+export type ModelUserConnection = {
+  __typename: "ModelUserConnection",
+  items:  Array<User >,
+  nextToken?: string | null,
+};
+
+export type ModelWhy4FilterInput = {
+  id?: ModelIDInput | null,
+  animal?: ModelStringInput | null,
+  nickname?: ModelStringInput | null,
+  color?: ModelStringInput | null,
+  colorHex?: ModelStringInput | null,
+  owner?: ModelStringInput | null,
+  shiny?: ModelBooleanInput | null,
+  traits?: ModelStringInput | null,
+  star?: ModelIntInput | null,
+  and?: Array< ModelWhy4FilterInput | null > | null,
+  or?: Array< ModelWhy4FilterInput | null > | null,
+  not?: ModelWhy4FilterInput | null,
+};
+
+export type ModelWhy4Connection = {
+  __typename: "ModelWhy4Connection",
+  items:  Array<Why4 >,
+  nextToken?: string | null,
+};
+
+export type ModelTodoFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  and?: Array< ModelTodoFilterInput | null > | null,
+  or?: Array< ModelTodoFilterInput | null > | null,
+  not?: ModelTodoFilterInput | null,
+};
+
 export type ModelTodoConnection = {
   __typename: "ModelTodoConnection",
   items:  Array<Todo >,
   nextToken?: string | null,
 };
 
-export type ModelPetFilterInput = {
+export type ModelTodoIAMFilterInput = {
   id?: ModelIDInput | null,
-  animal?: ModelStringInput | null,
-  nickname?: ModelStringInput | null,
-  color?: ModelStringInput | null,
-  owner?: ModelStringInput | null,
-  shiny?: ModelBooleanInput | null,
-  traits?: ModelStringInput | null,
-  star?: ModelIntInput | null,
-  and?: Array< ModelPetFilterInput | null > | null,
-  or?: Array< ModelPetFilterInput | null > | null,
-  not?: ModelPetFilterInput | null,
+  name?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  and?: Array< ModelTodoIAMFilterInput | null > | null,
+  or?: Array< ModelTodoIAMFilterInput | null > | null,
+  not?: ModelTodoIAMFilterInput | null,
 };
 
-export type ModelPetConnection = {
-  __typename: "ModelPetConnection",
-  items:  Array<Pet >,
+export type ModelTodoIAMConnection = {
+  __typename: "ModelTodoIAMConnection",
+  items:  Array<TodoIAM >,
   nextToken?: string | null,
 };
 
@@ -214,15 +304,133 @@ export type RollPetMutationVariables = {
 };
 
 export type RollPetMutation = {
-  RollPet?:  {
-    __typename: "SimplePet",
+  rollPet?:  {
+    __typename: "Why4",
+    id: string,
     animal: string,
     nickname: string,
     color: string,
+    colorHex: string,
     owner: string,
     shiny: boolean,
     traits: Array< string | null >,
     star: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreateUserMutationVariables = {
+  input: CreateUserInput,
+  condition?: ModelUserConditionInput | null,
+};
+
+export type CreateUserMutation = {
+  createUser?:  {
+    __typename: "User",
+    id: string,
+    email: string,
+    prettyPoints: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateUserMutationVariables = {
+  input: UpdateUserInput,
+  condition?: ModelUserConditionInput | null,
+};
+
+export type UpdateUserMutation = {
+  updateUser?:  {
+    __typename: "User",
+    id: string,
+    email: string,
+    prettyPoints: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteUserMutationVariables = {
+  input: DeleteUserInput,
+  condition?: ModelUserConditionInput | null,
+};
+
+export type DeleteUserMutation = {
+  deleteUser?:  {
+    __typename: "User",
+    id: string,
+    email: string,
+    prettyPoints: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type CreateWhy4MutationVariables = {
+  input: CreateWhy4Input,
+  condition?: ModelWhy4ConditionInput | null,
+};
+
+export type CreateWhy4Mutation = {
+  createWhy4?:  {
+    __typename: "Why4",
+    id: string,
+    animal: string,
+    nickname: string,
+    color: string,
+    colorHex: string,
+    owner: string,
+    shiny: boolean,
+    traits: Array< string | null >,
+    star: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateWhy4MutationVariables = {
+  input: UpdateWhy4Input,
+  condition?: ModelWhy4ConditionInput | null,
+};
+
+export type UpdateWhy4Mutation = {
+  updateWhy4?:  {
+    __typename: "Why4",
+    id: string,
+    animal: string,
+    nickname: string,
+    color: string,
+    colorHex: string,
+    owner: string,
+    shiny: boolean,
+    traits: Array< string | null >,
+    star: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteWhy4MutationVariables = {
+  input: DeleteWhy4Input,
+  condition?: ModelWhy4ConditionInput | null,
+};
+
+export type DeleteWhy4Mutation = {
+  deleteWhy4?:  {
+    __typename: "Why4",
+    id: string,
+    animal: string,
+    nickname: string,
+    color: string,
+    colorHex: string,
+    owner: string,
+    shiny: boolean,
+    traits: Array< string | null >,
+    star: number,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -274,18 +482,102 @@ export type DeleteTodoMutation = {
   } | null,
 };
 
-export type CreatePetMutationVariables = {
-  input: CreatePetInput,
-  condition?: ModelPetConditionInput | null,
+export type CreateTodoIAMMutationVariables = {
+  input: CreateTodoIAMInput,
+  condition?: ModelTodoIAMConditionInput | null,
 };
 
-export type CreatePetMutation = {
-  createPet?:  {
-    __typename: "Pet",
+export type CreateTodoIAMMutation = {
+  createTodoIAM?:  {
+    __typename: "TodoIAM",
+    id: string,
+    name?: string | null,
+    description?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateTodoIAMMutationVariables = {
+  input: UpdateTodoIAMInput,
+  condition?: ModelTodoIAMConditionInput | null,
+};
+
+export type UpdateTodoIAMMutation = {
+  updateTodoIAM?:  {
+    __typename: "TodoIAM",
+    id: string,
+    name?: string | null,
+    description?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteTodoIAMMutationVariables = {
+  input: DeleteTodoIAMInput,
+  condition?: ModelTodoIAMConditionInput | null,
+};
+
+export type DeleteTodoIAMMutation = {
+  deleteTodoIAM?:  {
+    __typename: "TodoIAM",
+    id: string,
+    name?: string | null,
+    description?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type GetUserQueryVariables = {
+  id: string,
+};
+
+export type GetUserQuery = {
+  getUser?:  {
+    __typename: "User",
+    id: string,
+    email: string,
+    prettyPoints: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListUsersQueryVariables = {
+  filter?: ModelUserFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListUsersQuery = {
+  listUsers?:  {
+    __typename: "ModelUserConnection",
+    items:  Array< {
+      __typename: "User",
+      id: string,
+      email: string,
+      prettyPoints: number,
+      createdAt: string,
+      updatedAt: string,
+    } >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetWhy4QueryVariables = {
+  id: string,
+};
+
+export type GetWhy4Query = {
+  getWhy4?:  {
+    __typename: "Why4",
     id: string,
     animal: string,
     nickname: string,
     color: string,
+    colorHex: string,
     owner: string,
     shiny: boolean,
     traits: Array< string | null >,
@@ -295,45 +587,30 @@ export type CreatePetMutation = {
   } | null,
 };
 
-export type UpdatePetMutationVariables = {
-  input: UpdatePetInput,
-  condition?: ModelPetConditionInput | null,
+export type ListWhy4sQueryVariables = {
+  filter?: ModelWhy4FilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
 };
 
-export type UpdatePetMutation = {
-  updatePet?:  {
-    __typename: "Pet",
-    id: string,
-    animal: string,
-    nickname: string,
-    color: string,
-    owner: string,
-    shiny: boolean,
-    traits: Array< string | null >,
-    star: number,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type DeletePetMutationVariables = {
-  input: DeletePetInput,
-  condition?: ModelPetConditionInput | null,
-};
-
-export type DeletePetMutation = {
-  deletePet?:  {
-    __typename: "Pet",
-    id: string,
-    animal: string,
-    nickname: string,
-    color: string,
-    owner: string,
-    shiny: boolean,
-    traits: Array< string | null >,
-    star: number,
-    createdAt: string,
-    updatedAt: string,
+export type ListWhy4sQuery = {
+  listWhy4s?:  {
+    __typename: "ModelWhy4Connection",
+    items:  Array< {
+      __typename: "Why4",
+      id: string,
+      animal: string,
+      nickname: string,
+      color: string,
+      colorHex: string,
+      owner: string,
+      shiny: boolean,
+      traits: Array< string | null >,
+      star: number,
+      createdAt: string,
+      updatedAt: string,
+    } >,
+    nextToken?: string | null,
   } | null,
 };
 
@@ -373,17 +650,83 @@ export type ListTodosQuery = {
   } | null,
 };
 
-export type GetPetQueryVariables = {
+export type GetTodoIAMQueryVariables = {
   id: string,
 };
 
-export type GetPetQuery = {
-  getPet?:  {
-    __typename: "Pet",
+export type GetTodoIAMQuery = {
+  getTodoIAM?:  {
+    __typename: "TodoIAM",
+    id: string,
+    name?: string | null,
+    description?: string | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListTodoIAMQueryVariables = {
+  filter?: ModelTodoIAMFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListTodoIAMQuery = {
+  listTodoIAM?:  {
+    __typename: "ModelTodoIAMConnection",
+    items:  Array< {
+      __typename: "TodoIAM",
+      id: string,
+      name?: string | null,
+      description?: string | null,
+      createdAt: string,
+      updatedAt: string,
+    } >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type OnCreateUserSubscription = {
+  onCreateUser?:  {
+    __typename: "User",
+    id: string,
+    email: string,
+    prettyPoints: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateUserSubscription = {
+  onUpdateUser?:  {
+    __typename: "User",
+    id: string,
+    email: string,
+    prettyPoints: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteUserSubscription = {
+  onDeleteUser?:  {
+    __typename: "User",
+    id: string,
+    email: string,
+    prettyPoints: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnCreateWhy4Subscription = {
+  onCreateWhy4?:  {
+    __typename: "Why4",
     id: string,
     animal: string,
     nickname: string,
     color: string,
+    colorHex: string,
     owner: string,
     shiny: boolean,
     traits: Array< string | null >,
@@ -393,29 +736,37 @@ export type GetPetQuery = {
   } | null,
 };
 
-export type ListPetsQueryVariables = {
-  filter?: ModelPetFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
+export type OnUpdateWhy4Subscription = {
+  onUpdateWhy4?:  {
+    __typename: "Why4",
+    id: string,
+    animal: string,
+    nickname: string,
+    color: string,
+    colorHex: string,
+    owner: string,
+    shiny: boolean,
+    traits: Array< string | null >,
+    star: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
 };
 
-export type ListPetsQuery = {
-  listPets?:  {
-    __typename: "ModelPetConnection",
-    items:  Array< {
-      __typename: "Pet",
-      id: string,
-      animal: string,
-      nickname: string,
-      color: string,
-      owner: string,
-      shiny: boolean,
-      traits: Array< string | null >,
-      star: number,
-      createdAt: string,
-      updatedAt: string,
-    } >,
-    nextToken?: string | null,
+export type OnDeleteWhy4Subscription = {
+  onDeleteWhy4?:  {
+    __typename: "Why4",
+    id: string,
+    animal: string,
+    nickname: string,
+    color: string,
+    colorHex: string,
+    owner: string,
+    shiny: boolean,
+    traits: Array< string | null >,
+    star: number,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };
 
@@ -452,49 +803,34 @@ export type OnDeleteTodoSubscription = {
   } | null,
 };
 
-export type OnCreatePetSubscription = {
-  onCreatePet?:  {
-    __typename: "Pet",
+export type OnCreateTodoIAMSubscription = {
+  onCreateTodoIAM?:  {
+    __typename: "TodoIAM",
     id: string,
-    animal: string,
-    nickname: string,
-    color: string,
-    owner: string,
-    shiny: boolean,
-    traits: Array< string | null >,
-    star: number,
+    name?: string | null,
+    description?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnUpdatePetSubscription = {
-  onUpdatePet?:  {
-    __typename: "Pet",
+export type OnUpdateTodoIAMSubscription = {
+  onUpdateTodoIAM?:  {
+    __typename: "TodoIAM",
     id: string,
-    animal: string,
-    nickname: string,
-    color: string,
-    owner: string,
-    shiny: boolean,
-    traits: Array< string | null >,
-    star: number,
+    name?: string | null,
+    description?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnDeletePetSubscription = {
-  onDeletePet?:  {
-    __typename: "Pet",
+export type OnDeleteTodoIAMSubscription = {
+  onDeleteTodoIAM?:  {
+    __typename: "TodoIAM",
     id: string,
-    animal: string,
-    nickname: string,
-    color: string,
-    owner: string,
-    shiny: boolean,
-    traits: Array< string | null >,
-    star: number,
+    name?: string | null,
+    description?: string | null,
     createdAt: string,
     updatedAt: string,
   } | null,

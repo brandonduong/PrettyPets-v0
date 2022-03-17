@@ -2,6 +2,76 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getUser = /* GraphQL */ `
+  query GetUser($id: ID!) {
+    getUser(id: $id) {
+      id
+      email
+      prettyPoints
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listUsers = /* GraphQL */ `
+  query ListUsers(
+    $filter: ModelUserFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        email
+        prettyPoints
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getWhy4 = /* GraphQL */ `
+  query GetWhy4($id: ID!) {
+    getWhy4(id: $id) {
+      id
+      animal
+      nickname
+      color
+      colorHex
+      owner
+      shiny
+      traits
+      star
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listWhy4s = /* GraphQL */ `
+  query ListWhy4s(
+    $filter: ModelWhy4FilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listWhy4s(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        animal
+        nickname
+        color
+        colorHex
+        owner
+        shiny
+        traits
+        star
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getTodo = /* GraphQL */ `
   query GetTodo($id: ID!) {
     getTodo(id: $id) {
@@ -31,38 +101,28 @@ export const listTodos = /* GraphQL */ `
     }
   }
 `;
-export const getPet = /* GraphQL */ `
-  query GetPet($id: ID!) {
-    getPet(id: $id) {
+export const getTodoIAM = /* GraphQL */ `
+  query GetTodoIAM($id: ID!) {
+    getTodoIAM(id: $id) {
       id
-      animal
-      nickname
-      color
-      owner
-      shiny
-      traits
-      star
+      name
+      description
       createdAt
       updatedAt
     }
   }
 `;
-export const listPets = /* GraphQL */ `
-  query ListPets(
-    $filter: ModelPetFilterInput
+export const listTodoIAM = /* GraphQL */ `
+  query ListTodoIAM(
+    $filter: ModelTodoIAMFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPets(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listTodoIAM(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        animal
-        nickname
-        color
-        owner
-        shiny
-        traits
-        star
+        name
+        description
         createdAt
         updatedAt
       }

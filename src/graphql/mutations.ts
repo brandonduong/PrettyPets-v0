@@ -4,14 +4,120 @@
 
 export const rollPet = /* GraphQL */ `
   mutation RollPet($email: String) {
-    RollPet(email: $email) {
+    rollPet(email: $email) {
+      id
       animal
       nickname
       color
+      colorHex
       owner
       shiny
       traits
       star
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createUser = /* GraphQL */ `
+  mutation CreateUser(
+    $input: CreateUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    createUser(input: $input, condition: $condition) {
+      id
+      email
+      prettyPoints
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateUser = /* GraphQL */ `
+  mutation UpdateUser(
+    $input: UpdateUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    updateUser(input: $input, condition: $condition) {
+      id
+      email
+      prettyPoints
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteUser = /* GraphQL */ `
+  mutation DeleteUser(
+    $input: DeleteUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    deleteUser(input: $input, condition: $condition) {
+      id
+      email
+      prettyPoints
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createWhy4 = /* GraphQL */ `
+  mutation CreateWhy4(
+    $input: CreateWhy4Input!
+    $condition: ModelWhy4ConditionInput
+  ) {
+    createWhy4(input: $input, condition: $condition) {
+      id
+      animal
+      nickname
+      color
+      colorHex
+      owner
+      shiny
+      traits
+      star
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateWhy4 = /* GraphQL */ `
+  mutation UpdateWhy4(
+    $input: UpdateWhy4Input!
+    $condition: ModelWhy4ConditionInput
+  ) {
+    updateWhy4(input: $input, condition: $condition) {
+      id
+      animal
+      nickname
+      color
+      colorHex
+      owner
+      shiny
+      traits
+      star
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteWhy4 = /* GraphQL */ `
+  mutation DeleteWhy4(
+    $input: DeleteWhy4Input!
+    $condition: ModelWhy4ConditionInput
+  ) {
+    deleteWhy4(input: $input, condition: $condition) {
+      id
+      animal
+      nickname
+      color
+      colorHex
+      owner
+      shiny
+      traits
+      star
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -57,58 +163,43 @@ export const deleteTodo = /* GraphQL */ `
     }
   }
 `;
-export const createPet = /* GraphQL */ `
-  mutation CreatePet(
-    $input: CreatePetInput!
-    $condition: ModelPetConditionInput
+export const createTodoIAM = /* GraphQL */ `
+  mutation CreateTodoIAM(
+    $input: CreateTodoIAMInput!
+    $condition: ModelTodoIAMConditionInput
   ) {
-    createPet(input: $input, condition: $condition) {
+    createTodoIAM(input: $input, condition: $condition) {
       id
-      animal
-      nickname
-      color
-      owner
-      shiny
-      traits
-      star
+      name
+      description
       createdAt
       updatedAt
     }
   }
 `;
-export const updatePet = /* GraphQL */ `
-  mutation UpdatePet(
-    $input: UpdatePetInput!
-    $condition: ModelPetConditionInput
+export const updateTodoIAM = /* GraphQL */ `
+  mutation UpdateTodoIAM(
+    $input: UpdateTodoIAMInput!
+    $condition: ModelTodoIAMConditionInput
   ) {
-    updatePet(input: $input, condition: $condition) {
+    updateTodoIAM(input: $input, condition: $condition) {
       id
-      animal
-      nickname
-      color
-      owner
-      shiny
-      traits
-      star
+      name
+      description
       createdAt
       updatedAt
     }
   }
 `;
-export const deletePet = /* GraphQL */ `
-  mutation DeletePet(
-    $input: DeletePetInput!
-    $condition: ModelPetConditionInput
+export const deleteTodoIAM = /* GraphQL */ `
+  mutation DeleteTodoIAM(
+    $input: DeleteTodoIAMInput!
+    $condition: ModelTodoIAMConditionInput
   ) {
-    deletePet(input: $input, condition: $condition) {
+    deleteTodoIAM(input: $input, condition: $condition) {
       id
-      animal
-      nickname
-      color
-      owner
-      shiny
-      traits
-      star
+      name
+      description
       createdAt
       updatedAt
     }

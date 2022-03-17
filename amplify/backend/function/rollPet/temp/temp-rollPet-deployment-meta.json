@@ -1,0 +1,19 @@
+{
+  "stackTemplatePathOrUrl": "amplify-cfn-templates/function/temp/temp-rollPet-cloudformation-template.json",
+  "parameters": {
+    "CloudWatchRule": "NONE",
+    "s3Key": "amplify-builds/rollPet-516e4d67532b466a6d61-build.zip",
+    "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
+    "apiprettypetsGraphQLAPIEndpointOutput": "https://5c3tt74pdfawnmje5avrebevum.appsync-api.us-east-1.amazonaws.com/graphql",
+    "apiprettypetsGraphQLAPIKeyOutput": "da2-fin7gl6qbjcdfkvypazb4cn4jy",
+    "authprettypets78754bdfUserPoolId": "us-east-1_fQnbm3bcZ",
+    "env": "dev",
+    "apiprettypetsGraphQLAPIIdOutput": "umsuochg7nezbos6iisq367w4a"
+  },
+  "stackName": "arn:aws:cloudformation:us-east-1:467265973161:stack/amplify-prettypets-dev-02336-functionrollPet-CY3ZHNZR9QN5/76e0df70-a268-11ec-bb2d-12fbf160efad",
+  "capabilities": [
+    "CAPABILITY_NAMED_IAM",
+    "CAPABILITY_AUTO_EXPAND"
+  ],
+  "tableNames": []
+}
