@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
-import Amplify from 'aws-amplify'
+import Amplify, {API, Hub} from 'aws-amplify'
 import {Authenticator} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 
 import awsExports from "./aws-exports";
-import HomePage from "./pages/HomePage";
+import Home from "./pages/Home/Home";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Test from "./pages/Test";
+import Adoption from "./pages/Adoption/Adoption";
 
 Amplify.configure(awsExports);
 
@@ -34,7 +35,8 @@ function App() {
       {() => (
         <BrowserRouter>
           <Routes>
-            <Route path={'/'} element={<HomePage/>}/>
+            <Route path={'/'} element={<Home/>}/>
+            <Route path={'/Adoption'} element={<Adoption/>}/>
             <Route path={'/Test'} element={<Test/>}/>
           </Routes>
         </BrowserRouter>

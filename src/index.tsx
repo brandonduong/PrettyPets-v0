@@ -5,11 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Amplify from "aws-amplify";
 import awsExports from "./aws-exports";
+import {Provider} from "react-redux";
+import store from "./app/store";
 Amplify.configure(awsExports);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
