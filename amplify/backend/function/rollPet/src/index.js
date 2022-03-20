@@ -11,7 +11,7 @@ const graphql = require('graphql');
 const fs = require('fs');
 const {print} = graphql;
 const ntc = require('ntc');
-const aws4  = require('aws4')
+const aws4 = require('aws4')
 
 const url = process.env.API_PRETTYPETS_GRAPHQLAPIENDPOINTOUTPUT
 const key = process.env.API_PRETTYPETS_GRAPHQLAPIKEYOUTPUT
@@ -20,6 +20,10 @@ const MIN_TRAITS = 1;
 const MAX_TRAITS = 3;
 const STAR_PERCENTS = [35, 25, 25, 10, 5];
 const GOOD_TRAITS_PERCENTS = [15, 30, 45, 60, 75];
+const STAR_MAX_STATS = [6, 7, 8, 9, 10];
+const STAR_MIN_STATS = [0, 1, 2, 3, 4];
+const GOOD_STAT_BONUS = 3; // I.e get +3 to a stat if it is guaranteed 'good'
+const STAR_GOOD_STAT_GUARANTEE = [0, 0, 0, 1, 2]; // I.e 5 stars have guaranteed 2 'good' roll on a stat
 const SHINY_PERCENT = 1;
 const ROLL_PRICE = 100;
 
@@ -38,6 +42,12 @@ const createPet = gql`
             shiny
             traits
             star
+            stats {
+                cool
+                cute
+                confidence
+                control
+            }
             createdAt
             updatedAt
         }
@@ -101,7 +111,7 @@ function generateStar() {
 
 function generateTraits(stars) {
   const goodTraitChance = GOOD_TRAITS_PERCENTS[stars - 1];
-  const traits = [];
+  const traits = [[], []];
 
   let goodTraits = fs.readFileSync('./goodtraits.txt')
   goodTraits = goodTraits.toString().replace(/\r\n/g, '\n').split('\n');
@@ -119,14 +129,14 @@ function generateTraits(stars) {
       const rng = getRandomInt(goodTraits.length - 1);
       const chosenTrait = goodTraits[rng];
 
-      traits.push(chosenTrait);
+      traits[0].push(chosenTrait);
       goodTraits.splice(goodTraits.indexOf(chosenTrait), 1)
     } else {
       // Get bad trait
       const rng = getRandomInt(badTraits.length - 1);
       const chosenTrait = badTraits[rng];
 
-      traits.push(chosenTrait);
+      traits[1].push(chosenTrait);
       badTraits.splice(badTraits.indexOf(chosenTrait), 1)
     }
   }
@@ -162,6 +172,27 @@ function generateRandomColor() {
   return [colorHex, ntc.name(colorHex)[1]];
 }
 
+function generateStats(stars) {
+  const stats = {
+    cool: getRandomInt(STAR_MAX_STATS[stars - 1], STAR_MIN_STATS[stars - 1]),
+    cute: getRandomInt(STAR_MAX_STATS[stars - 1], STAR_MIN_STATS[stars - 1]),
+    confidence: getRandomInt(STAR_MAX_STATS[stars - 1], STAR_MIN_STATS[stars - 1]),
+    control: getRandomInt(STAR_MAX_STATS[stars - 1], STAR_MIN_STATS[stars - 1])
+  }
+
+  // Good stat guarantees
+  if (stars >= 4) {
+    const statsKeys = Object.keys(stats);
+    for (let i = 0; i < STAR_GOOD_STAT_GUARANTEE[stars - 1]; i++) {
+      const rng = getRandomInt(statsKeys.length - 1)
+      stats[statsKeys[rng]] += GOOD_STAT_BONUS
+      statsKeys.splice(rng, 1)
+    }
+  }
+
+  return stats
+}
+
 exports.handler = async (event) => {
   if (!event.arguments.email) {
     return
@@ -186,7 +217,7 @@ exports.handler = async (event) => {
       },
       data: {
         query: print(listUsers),
-        variables: { filter: filter }
+        variables: {filter: filter}
       }
     });
     const userData = graphqlData.data.data.listUsers.items[0]
@@ -219,7 +250,7 @@ exports.handler = async (event) => {
         },
         data: {
           query: print(updateUser),
-          variables: { input }
+          variables: {input}
         }
       });
     } catch (e) {
@@ -234,6 +265,7 @@ exports.handler = async (event) => {
     const color = generateRandomColor()
     const stars = generateStar()
     const shiny = generateShiny()
+    const stats = generateStats(stars)
 
     const petInfo = {
       animal: animal,
@@ -243,7 +275,8 @@ exports.handler = async (event) => {
       owner: email,
       nickname: generateDefaultNickname(shiny, color[1], animal),
       traits: generateTraits(stars),
-      star: stars
+      star: stars,
+      stats: stats
     }
     console.log(petInfo)
 

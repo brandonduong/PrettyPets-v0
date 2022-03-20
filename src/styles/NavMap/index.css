@@ -1,0 +1,31 @@
+#basic-navbar-nav > div > div > div > a > a, .navbar > div > span > a {
+  text-decoration: none;
+  color: black;
+}
+
+#basic-navbar-nav > div > div > div > a > a {
+  padding: 0.25rem 1rem;
+}
+
+#root > nav > div > h5 {
+  margin: 0;
+}
+
+#root > .navbar {
+  box-shadow: 0 0 5px;
+}
+
+.pretty-logo > .navbar-brand {
+  padding-top: 0;
+}
+#basic-navbar-nav > div > div > div > a {
+  padding: 0;
+}
+#basic-navbar-nav > div > div > div {
+  margin-top: 8px;
+  box-shadow: 0 0.5rem 5px -5px #bbbbbb, 0.5rem 0 5px -5px #bbbbbb, -0.5rem 0 5px -5px #bbbbbb;
+}
+
+.nav-link {
+  display: block;
+}

@@ -32,8 +32,16 @@ type Why4 @model {
   colorHex: String!
   owner: String!
   shiny: Boolean!
-  traits: [String]!
+  traits: [[String]]!
   star: Int!
+  stats: PetStats
+}
+
+type PetStats {
+  cool: Int!
+  cute: Int!
+  confidence: Int!
+  control: Int!
 }
 
 type TodoIAM @model @auth (

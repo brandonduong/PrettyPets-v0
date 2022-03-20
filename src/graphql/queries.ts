@@ -43,6 +43,12 @@ export const getWhy4 = /* GraphQL */ `
       shiny
       traits
       star
+      stats {
+        cool
+        cute
+        confidence
+        control
+      }
       createdAt
       updatedAt
     }
@@ -65,6 +71,12 @@ export const listWhy4s = /* GraphQL */ `
         shiny
         traits
         star
+        stats {
+          cool
+          cute
+          confidence
+          control
+        }
         createdAt
         updatedAt
       }

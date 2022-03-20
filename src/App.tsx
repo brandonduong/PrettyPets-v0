@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './App.css';
-import Amplify, {API, Hub} from 'aws-amplify'
+import Amplify from 'aws-amplify'
 import {Authenticator} from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 
@@ -9,6 +9,8 @@ import Home from "./pages/Home/Home";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Test from "./pages/Test";
 import Adoption from "./pages/Adoption/Adoption";
+import "./styles/App/index.css"
+import NavMap from "./components/NavMap/NavMap";
 
 Amplify.configure(awsExports);
 
@@ -31,17 +33,18 @@ function App() {
   }
 
   return (
-    <Authenticator loginMechanisms={['email']} signUpAttributes={['preferred_username']} formFields={formFields}>
-      {() => (
-        <BrowserRouter>
-          <Routes>
-            <Route path={'/'} element={<Home/>}/>
-            <Route path={'/Adoption'} element={<Adoption/>}/>
-            <Route path={'/Test'} element={<Test/>}/>
-          </Routes>
-        </BrowserRouter>
-      )}
-    </Authenticator>
+      <Authenticator loginMechanisms={['email']} signUpAttributes={['preferred_username']} formFields={formFields}>
+        {() => (
+          <BrowserRouter>
+            <NavMap/>
+            <Routes>
+              <Route path={'/'} element={<Home/>}/>
+              <Route path={'/Adoption'} element={<Adoption/>}/>
+              <Route path={'/Test'} element={<Test/>}/>
+            </Routes>
+          </BrowserRouter>
+        )}
+      </Authenticator>
   );
 }
 

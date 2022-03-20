@@ -14,6 +14,12 @@ export const rollPet = /* GraphQL */ `
       shiny
       traits
       star
+      stats {
+        cool
+        cute
+        confidence
+        control
+      }
       createdAt
       updatedAt
     }
@@ -76,6 +82,12 @@ export const createWhy4 = /* GraphQL */ `
       shiny
       traits
       star
+      stats {
+        cool
+        cute
+        confidence
+        control
+      }
       createdAt
       updatedAt
     }
@@ -96,6 +108,12 @@ export const updateWhy4 = /* GraphQL */ `
       shiny
       traits
       star
+      stats {
+        cool
+        cute
+        confidence
+        control
+      }
       createdAt
       updatedAt
     }
@@ -116,6 +134,12 @@ export const deleteWhy4 = /* GraphQL */ `
       shiny
       traits
       star
+      stats {
+        cool
+        cute
+        confidence
+        control
+      }
       createdAt
       updatedAt
     }

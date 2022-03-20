@@ -47,6 +47,12 @@ export const onCreateWhy4 = /* GraphQL */ `
       shiny
       traits
       star
+      stats {
+        cool
+        cute
+        confidence
+        control
+      }
       createdAt
       updatedAt
     }
@@ -64,6 +70,12 @@ export const onUpdateWhy4 = /* GraphQL */ `
       shiny
       traits
       star
+      stats {
+        cool
+        cute
+        confidence
+        control
+      }
       createdAt
       updatedAt
     }
@@ -81,6 +93,12 @@ export const onDeleteWhy4 = /* GraphQL */ `
       shiny
       traits
       star
+      stats {
+        cool
+        cute
+        confidence
+        control
+      }
       createdAt
       updatedAt
     }

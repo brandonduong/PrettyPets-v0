@@ -1,19 +1,10 @@
-import React, {CSSProperties, useEffect, useState} from "react";
-import {API, graphqlOperation} from "aws-amplify";
+import React, {useEffect, useState} from "react";
+import {API} from "aws-amplify";
 import {useAuthenticator} from '@aws-amplify/ui-react';
 import {listWhy4s} from "../../graphql/queries";
-
-interface Pet {
-  animal: string,
-  nickname: string,
-  color: string,
-  colorHex: string,
-  owner: string,
-  shiny: boolean,
-  traits: [string],
-  star: number,
-  id: string,
-}
+import {Col, Container, Row} from "react-bootstrap";
+import PetCard from "./PetCard";
+import {Pet} from "../../types/custom";
 
 function PetGallery() {
   const [pets, setPets] = useState<Array<Pet>>([])
@@ -31,7 +22,7 @@ function PetGallery() {
       }
     }
     try {
-      const petData: any = await API.graphql({query: listWhy4s, variables: { filter: filter }})
+      const petData: any = await API.graphql({query: listWhy4s, variables: {filter: filter}})
       console.log(petData)
       const petArr = petData.data.listWhy4s.items
       setPets(petArr)
@@ -41,32 +32,18 @@ function PetGallery() {
   }
 
   return (
-    <div style={container}>
-      {
-        pets.map((pet, index) => (
-          <div key={pet.id ? pet.id : index} style={styles.todo}>
-            <p style={styles.todoName}>{pet.nickname}</p>
-            <p style={styles.todoDescription}>{pet.star} Star, Owner: {pet.owner}, Traits: {pet.traits}, Shiny: {pet.shiny}</p>
-          </div>
-        ))
-      }
-    </div>
+    <Container className={"pet-gallery"}>
+      <Row>
+        {
+          pets.map((pet, index) => (
+            <Col xs={"12"} sm={"6"} md={"6"} lg={"4"} xl={"3"} key={pet.id ? pet.id : index} className={"pet-card-col"}>
+              <PetCard pet={pet} key={pet + index.toString()}/>
+            </Col>
+          ))
+        }
+      </Row>
+    </Container>
   );
-}
-
-const styles = {
-  todoName: {fontSize: 20, fontWeight: 'bold'},
-  todoDescription: {marginBottom: 0},
-  todo: {marginBottom: 15},
-}
-
-const container: CSSProperties = {
-  width: '50%',
-  margin: '0 auto',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  padding: 20
 }
 
 export default PetGallery;
