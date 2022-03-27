@@ -9,6 +9,7 @@ import {Provider} from "react-redux";
 import store from "./app/store";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
+
 Amplify.configure(awsExports);
 
 ReactDOM.render(

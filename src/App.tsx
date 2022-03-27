@@ -7,10 +7,11 @@ import '@aws-amplify/ui-react/styles.css';
 import awsExports from "./aws-exports";
 import Home from "./pages/Home/Home";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Test from "./pages/Test";
 import Adoption from "./pages/Adoption/Adoption";
 import "./styles/App/index.css"
 import NavMap from "./components/NavMap/NavMap";
+import Services from "./pages/Services/Services";
+
 
 Amplify.configure(awsExports);
 
@@ -40,7 +41,7 @@ function App() {
             <Routes>
               <Route path={'/'} element={<Home/>}/>
               <Route path={'/Adoption'} element={<Adoption/>}/>
-              <Route path={'/Test'} element={<Test/>}/>
+              <Route path={'/Job'} element={<Services/>}/>
             </Routes>
           </BrowserRouter>
         )}

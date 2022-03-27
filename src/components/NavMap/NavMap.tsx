@@ -43,12 +43,15 @@ function NavMap() {
           <Nav className="ms-auto">
             <Navbar.Text>PrettyPoints: {prettyPoints}</Navbar.Text>
             <NavDropdown align="end" title={user.attributes!.preferred_username} className="profile-nav-dropdown">
-              <NavDropdown.Item><Link to={'/'} className={"nav-link"}>Home</Link></NavDropdown.Item>
-              <NavDropdown.Item><Link to={'/Adoption'} className={"nav-link"}>Adoption Centre</Link></NavDropdown.Item>
-              <NavDropdown.Item><Link to={'/Accessory'} className={"nav-link"}>Accessory Store</Link></NavDropdown.Item>
-              <NavDropdown.Item><Link to={'/Services'} className={"nav-link"}>Services</Link></NavDropdown.Item>
+              <div className={"dropdown-item"}><Link to={'/'} className={"nav-link"}>Home</Link></div>
+              <div className={"dropdown-item"}><Link to={'/Adoption'} className={"nav-link"}>Adoption Centre</Link></div>
+              <div className={"dropdown-item"}><Link to={'/Accessory'} className={"nav-link"}>Accessory Store</Link></div>
+              <div className={"dropdown-item"}><Link to={'/Job'} className={"nav-link"}>Job Board</Link></div>
+              <div className={"dropdown-item"}><Link to={'/Daycare'} className={"nav-link"}>Daycare</Link></div>
+              <div className={"dropdown-item"}><Link to={'/Groomer'} className={"nav-link"}>Groomer</Link></div>
+              <div className={"dropdown-item"}><Link to={'/Fashion'} className={"nav-link"}>Fashion Show</Link></div>
               <NavDropdown.Divider/>
-              <NavDropdown.Item onClick={signOut}><a>Sign Out</a></NavDropdown.Item>
+              <div className={"dropdown-item"} onClick={signOut}><a>Sign Out</a></div>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

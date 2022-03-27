@@ -26,13 +26,14 @@ const GOOD_STAT_BONUS = 3; // I.e get +3 to a stat if it is guaranteed 'good'
 const STAR_GOOD_STAT_GUARANTEE = [0, 0, 0, 1, 2]; // I.e 5 stars have guaranteed 2 'good' roll on a stat
 const SHINY_PERCENT = 1;
 const ROLL_PRICE = 100;
+const NUMBER_OF_VARIANTS = 5;
 
 const createPet = gql`
-    mutation CreateWhy4(
-        $input: CreateWhy4Input!
-        $condition: ModelWhy4ConditionInput
+    mutation CreatePrettyPet(
+        $input: CreatePrettyPetInput!
+        $condition: ModelPrettyPetConditionInput
     ) {
-        createWhy4(input: $input, condition: $condition) {
+        createPrettyPet(input: $input, condition: $condition) {
             id
             animal
             nickname
@@ -48,6 +49,7 @@ const createPet = gql`
                 confidence
                 control
             }
+            variant
             createdAt
             updatedAt
         }
@@ -172,6 +174,10 @@ function generateRandomColor() {
   return [colorHex, ntc.name(colorHex)[1]];
 }
 
+function generateVariant() {
+  return getRandomInt(NUMBER_OF_VARIANTS);
+}
+
 function generateStats(stars) {
   const stats = {
     cool: getRandomInt(STAR_MAX_STATS[stars - 1], STAR_MIN_STATS[stars - 1]),
@@ -266,6 +272,7 @@ exports.handler = async (event) => {
     const stars = generateStar()
     const shiny = generateShiny()
     const stats = generateStats(stars)
+    const variant = generateVariant()
 
     const petInfo = {
       animal: animal,
@@ -276,7 +283,8 @@ exports.handler = async (event) => {
       nickname: generateDefaultNickname(shiny, color[1], animal),
       traits: generateTraits(stars),
       star: stars,
-      stats: stats
+      stats: stats,
+      variant
     }
     console.log(petInfo)
 

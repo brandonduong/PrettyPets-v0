@@ -2,8 +2,8 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type Why4 = {
-  __typename: "Why4",
+export type PrettyPet = {
+  __typename: "PrettyPet",
   id: string,
   animal: string,
   nickname: string,
@@ -14,6 +14,7 @@ export type Why4 = {
   traits: Array< Array< string | null > | null >,
   star: number,
   stats?: PetStats | null,
+  variant: number,
   createdAt: string,
   updatedAt: string,
 };
@@ -24,6 +25,19 @@ export type PetStats = {
   cute: number,
   confidence: number,
   control: number,
+};
+
+export type Job = {
+  __typename: "Job",
+  id: string,
+  pets?: Array< string | null > | null,
+  length: number,
+  jobType: string,
+  owner: string,
+  complete?: boolean | null,
+  payout?: number | null,
+  createdAt: string,
+  updatedAt: string,
 };
 
 export type CreateUserInput = {
@@ -111,7 +125,7 @@ export type DeleteUserInput = {
   id: string,
 };
 
-export type CreateWhy4Input = {
+export type CreatePrettyPetInput = {
   id?: string | null,
   animal: string,
   nickname: string,
@@ -122,6 +136,7 @@ export type CreateWhy4Input = {
   traits: Array< Array< string | null > | null >,
   star: number,
   stats?: PetStatsInput | null,
+  variant: number,
 };
 
 export type PetStatsInput = {
@@ -131,7 +146,7 @@ export type PetStatsInput = {
   control: number,
 };
 
-export type ModelWhy4ConditionInput = {
+export type ModelPrettyPetConditionInput = {
   animal?: ModelStringInput | null,
   nickname?: ModelStringInput | null,
   color?: ModelStringInput | null,
@@ -140,9 +155,10 @@ export type ModelWhy4ConditionInput = {
   shiny?: ModelBooleanInput | null,
   traits?: ModelStringInput | null,
   star?: ModelIntInput | null,
-  and?: Array< ModelWhy4ConditionInput | null > | null,
-  or?: Array< ModelWhy4ConditionInput | null > | null,
-  not?: ModelWhy4ConditionInput | null,
+  variant?: ModelIntInput | null,
+  and?: Array< ModelPrettyPetConditionInput | null > | null,
+  or?: Array< ModelPrettyPetConditionInput | null > | null,
+  not?: ModelPrettyPetConditionInput | null,
 };
 
 export type ModelBooleanInput = {
@@ -152,7 +168,7 @@ export type ModelBooleanInput = {
   attributeType?: ModelAttributeTypes | null,
 };
 
-export type UpdateWhy4Input = {
+export type UpdatePrettyPetInput = {
   id: string,
   animal?: string | null,
   nickname?: string | null,
@@ -163,85 +179,33 @@ export type UpdateWhy4Input = {
   traits?: Array< Array< string | null > | null > | null,
   star?: number | null,
   stats?: PetStatsInput | null,
+  variant?: number | null,
 };
 
-export type DeleteWhy4Input = {
+export type DeletePrettyPetInput = {
   id: string,
 };
 
-export type CreateTodoInput = {
+export type CreateJobInput = {
   id?: string | null,
-  name: string,
-  description?: string | null,
+  pets?: Array< string | null > | null,
+  length: number,
+  jobType: string,
+  owner: string,
+  complete?: boolean | null,
+  payout?: number | null,
 };
 
-export type ModelTodoConditionInput = {
-  name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  and?: Array< ModelTodoConditionInput | null > | null,
-  or?: Array< ModelTodoConditionInput | null > | null,
-  not?: ModelTodoConditionInput | null,
-};
-
-export type Todo = {
-  __typename: "Todo",
-  id: string,
-  name: string,
-  description?: string | null,
-  createdAt: string,
-  updatedAt: string,
-};
-
-export type UpdateTodoInput = {
-  id: string,
-  name?: string | null,
-  description?: string | null,
-};
-
-export type DeleteTodoInput = {
-  id: string,
-};
-
-export type CreateTodoIAMInput = {
-  id?: string | null,
-  name?: string | null,
-  description?: string | null,
-};
-
-export type ModelTodoIAMConditionInput = {
-  name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  and?: Array< ModelTodoIAMConditionInput | null > | null,
-  or?: Array< ModelTodoIAMConditionInput | null > | null,
-  not?: ModelTodoIAMConditionInput | null,
-};
-
-export type TodoIAM = {
-  __typename: "TodoIAM",
-  id: string,
-  name?: string | null,
-  description?: string | null,
-  createdAt: string,
-  updatedAt: string,
-};
-
-export type UpdateTodoIAMInput = {
-  id: string,
-  name?: string | null,
-  description?: string | null,
-};
-
-export type DeleteTodoIAMInput = {
-  id: string,
-};
-
-export type ModelUserFilterInput = {
-  id?: ModelIDInput | null,
-  email?: ModelStringInput | null,
-  prettyPoints?: ModelIntInput | null,
-  and?: Array< ModelUserFilterInput | null > | null,
-  or?: Array< ModelUserFilterInput | null > | null,
-  not?: ModelUserFilterInput | null,
+export type ModelJobConditionInput = {
+  pets?: ModelIDInput | null,
+  length?: ModelIntInput | null,
+  jobType?: ModelStringInput | null,
+  owner?: ModelStringInput | null,
+  complete?: ModelBooleanInput | null,
+  payout?: ModelIntInput | null,
+  and?: Array< ModelJobConditionInput | null > | null,
+  or?: Array< ModelJobConditionInput | null > | null,
+  not?: ModelJobConditionInput | null,
 };
 
 export type ModelIDInput = {
@@ -260,13 +224,36 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
+export type UpdateJobInput = {
+  id: string,
+  pets?: Array< string | null > | null,
+  length?: number | null,
+  jobType?: string | null,
+  owner?: string | null,
+  complete?: boolean | null,
+  payout?: number | null,
+};
+
+export type DeleteJobInput = {
+  id: string,
+};
+
+export type ModelUserFilterInput = {
+  id?: ModelIDInput | null,
+  email?: ModelStringInput | null,
+  prettyPoints?: ModelIntInput | null,
+  and?: Array< ModelUserFilterInput | null > | null,
+  or?: Array< ModelUserFilterInput | null > | null,
+  not?: ModelUserFilterInput | null,
+};
+
 export type ModelUserConnection = {
   __typename: "ModelUserConnection",
   items:  Array<User >,
   nextToken?: string | null,
 };
 
-export type ModelWhy4FilterInput = {
+export type ModelPrettyPetFilterInput = {
   id?: ModelIDInput | null,
   animal?: ModelStringInput | null,
   nickname?: ModelStringInput | null,
@@ -276,44 +263,34 @@ export type ModelWhy4FilterInput = {
   shiny?: ModelBooleanInput | null,
   traits?: ModelStringInput | null,
   star?: ModelIntInput | null,
-  and?: Array< ModelWhy4FilterInput | null > | null,
-  or?: Array< ModelWhy4FilterInput | null > | null,
-  not?: ModelWhy4FilterInput | null,
+  variant?: ModelIntInput | null,
+  and?: Array< ModelPrettyPetFilterInput | null > | null,
+  or?: Array< ModelPrettyPetFilterInput | null > | null,
+  not?: ModelPrettyPetFilterInput | null,
 };
 
-export type ModelWhy4Connection = {
-  __typename: "ModelWhy4Connection",
-  items:  Array<Why4 >,
+export type ModelPrettyPetConnection = {
+  __typename: "ModelPrettyPetConnection",
+  items:  Array<PrettyPet >,
   nextToken?: string | null,
 };
 
-export type ModelTodoFilterInput = {
+export type ModelJobFilterInput = {
   id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  and?: Array< ModelTodoFilterInput | null > | null,
-  or?: Array< ModelTodoFilterInput | null > | null,
-  not?: ModelTodoFilterInput | null,
+  pets?: ModelIDInput | null,
+  length?: ModelIntInput | null,
+  jobType?: ModelStringInput | null,
+  owner?: ModelStringInput | null,
+  complete?: ModelBooleanInput | null,
+  payout?: ModelIntInput | null,
+  and?: Array< ModelJobFilterInput | null > | null,
+  or?: Array< ModelJobFilterInput | null > | null,
+  not?: ModelJobFilterInput | null,
 };
 
-export type ModelTodoConnection = {
-  __typename: "ModelTodoConnection",
-  items:  Array<Todo >,
-  nextToken?: string | null,
-};
-
-export type ModelTodoIAMFilterInput = {
-  id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  description?: ModelStringInput | null,
-  and?: Array< ModelTodoIAMFilterInput | null > | null,
-  or?: Array< ModelTodoIAMFilterInput | null > | null,
-  not?: ModelTodoIAMFilterInput | null,
-};
-
-export type ModelTodoIAMConnection = {
-  __typename: "ModelTodoIAMConnection",
-  items:  Array<TodoIAM >,
+export type ModelJobConnection = {
+  __typename: "ModelJobConnection",
+  items:  Array<Job >,
   nextToken?: string | null,
 };
 
@@ -323,7 +300,7 @@ export type RollPetMutationVariables = {
 
 export type RollPetMutation = {
   rollPet?:  {
-    __typename: "Why4",
+    __typename: "PrettyPet",
     id: string,
     animal: string,
     nickname: string,
@@ -340,6 +317,48 @@ export type RollPetMutation = {
       confidence: number,
       control: number,
     } | null,
+    variant: number,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type AssignJobMutationVariables = {
+  email?: string | null,
+  petIds?: Array< string | null > | null,
+  length?: number | null,
+  jobType?: string | null,
+};
+
+export type AssignJobMutation = {
+  assignJob?:  {
+    __typename: "Job",
+    id: string,
+    pets?: Array< string | null > | null,
+    length: number,
+    jobType: string,
+    owner: string,
+    complete?: boolean | null,
+    payout?: number | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type FinishJobMutationVariables = {
+  id: string,
+};
+
+export type FinishJobMutation = {
+  finishJob?:  {
+    __typename: "Job",
+    id: string,
+    pets?: Array< string | null > | null,
+    length: number,
+    jobType: string,
+    owner: string,
+    complete?: boolean | null,
+    payout?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -393,14 +412,14 @@ export type DeleteUserMutation = {
   } | null,
 };
 
-export type CreateWhy4MutationVariables = {
-  input: CreateWhy4Input,
-  condition?: ModelWhy4ConditionInput | null,
+export type CreatePrettyPetMutationVariables = {
+  input: CreatePrettyPetInput,
+  condition?: ModelPrettyPetConditionInput | null,
 };
 
-export type CreateWhy4Mutation = {
-  createWhy4?:  {
-    __typename: "Why4",
+export type CreatePrettyPetMutation = {
+  createPrettyPet?:  {
+    __typename: "PrettyPet",
     id: string,
     animal: string,
     nickname: string,
@@ -417,19 +436,20 @@ export type CreateWhy4Mutation = {
       confidence: number,
       control: number,
     } | null,
+    variant: number,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type UpdateWhy4MutationVariables = {
-  input: UpdateWhy4Input,
-  condition?: ModelWhy4ConditionInput | null,
+export type UpdatePrettyPetMutationVariables = {
+  input: UpdatePrettyPetInput,
+  condition?: ModelPrettyPetConditionInput | null,
 };
 
-export type UpdateWhy4Mutation = {
-  updateWhy4?:  {
-    __typename: "Why4",
+export type UpdatePrettyPetMutation = {
+  updatePrettyPet?:  {
+    __typename: "PrettyPet",
     id: string,
     animal: string,
     nickname: string,
@@ -446,19 +466,20 @@ export type UpdateWhy4Mutation = {
       confidence: number,
       control: number,
     } | null,
+    variant: number,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type DeleteWhy4MutationVariables = {
-  input: DeleteWhy4Input,
-  condition?: ModelWhy4ConditionInput | null,
+export type DeletePrettyPetMutationVariables = {
+  input: DeletePrettyPetInput,
+  condition?: ModelPrettyPetConditionInput | null,
 };
 
-export type DeleteWhy4Mutation = {
-  deleteWhy4?:  {
-    __typename: "Why4",
+export type DeletePrettyPetMutation = {
+  deletePrettyPet?:  {
+    __typename: "PrettyPet",
     id: string,
     animal: string,
     nickname: string,
@@ -475,102 +496,67 @@ export type DeleteWhy4Mutation = {
       confidence: number,
       control: number,
     } | null,
+    variant: number,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type CreateTodoMutationVariables = {
-  input: CreateTodoInput,
-  condition?: ModelTodoConditionInput | null,
+export type CreateJobMutationVariables = {
+  input: CreateJobInput,
+  condition?: ModelJobConditionInput | null,
 };
 
-export type CreateTodoMutation = {
-  createTodo?:  {
-    __typename: "Todo",
+export type CreateJobMutation = {
+  createJob?:  {
+    __typename: "Job",
     id: string,
-    name: string,
-    description?: string | null,
+    pets?: Array< string | null > | null,
+    length: number,
+    jobType: string,
+    owner: string,
+    complete?: boolean | null,
+    payout?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type UpdateTodoMutationVariables = {
-  input: UpdateTodoInput,
-  condition?: ModelTodoConditionInput | null,
+export type UpdateJobMutationVariables = {
+  input: UpdateJobInput,
+  condition?: ModelJobConditionInput | null,
 };
 
-export type UpdateTodoMutation = {
-  updateTodo?:  {
-    __typename: "Todo",
+export type UpdateJobMutation = {
+  updateJob?:  {
+    __typename: "Job",
     id: string,
-    name: string,
-    description?: string | null,
+    pets?: Array< string | null > | null,
+    length: number,
+    jobType: string,
+    owner: string,
+    complete?: boolean | null,
+    payout?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type DeleteTodoMutationVariables = {
-  input: DeleteTodoInput,
-  condition?: ModelTodoConditionInput | null,
+export type DeleteJobMutationVariables = {
+  input: DeleteJobInput,
+  condition?: ModelJobConditionInput | null,
 };
 
-export type DeleteTodoMutation = {
-  deleteTodo?:  {
-    __typename: "Todo",
+export type DeleteJobMutation = {
+  deleteJob?:  {
+    __typename: "Job",
     id: string,
-    name: string,
-    description?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type CreateTodoIAMMutationVariables = {
-  input: CreateTodoIAMInput,
-  condition?: ModelTodoIAMConditionInput | null,
-};
-
-export type CreateTodoIAMMutation = {
-  createTodoIAM?:  {
-    __typename: "TodoIAM",
-    id: string,
-    name?: string | null,
-    description?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type UpdateTodoIAMMutationVariables = {
-  input: UpdateTodoIAMInput,
-  condition?: ModelTodoIAMConditionInput | null,
-};
-
-export type UpdateTodoIAMMutation = {
-  updateTodoIAM?:  {
-    __typename: "TodoIAM",
-    id: string,
-    name?: string | null,
-    description?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type DeleteTodoIAMMutationVariables = {
-  input: DeleteTodoIAMInput,
-  condition?: ModelTodoIAMConditionInput | null,
-};
-
-export type DeleteTodoIAMMutation = {
-  deleteTodoIAM?:  {
-    __typename: "TodoIAM",
-    id: string,
-    name?: string | null,
-    description?: string | null,
+    pets?: Array< string | null > | null,
+    length: number,
+    jobType: string,
+    owner: string,
+    complete?: boolean | null,
+    payout?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
@@ -612,13 +598,13 @@ export type ListUsersQuery = {
   } | null,
 };
 
-export type GetWhy4QueryVariables = {
+export type GetPrettyPetQueryVariables = {
   id: string,
 };
 
-export type GetWhy4Query = {
-  getWhy4?:  {
-    __typename: "Why4",
+export type GetPrettyPetQuery = {
+  getPrettyPet?:  {
+    __typename: "PrettyPet",
     id: string,
     animal: string,
     nickname: string,
@@ -635,22 +621,23 @@ export type GetWhy4Query = {
       confidence: number,
       control: number,
     } | null,
+    variant: number,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type ListWhy4sQueryVariables = {
-  filter?: ModelWhy4FilterInput | null,
+export type ListPrettyPetsQueryVariables = {
+  filter?: ModelPrettyPetFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListWhy4sQuery = {
-  listWhy4s?:  {
-    __typename: "ModelWhy4Connection",
+export type ListPrettyPetsQuery = {
+  listPrettyPets?:  {
+    __typename: "ModelPrettyPetConnection",
     items:  Array< {
-      __typename: "Why4",
+      __typename: "PrettyPet",
       id: string,
       animal: string,
       nickname: string,
@@ -667,6 +654,7 @@ export type ListWhy4sQuery = {
         confidence: number,
         control: number,
       } | null,
+      variant: number,
       createdAt: string,
       updatedAt: string,
     } >,
@@ -674,71 +662,43 @@ export type ListWhy4sQuery = {
   } | null,
 };
 
-export type GetTodoQueryVariables = {
+export type GetJobQueryVariables = {
   id: string,
 };
 
-export type GetTodoQuery = {
-  getTodo?:  {
-    __typename: "Todo",
+export type GetJobQuery = {
+  getJob?:  {
+    __typename: "Job",
     id: string,
-    name: string,
-    description?: string | null,
+    pets?: Array< string | null > | null,
+    length: number,
+    jobType: string,
+    owner: string,
+    complete?: boolean | null,
+    payout?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type ListTodosQueryVariables = {
-  filter?: ModelTodoFilterInput | null,
+export type ListJobsQueryVariables = {
+  filter?: ModelJobFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListTodosQuery = {
-  listTodos?:  {
-    __typename: "ModelTodoConnection",
+export type ListJobsQuery = {
+  listJobs?:  {
+    __typename: "ModelJobConnection",
     items:  Array< {
-      __typename: "Todo",
+      __typename: "Job",
       id: string,
-      name: string,
-      description?: string | null,
-      createdAt: string,
-      updatedAt: string,
-    } >,
-    nextToken?: string | null,
-  } | null,
-};
-
-export type GetTodoIAMQueryVariables = {
-  id: string,
-};
-
-export type GetTodoIAMQuery = {
-  getTodoIAM?:  {
-    __typename: "TodoIAM",
-    id: string,
-    name?: string | null,
-    description?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type ListTodoIAMQueryVariables = {
-  filter?: ModelTodoIAMFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListTodoIAMQuery = {
-  listTodoIAM?:  {
-    __typename: "ModelTodoIAMConnection",
-    items:  Array< {
-      __typename: "TodoIAM",
-      id: string,
-      name?: string | null,
-      description?: string | null,
+      pets?: Array< string | null > | null,
+      length: number,
+      jobType: string,
+      owner: string,
+      complete?: boolean | null,
+      payout?: number | null,
       createdAt: string,
       updatedAt: string,
     } >,
@@ -779,9 +739,9 @@ export type OnDeleteUserSubscription = {
   } | null,
 };
 
-export type OnCreateWhy4Subscription = {
-  onCreateWhy4?:  {
-    __typename: "Why4",
+export type OnCreatePrettyPetSubscription = {
+  onCreatePrettyPet?:  {
+    __typename: "PrettyPet",
     id: string,
     animal: string,
     nickname: string,
@@ -798,14 +758,15 @@ export type OnCreateWhy4Subscription = {
       confidence: number,
       control: number,
     } | null,
+    variant: number,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnUpdateWhy4Subscription = {
-  onUpdateWhy4?:  {
-    __typename: "Why4",
+export type OnUpdatePrettyPetSubscription = {
+  onUpdatePrettyPet?:  {
+    __typename: "PrettyPet",
     id: string,
     animal: string,
     nickname: string,
@@ -822,14 +783,15 @@ export type OnUpdateWhy4Subscription = {
       confidence: number,
       control: number,
     } | null,
+    variant: number,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnDeleteWhy4Subscription = {
-  onDeleteWhy4?:  {
-    __typename: "Why4",
+export type OnDeletePrettyPetSubscription = {
+  onDeletePrettyPet?:  {
+    __typename: "PrettyPet",
     id: string,
     animal: string,
     nickname: string,
@@ -846,72 +808,52 @@ export type OnDeleteWhy4Subscription = {
       confidence: number,
       control: number,
     } | null,
+    variant: number,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnCreateTodoSubscription = {
-  onCreateTodo?:  {
-    __typename: "Todo",
+export type OnCreateJobSubscription = {
+  onCreateJob?:  {
+    __typename: "Job",
     id: string,
-    name: string,
-    description?: string | null,
+    pets?: Array< string | null > | null,
+    length: number,
+    jobType: string,
+    owner: string,
+    complete?: boolean | null,
+    payout?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnUpdateTodoSubscription = {
-  onUpdateTodo?:  {
-    __typename: "Todo",
+export type OnUpdateJobSubscription = {
+  onUpdateJob?:  {
+    __typename: "Job",
     id: string,
-    name: string,
-    description?: string | null,
+    pets?: Array< string | null > | null,
+    length: number,
+    jobType: string,
+    owner: string,
+    complete?: boolean | null,
+    payout?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,
 };
 
-export type OnDeleteTodoSubscription = {
-  onDeleteTodo?:  {
-    __typename: "Todo",
+export type OnDeleteJobSubscription = {
+  onDeleteJob?:  {
+    __typename: "Job",
     id: string,
-    name: string,
-    description?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnCreateTodoIAMSubscription = {
-  onCreateTodoIAM?:  {
-    __typename: "TodoIAM",
-    id: string,
-    name?: string | null,
-    description?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnUpdateTodoIAMSubscription = {
-  onUpdateTodoIAM?:  {
-    __typename: "TodoIAM",
-    id: string,
-    name?: string | null,
-    description?: string | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type OnDeleteTodoIAMSubscription = {
-  onDeleteTodoIAM?:  {
-    __typename: "TodoIAM",
-    id: string,
-    name?: string | null,
-    description?: string | null,
+    pets?: Array< string | null > | null,
+    length: number,
+    jobType: string,
+    owner: string,
+    complete?: boolean | null,
+    payout?: number | null,
     createdAt: string,
     updatedAt: string,
   } | null,

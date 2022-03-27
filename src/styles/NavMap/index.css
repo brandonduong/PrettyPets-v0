@@ -1,9 +1,9 @@
-#basic-navbar-nav > div > div > div > a > a, .navbar > div > span > a {
+#basic-navbar-nav > div > div > div > div > a, .navbar > div > span > a {
   text-decoration: none;
   color: black;
 }
 
-#basic-navbar-nav > div > div > div > a > a {
+#basic-navbar-nav > div > div > div > div > a {
   padding: 0.25rem 1rem;
 }
 
@@ -18,7 +18,7 @@
 .pretty-logo > .navbar-brand {
   padding-top: 0;
 }
-#basic-navbar-nav > div > div > div > a {
+#basic-navbar-nav > div > div > div > div {
   padding: 0;
 }
 #basic-navbar-nav > div > div > div {

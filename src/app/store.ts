@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import prettyPointsReducer from "../features/prettypoints/prettyPointsSlice";
+import jobsReducer from "../features/jobs/jobsSlice"
+import prettyPetsReducer from "../features/prettypets/prettyPetsSlice"
 
 const store = configureStore({
   reducer: {
     prettyPoints: prettyPointsReducer,
+    jobs: jobsReducer,
+    prettyPets: prettyPetsReducer,
   },
 })
 

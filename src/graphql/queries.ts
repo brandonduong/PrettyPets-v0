@@ -31,9 +31,9 @@ export const listUsers = /* GraphQL */ `
     }
   }
 `;
-export const getWhy4 = /* GraphQL */ `
-  query GetWhy4($id: ID!) {
-    getWhy4(id: $id) {
+export const getPrettyPet = /* GraphQL */ `
+  query GetPrettyPet($id: ID!) {
+    getPrettyPet(id: $id) {
       id
       animal
       nickname
@@ -49,18 +49,19 @@ export const getWhy4 = /* GraphQL */ `
         confidence
         control
       }
+      variant
       createdAt
       updatedAt
     }
   }
 `;
-export const listWhy4s = /* GraphQL */ `
-  query ListWhy4s(
-    $filter: ModelWhy4FilterInput
+export const listPrettyPets = /* GraphQL */ `
+  query ListPrettyPets(
+    $filter: ModelPrettyPetFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listWhy4s(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listPrettyPets(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         animal
@@ -77,6 +78,7 @@ export const listWhy4s = /* GraphQL */ `
           confidence
           control
         }
+        variant
         createdAt
         updatedAt
       }
@@ -84,57 +86,36 @@ export const listWhy4s = /* GraphQL */ `
     }
   }
 `;
-export const getTodo = /* GraphQL */ `
-  query GetTodo($id: ID!) {
-    getTodo(id: $id) {
+export const getJob = /* GraphQL */ `
+  query GetJob($id: ID!) {
+    getJob(id: $id) {
       id
-      name
-      description
+      pets
+      length
+      jobType
+      owner
+      complete
+      payout
       createdAt
       updatedAt
     }
   }
 `;
-export const listTodos = /* GraphQL */ `
-  query ListTodos(
-    $filter: ModelTodoFilterInput
+export const listJobs = /* GraphQL */ `
+  query ListJobs(
+    $filter: ModelJobFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listJobs(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
-        description
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const getTodoIAM = /* GraphQL */ `
-  query GetTodoIAM($id: ID!) {
-    getTodoIAM(id: $id) {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listTodoIAM = /* GraphQL */ `
-  query ListTodoIAM(
-    $filter: ModelTodoIAMFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listTodoIAM(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        description
+        pets
+        length
+        jobType
+        owner
+        complete
+        payout
         createdAt
         updatedAt
       }

@@ -20,6 +20,47 @@ export const rollPet = /* GraphQL */ `
         confidence
         control
       }
+      variant
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const assignJob = /* GraphQL */ `
+  mutation AssignJob(
+    $email: String
+    $petIds: [ID]
+    $length: Int
+    $jobType: String
+  ) {
+    assignJob(
+      email: $email
+      petIds: $petIds
+      length: $length
+      jobType: $jobType
+    ) {
+      id
+      pets
+      length
+      jobType
+      owner
+      complete
+      payout
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const finishJob = /* GraphQL */ `
+  mutation FinishJob($id: ID!) {
+    finishJob(id: $id) {
+      id
+      pets
+      length
+      jobType
+      owner
+      complete
+      payout
       createdAt
       updatedAt
     }
@@ -67,12 +108,12 @@ export const deleteUser = /* GraphQL */ `
     }
   }
 `;
-export const createWhy4 = /* GraphQL */ `
-  mutation CreateWhy4(
-    $input: CreateWhy4Input!
-    $condition: ModelWhy4ConditionInput
+export const createPrettyPet = /* GraphQL */ `
+  mutation CreatePrettyPet(
+    $input: CreatePrettyPetInput!
+    $condition: ModelPrettyPetConditionInput
   ) {
-    createWhy4(input: $input, condition: $condition) {
+    createPrettyPet(input: $input, condition: $condition) {
       id
       animal
       nickname
@@ -88,17 +129,18 @@ export const createWhy4 = /* GraphQL */ `
         confidence
         control
       }
+      variant
       createdAt
       updatedAt
     }
   }
 `;
-export const updateWhy4 = /* GraphQL */ `
-  mutation UpdateWhy4(
-    $input: UpdateWhy4Input!
-    $condition: ModelWhy4ConditionInput
+export const updatePrettyPet = /* GraphQL */ `
+  mutation UpdatePrettyPet(
+    $input: UpdatePrettyPetInput!
+    $condition: ModelPrettyPetConditionInput
   ) {
-    updateWhy4(input: $input, condition: $condition) {
+    updatePrettyPet(input: $input, condition: $condition) {
       id
       animal
       nickname
@@ -114,17 +156,18 @@ export const updateWhy4 = /* GraphQL */ `
         confidence
         control
       }
+      variant
       createdAt
       updatedAt
     }
   }
 `;
-export const deleteWhy4 = /* GraphQL */ `
-  mutation DeleteWhy4(
-    $input: DeleteWhy4Input!
-    $condition: ModelWhy4ConditionInput
+export const deletePrettyPet = /* GraphQL */ `
+  mutation DeletePrettyPet(
+    $input: DeletePrettyPetInput!
+    $condition: ModelPrettyPetConditionInput
   ) {
-    deleteWhy4(input: $input, condition: $condition) {
+    deletePrettyPet(input: $input, condition: $condition) {
       id
       animal
       nickname
@@ -140,90 +183,61 @@ export const deleteWhy4 = /* GraphQL */ `
         confidence
         control
       }
+      variant
       createdAt
       updatedAt
     }
   }
 `;
-export const createTodo = /* GraphQL */ `
-  mutation CreateTodo(
-    $input: CreateTodoInput!
-    $condition: ModelTodoConditionInput
+export const createJob = /* GraphQL */ `
+  mutation CreateJob(
+    $input: CreateJobInput!
+    $condition: ModelJobConditionInput
   ) {
-    createTodo(input: $input, condition: $condition) {
+    createJob(input: $input, condition: $condition) {
       id
-      name
-      description
+      pets
+      length
+      jobType
+      owner
+      complete
+      payout
       createdAt
       updatedAt
     }
   }
 `;
-export const updateTodo = /* GraphQL */ `
-  mutation UpdateTodo(
-    $input: UpdateTodoInput!
-    $condition: ModelTodoConditionInput
+export const updateJob = /* GraphQL */ `
+  mutation UpdateJob(
+    $input: UpdateJobInput!
+    $condition: ModelJobConditionInput
   ) {
-    updateTodo(input: $input, condition: $condition) {
+    updateJob(input: $input, condition: $condition) {
       id
-      name
-      description
+      pets
+      length
+      jobType
+      owner
+      complete
+      payout
       createdAt
       updatedAt
     }
   }
 `;
-export const deleteTodo = /* GraphQL */ `
-  mutation DeleteTodo(
-    $input: DeleteTodoInput!
-    $condition: ModelTodoConditionInput
+export const deleteJob = /* GraphQL */ `
+  mutation DeleteJob(
+    $input: DeleteJobInput!
+    $condition: ModelJobConditionInput
   ) {
-    deleteTodo(input: $input, condition: $condition) {
+    deleteJob(input: $input, condition: $condition) {
       id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createTodoIAM = /* GraphQL */ `
-  mutation CreateTodoIAM(
-    $input: CreateTodoIAMInput!
-    $condition: ModelTodoIAMConditionInput
-  ) {
-    createTodoIAM(input: $input, condition: $condition) {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateTodoIAM = /* GraphQL */ `
-  mutation UpdateTodoIAM(
-    $input: UpdateTodoIAMInput!
-    $condition: ModelTodoIAMConditionInput
-  ) {
-    updateTodoIAM(input: $input, condition: $condition) {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteTodoIAM = /* GraphQL */ `
-  mutation DeleteTodoIAM(
-    $input: DeleteTodoIAMInput!
-    $condition: ModelTodoIAMConditionInput
-  ) {
-    deleteTodoIAM(input: $input, condition: $condition) {
-      id
-      name
-      description
+      pets
+      length
+      jobType
+      owner
+      complete
+      payout
       createdAt
       updatedAt
     }

@@ -35,9 +35,9 @@ export const onDeleteUser = /* GraphQL */ `
     }
   }
 `;
-export const onCreateWhy4 = /* GraphQL */ `
-  subscription OnCreateWhy4 {
-    onCreateWhy4 {
+export const onCreatePrettyPet = /* GraphQL */ `
+  subscription OnCreatePrettyPet {
+    onCreatePrettyPet {
       id
       animal
       nickname
@@ -53,14 +53,15 @@ export const onCreateWhy4 = /* GraphQL */ `
         confidence
         control
       }
+      variant
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateWhy4 = /* GraphQL */ `
-  subscription OnUpdateWhy4 {
-    onUpdateWhy4 {
+export const onUpdatePrettyPet = /* GraphQL */ `
+  subscription OnUpdatePrettyPet {
+    onUpdatePrettyPet {
       id
       animal
       nickname
@@ -76,14 +77,15 @@ export const onUpdateWhy4 = /* GraphQL */ `
         confidence
         control
       }
+      variant
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeleteWhy4 = /* GraphQL */ `
-  subscription OnDeleteWhy4 {
-    onDeleteWhy4 {
+export const onDeletePrettyPet = /* GraphQL */ `
+  subscription OnDeletePrettyPet {
+    onDeletePrettyPet {
       id
       animal
       nickname
@@ -99,72 +101,52 @@ export const onDeleteWhy4 = /* GraphQL */ `
         confidence
         control
       }
+      variant
       createdAt
       updatedAt
     }
   }
 `;
-export const onCreateTodo = /* GraphQL */ `
-  subscription OnCreateTodo {
-    onCreateTodo {
+export const onCreateJob = /* GraphQL */ `
+  subscription OnCreateJob {
+    onCreateJob {
       id
-      name
-      description
+      pets
+      length
+      jobType
+      owner
+      complete
+      payout
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateTodo = /* GraphQL */ `
-  subscription OnUpdateTodo {
-    onUpdateTodo {
+export const onUpdateJob = /* GraphQL */ `
+  subscription OnUpdateJob {
+    onUpdateJob {
       id
-      name
-      description
+      pets
+      length
+      jobType
+      owner
+      complete
+      payout
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeleteTodo = /* GraphQL */ `
-  subscription OnDeleteTodo {
-    onDeleteTodo {
+export const onDeleteJob = /* GraphQL */ `
+  subscription OnDeleteJob {
+    onDeleteJob {
       id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onCreateTodoIAM = /* GraphQL */ `
-  subscription OnCreateTodoIAM {
-    onCreateTodoIAM {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateTodoIAM = /* GraphQL */ `
-  subscription OnUpdateTodoIAM {
-    onUpdateTodoIAM {
-      id
-      name
-      description
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteTodoIAM = /* GraphQL */ `
-  subscription OnDeleteTodoIAM {
-    onDeleteTodoIAM {
-      id
-      name
-      description
+      pets
+      length
+      jobType
+      owner
+      complete
+      payout
       createdAt
       updatedAt
     }

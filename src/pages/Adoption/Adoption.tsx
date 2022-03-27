@@ -1,21 +1,14 @@
-import React, {CSSProperties} from "react";
+import React from "react";
 import AdoptPet from "../../components/Adoption/AdoptPet";
+import {Container} from "react-bootstrap";
+import '../../styles/Adoption/index.css'
 
 function Adoption() {
   return (
-    <div style={container}>
+    <Container className={"page-content"}>
       <AdoptPet />
-    </div>
+    </Container>
   );
-}
-
-const container: CSSProperties = {
-  width: '50%',
-  margin: '0 auto',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  padding: 20
 }
 
 export default Adoption;

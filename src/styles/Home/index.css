@@ -15,26 +15,20 @@
   color: darkred;
 }
 
-.pet-gallery {
-  margin-top: 1.5rem;
-  text-align: center;
-  margin-bottom: 1.2rem;
-}
-
 .pet-card {
   height: 100%;
   align-items: center;
 }
 
-.pet-card-col {
-  margin-bottom: 0.3rem;
+div.selected-card {
+  border: 2px solid #000000;
 }
 
 .pet-card-body {
   width: 100%;
 }
 
-.pet-gallery > .row {
+div.pet-gallery-row {
   --bs-gutter-x: 0.3rem;
 }
 
