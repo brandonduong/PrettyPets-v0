@@ -16,10 +16,12 @@ export const prettyPointsSlice = createSlice({
       }
       state.value += action.payload
     },
+    logout: (state) => {
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { incrementByAmount } = prettyPointsSlice.actions
+export const { incrementByAmount, logout } = prettyPointsSlice.actions
 
 export default prettyPointsSlice.reducer

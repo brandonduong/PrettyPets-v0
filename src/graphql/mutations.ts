@@ -21,6 +21,7 @@ export const rollPet = /* GraphQL */ `
         control
       }
       variant
+      status
       createdAt
       updatedAt
     }
@@ -130,6 +131,7 @@ export const createPrettyPet = /* GraphQL */ `
         control
       }
       variant
+      status
       createdAt
       updatedAt
     }
@@ -157,6 +159,7 @@ export const updatePrettyPet = /* GraphQL */ `
         control
       }
       variant
+      status
       createdAt
       updatedAt
     }
@@ -184,6 +187,7 @@ export const deletePrettyPet = /* GraphQL */ `
         control
       }
       variant
+      status
       createdAt
       updatedAt
     }

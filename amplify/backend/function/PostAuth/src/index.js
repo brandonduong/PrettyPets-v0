@@ -6,7 +6,6 @@
 	REGION
 Amplify Params - DO NOT EDIT */
 const axios = require('axios');
-const aws4  = require('aws4')
 const graphql = require('graphql');
 const {print} = graphql;
 const gql = require('graphql-tag');
@@ -37,10 +36,10 @@ exports.handler = async (event, context, callback) => {
     try {
         const userInfo = {
             email: event.userName,
-            prettyPoints: 0,
+            prettyPoints: 500,
         }
 
-        await axios(aws4.sign({
+        await axios({
             url: url,
             method: 'post',
             headers: {
@@ -52,12 +51,7 @@ exports.handler = async (event, context, callback) => {
                     input: userInfo
                 }
             }
-        })).then((err) => {
-            console.log(err)
-            if (err.data.errors) {
-                console.log(err.data.errors)
-            }
-        });
+        })
     } catch (err) {
         console.log('error creating user: ', err);
     }

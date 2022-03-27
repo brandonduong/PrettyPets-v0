@@ -11,7 +11,6 @@ const graphql = require('graphql');
 const fs = require('fs');
 const {print} = graphql;
 const ntc = require('ntc');
-const aws4 = require('aws4')
 
 const url = process.env.API_PRETTYPETS_GRAPHQLAPIENDPOINTOUTPUT
 const key = process.env.API_PRETTYPETS_GRAPHQLAPIKEYOUTPUT
@@ -50,6 +49,7 @@ const createPet = gql`
                 control
             }
             variant
+            status
             createdAt
             updatedAt
         }
@@ -284,11 +284,12 @@ exports.handler = async (event) => {
       traits: generateTraits(stars),
       star: stars,
       stats: stats,
-      variant
+      variant,
+      status: 'free'
     }
     console.log(petInfo)
 
-    await axios(aws4.sign({
+    const pet = await axios({
       url: url,
       method: 'post',
       headers: {
@@ -300,14 +301,8 @@ exports.handler = async (event) => {
           input: petInfo
         }
       }
-    })).then((err) => {
-      console.log(err)
-      if (err.data.errors) {
-        console.log(err.data.errors)
-      }
-    });
-    console.log(petInfo)
-    return {...petInfo, id: '', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString()};
+    })
+    return pet.data.data.createPrettyPet
   } catch (err) {
     console.log('error creating todo: ', err);
   }

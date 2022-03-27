@@ -6,6 +6,7 @@ import {API} from "aws-amplify";
 import {listUsers} from "../../graphql/queries";
 import {incrementByAmount} from "../../features/prettypoints/prettyPointsSlice";
 import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {logout} from '../../features/prettypoints/prettyPointsSlice'
 import '../../styles/NavMap/index.css'
 
 function NavMap() {
@@ -17,7 +18,12 @@ function NavMap() {
     if (prettyPoints < 0) {
       fetchUser(user.username!)
     }
-  })
+  }, [])
+
+  function signout() {
+    dispatch(logout())
+    signOut()
+  }
 
   async function fetchUser(username: string) {
     const filter = {
@@ -44,14 +50,14 @@ function NavMap() {
             <Navbar.Text>PrettyPoints: {prettyPoints}</Navbar.Text>
             <NavDropdown align="end" title={user.attributes!.preferred_username} className="profile-nav-dropdown">
               <div className={"dropdown-item"}><Link to={'/'} className={"nav-link"}>Home</Link></div>
-              <div className={"dropdown-item"}><Link to={'/Adoption'} className={"nav-link"}>Adoption Centre</Link></div>
-              <div className={"dropdown-item"}><Link to={'/Accessory'} className={"nav-link"}>Accessory Store</Link></div>
-              <div className={"dropdown-item"}><Link to={'/Job'} className={"nav-link"}>Job Board</Link></div>
-              <div className={"dropdown-item"}><Link to={'/Daycare'} className={"nav-link"}>Daycare</Link></div>
-              <div className={"dropdown-item"}><Link to={'/Groomer'} className={"nav-link"}>Groomer</Link></div>
-              <div className={"dropdown-item"}><Link to={'/Fashion'} className={"nav-link"}>Fashion Show</Link></div>
+              <div className={"dropdown-item"}><Link to={'/Adoption/'} className={"nav-link"}>Adoption Centre</Link></div>
+              <div className={"dropdown-item"}><Link to={'/Accessory/'} className={"nav-link"}>Accessory Store</Link></div>
+              <div className={"dropdown-item"}><Link to={'/Job/'} className={"nav-link"}>Job Board</Link></div>
+              <div className={"dropdown-item"}><Link to={'/Daycare/'} className={"nav-link"}>Daycare</Link></div>
+              <div className={"dropdown-item"}><Link to={'/Groomer/'} className={"nav-link"}>Groomer</Link></div>
+              <div className={"dropdown-item"}><Link to={'/Fashion/'} className={"nav-link"}>Fashion Show</Link></div>
               <NavDropdown.Divider/>
-              <div className={"dropdown-item"} onClick={signOut}><a>Sign Out</a></div>
+              <div className={"dropdown-item"} onClick={signout}><a>Sign Out</a></div>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

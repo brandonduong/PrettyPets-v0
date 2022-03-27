@@ -144,11 +144,14 @@ body {
   text-align: center;
 }
 
-.adoption-form > .ant-modal-content > .ant-modal-body > .pet-card {
+.adoption-form-content > .pet-card {
   border: none;
-  margin-bottom: 0.5rem;
 }
 
 .adoption-form-title {
   margin: 0;
+}
+
+.adoption-form-content {
+  margin-bottom: 0.5rem;
 }

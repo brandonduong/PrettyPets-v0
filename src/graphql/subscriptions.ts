@@ -54,6 +54,7 @@ export const onCreatePrettyPet = /* GraphQL */ `
         control
       }
       variant
+      status
       createdAt
       updatedAt
     }
@@ -78,6 +79,7 @@ export const onUpdatePrettyPet = /* GraphQL */ `
         control
       }
       variant
+      status
       createdAt
       updatedAt
     }
@@ -102,6 +104,7 @@ export const onDeletePrettyPet = /* GraphQL */ `
         control
       }
       variant
+      status
       createdAt
       updatedAt
     }

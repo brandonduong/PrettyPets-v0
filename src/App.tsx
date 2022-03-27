@@ -40,8 +40,8 @@ function App() {
             <NavMap/>
             <Routes>
               <Route path={'/'} element={<Home/>}/>
-              <Route path={'/Adoption'} element={<Adoption/>}/>
-              <Route path={'/Job'} element={<Services/>}/>
+              <Route path={'/Adoption/'} element={<Adoption/>}/>
+              <Route path={'/Job/'} element={<Services/>}/>
             </Routes>
           </BrowserRouter>
         )}

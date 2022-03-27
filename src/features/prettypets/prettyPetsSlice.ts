@@ -31,7 +31,7 @@ export const prettyPetsSlice = createSlice({
     },
     setSelectedPrettyPets: (state, action) => {
       state.selected = action.payload
-    }
+    },
   },
 })
 

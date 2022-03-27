@@ -50,6 +50,7 @@ export const getPrettyPet = /* GraphQL */ `
         control
       }
       variant
+      status
       createdAt
       updatedAt
     }
@@ -79,6 +80,7 @@ export const listPrettyPets = /* GraphQL */ `
           control
         }
         variant
+        status
         createdAt
         updatedAt
       }

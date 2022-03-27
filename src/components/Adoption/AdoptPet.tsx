@@ -4,7 +4,7 @@ import {useAuthenticator} from '@aws-amplify/ui-react';
 import {rollPet} from "../../graphql/mutations";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {incrementByAmount} from "../../features/prettypoints/prettyPointsSlice";
-import {Button, Modal, Tooltip} from "antd";
+import {Button, Modal, Spin, Tooltip} from "antd";
 import {setPrettyPets} from "../../features/prettypets/prettyPetsSlice";
 import {PrettyPet} from "../../API";
 import PetCard from "../Home/PetCard";
@@ -18,22 +18,36 @@ function AdoptPet() {
   const dispatch = useAppDispatch()
   const [buttonDisabled, setButtonDisabled] = useState(false)
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [loading, setLoading] = useState(false)
   const [rolledPet, setRolledPet] = useState<PrettyPet>()
 
   const handleOk = () => {
     setIsModalVisible(false);
     setButtonDisabled(false)
+    setRolledPet(undefined)
   };
 
   useEffect(() => {
-    console.log(user)
-  }, [])
+    let loop: NodeJS.Timeout
+    if (loading) {
+      loop = setTimeout(() => {
+        setLoading(false);
+      }, 2000)
+    }
+    return () => {
+      clearInterval(loop)
+    }
+  }, [loading])
 
   async function rollPetOnClick(email: string | undefined) {
     if (!email || prettyPoints < ROLL_PRICE || buttonDisabled) return
     try {
       setButtonDisabled(true)
       setIsModalVisible(true)
+
+      // Handle loading
+      setLoading(true)
+
       const petData: any = await API.graphql({query: rollPet, variables: {email: email}})
       console.log('rolled: ', petData.data.rollPet)
       setRolledPet(petData.data.rollPet)
@@ -66,17 +80,21 @@ function AdoptPet() {
           </div>
         </div>
       </div>
-      {rolledPet &&
       <Modal className="adoption-form"
              title={<h3 className="adoption-form-title">Adoption Form</h3>}
              visible={isModalVisible}
              onOk={handleOk}
              closable={false}
              footer={null}>
-        <PetCard pet={rolledPet} selectable={false} stats={true} max={0}/>
+        <div className={"adoption-form-content"}>
+          {rolledPet && !loading ?
+            <PetCard pet={rolledPet} selectable={false} stats={true} max={0}/> :
+            <Spin tip="Finalizing adoption..." size="large"/>
+          }
+        </div>
         <Button type={"primary"} onClick={handleOk}>Welcome home!</Button>
+
       </Modal>
-      }
     </>
   );
 }

@@ -25,6 +25,7 @@ type PrettyPet @model {
   star: Int!
   stats: PetStats
   variant: Int!
+  status: String
 }
 
 type PetStats {

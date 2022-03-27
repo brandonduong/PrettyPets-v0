@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useLayoutEffect, useState} from "react";
 import {API} from "aws-amplify";
 import {useAuthenticator, Collection} from '@aws-amplify/ui-react';
 import {listPrettyPets} from "../../graphql/queries";
@@ -19,6 +19,29 @@ function PetGallery(props: Props) {
   const dispatch = useAppDispatch()
   const pets = useAppSelector((state) => state.prettyPets.value)
   const petIds = useAppSelector((state) => state.prettyPets.selected)
+  const [width, setWidth] = useState(0);
+
+  function getItemsPerPage() {
+    // https://stackoverflow.com/a/8876069
+    if (width <= 576) return 1
+    if (width <= 768) return 4
+    if (width <= 992) return 4
+    if (width <= 1200) return 6
+    return 8
+  }
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      setWidth(Math.max(
+        document.documentElement.clientWidth,
+        window.innerWidth || 0
+      ));
+    }
+
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
 
   useEffect(() => {
     if (!petsFetched) {
@@ -50,7 +73,7 @@ function PetGallery(props: Props) {
       <Collection
         type="list"
         direction="row"
-        itemsPerPage={12}
+        itemsPerPage={getItemsPerPage()}
         isPaginated
         gap="0"
         isSearchable
