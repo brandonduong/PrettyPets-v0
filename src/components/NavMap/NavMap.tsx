@@ -4,7 +4,7 @@ import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {Link} from "react-router-dom";
 import {API} from "aws-amplify";
 import {listUsers} from "../../graphql/queries";
-import {incrementByAmount} from "../../features/prettypoints/prettyPointsSlice";
+import {incrementByAmount, setUserId} from "../../features/prettypoints/prettyPointsSlice";
 import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import {logout} from '../../features/prettypoints/prettyPointsSlice'
 import '../../styles/NavMap/index.css'
@@ -12,6 +12,7 @@ import '../../styles/NavMap/index.css'
 function NavMap() {
   const {user, signOut} = useAuthenticator((context) => [context.user]);
   const prettyPoints = useAppSelector((state) => state.prettyPoints.value)
+  const userId = useAppSelector((state) => state.prettyPoints.userId)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -35,6 +36,7 @@ function NavMap() {
       const userData: any = await API.graphql({query: listUsers, variables: {filter: filter}})
       console.log(userData)
       dispatch(incrementByAmount(userData.data.listUsers.items[0].prettyPoints))
+      dispatch(setUserId(userData.data.listUsers.items[0].id))
     } catch (err) {
       console.log('error fetching user data: ', err)
     }
@@ -49,7 +51,7 @@ function NavMap() {
           <Nav className="ms-auto">
             <Navbar.Text>PrettyPoints: {prettyPoints}</Navbar.Text>
             <NavDropdown align="end" title={user.attributes!.preferred_username} className="profile-nav-dropdown">
-              <div className={"dropdown-item"}><Link to={'/'} className={"nav-link"}>Home</Link></div>
+              <div className={"dropdown-item"}><Link to={`/profile/${userId}/`} className={"nav-link"}>Home</Link></div>
               <div className={"dropdown-item"}><Link to={'/Adoption/'} className={"nav-link"}>Adoption Centre</Link></div>
               <div className={"dropdown-item"}><Link to={'/Accessory/'} className={"nav-link"}>Accessory Store</Link></div>
               <div className={"dropdown-item"}><Link to={'/Job/'} className={"nav-link"}>Job Board</Link></div>

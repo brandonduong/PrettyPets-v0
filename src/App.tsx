@@ -11,6 +11,7 @@ import Adoption from "./pages/Adoption/Adoption";
 import "./styles/App/index.css"
 import NavMap from "./components/NavMap/NavMap";
 import Services from "./pages/Services/Services";
+import Profile from "./pages/Profile/Profile";
 
 
 Amplify.configure(awsExports);
@@ -42,6 +43,7 @@ function App() {
               <Route path={'/'} element={<Home/>}/>
               <Route path={'/Adoption/'} element={<Adoption/>}/>
               <Route path={'/Job/'} element={<Services/>}/>
+              <Route path={'/profile/:profileId'} element={<Profile/>}/>
             </Routes>
           </BrowserRouter>
         )}

@@ -6,11 +6,13 @@ import {Col} from "react-bootstrap";
 import PetCard from "./PetCard";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {setPrettyPets} from "../../features/prettypets/prettyPetsSlice";
+import {PrettyPet} from "../../API";
 
 interface Props {
   selectable: boolean
   stats: boolean
   max: number
+  profileUser?: string
 }
 
 function PetGallery(props: Props) {
@@ -20,6 +22,7 @@ function PetGallery(props: Props) {
   const pets = useAppSelector((state) => state.prettyPets.value)
   const petIds = useAppSelector((state) => state.prettyPets.selected)
   const [width, setWidth] = useState(0);
+  const [strangerPets, setStrangerPets] = useState<Array<PrettyPet>>()
 
   function getItemsPerPage() {
     // https://stackoverflow.com/a/8876069
@@ -47,7 +50,15 @@ function PetGallery(props: Props) {
     if (!petsFetched) {
       fetchPets()
     }
-  }, [])
+    if (props.profileUser) {
+      console.log(props.profileUser, user.username)
+      if (props.profileUser === user.username) {
+        setStrangerPets(undefined)
+      } else {
+        fetchStrangerPets()
+      }
+    }
+  }, [props.profileUser])
 
   async function fetchPets() {
     const filter = {
@@ -60,6 +71,22 @@ function PetGallery(props: Props) {
       console.log(petData)
       const petArr = petData.data.listPrettyPets.items
       dispatch(setPrettyPets(petArr))
+    } catch (err) {
+      console.log('error fetching pets: ', err)
+    }
+  }
+
+  async function fetchStrangerPets() {
+    const filter = {
+      owner: {
+        eq: props.profileUser
+      }
+    }
+    try {
+      const petData: any = await API.graphql({query: listPrettyPets, variables: {filter: filter}})
+      console.log(petData)
+      const petArr = petData.data.listPrettyPets.items
+      setStrangerPets(petArr)
     } catch (err) {
       console.log('error fetching pets: ', err)
     }
@@ -78,7 +105,7 @@ function PetGallery(props: Props) {
         gap="0"
         isSearchable
         wrap="wrap"
-        searchPlaceholder="Type to search..." items={pets}>
+        searchPlaceholder="Type to search..." items={strangerPets ? strangerPets : pets}>
         {
           (item, index) => (
             <Col xs={"12"} sm={"6"} md={"6"} lg={"4"} xl={"3"} key={item.id ? item.id : index}

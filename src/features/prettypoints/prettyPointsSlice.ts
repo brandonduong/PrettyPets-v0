@@ -4,6 +4,7 @@ export const prettyPointsSlice = createSlice({
   name: 'prettyPoints',
   initialState: {
     value: -1,
+    userId: '',
   },
   reducers: {
     incrementByAmount: (state, action) => {
@@ -17,11 +18,14 @@ export const prettyPointsSlice = createSlice({
       state.value += action.payload
     },
     logout: (state) => {
+    },
+    setUserId: (state, action) => {
+      state.userId = action.payload
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { incrementByAmount, logout } = prettyPointsSlice.actions
+export const { incrementByAmount, logout, setUserId } = prettyPointsSlice.actions
 
 export default prettyPointsSlice.reducer
