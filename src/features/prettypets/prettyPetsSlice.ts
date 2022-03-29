@@ -32,10 +32,17 @@ export const prettyPetsSlice = createSlice({
     setSelectedPrettyPets: (state, action) => {
       state.selected = action.payload
     },
+    updatePrettyPetsStatus: (state, action) => {
+      const busyPets = action.payload.busyPets
+      busyPets.forEach((busyPet: string) => {
+        const index = state.value.findIndex(pet => pet.id === busyPet)
+        state.value[index].status = action.payload.jobType
+      })
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setPrettyPets, selectPrettyPet, setSelectedPrettyPets } = prettyPetsSlice.actions
+export const { setPrettyPets, selectPrettyPet, setSelectedPrettyPets, updatePrettyPetsStatus } = prettyPetsSlice.actions
 
 export default prettyPetsSlice.reducer

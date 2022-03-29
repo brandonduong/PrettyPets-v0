@@ -1,0 +1,9 @@
+.share-button {
+  position: relative;
+  top: 2.55rem;
+}
+
+.share-div {
+  display: flex;
+  justify-content: flex-end;
+}

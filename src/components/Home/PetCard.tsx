@@ -5,7 +5,7 @@ import Star from "../../assets/icons/Star";
 import {PrettyPet, PetStats} from "../../API";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {selectPrettyPet} from "../../features/prettypets/prettyPetsSlice";
-import {Popover} from "antd";
+import {Badge, Popover} from "antd";
 
 interface PetCardData {
   pet: PrettyPet
@@ -24,7 +24,7 @@ function PetCard(props: PetCardData) {
   }, [petIds])
 
   function handleOnClick() {
-    if (props.selectable) {
+    if (props.selectable && (props.pet.status === 'free' || props.pet.status === null)) {
       if (!selected && petIds.length < props.max) {
         setSelected(true)
       } else {
@@ -60,24 +60,29 @@ function PetCard(props: PetCardData) {
 
   const body =
     <Card.Body className={"pet-card-body"}>
-    <Card.Title>
-      {props.pet.nickname}</Card.Title>
-    <StarDisplay stars={props.pet.star}/>
-    {
-      props.stats && stats
-    }
-  </Card.Body>
+      <Card.Title>
+        {props.pet.nickname}</Card.Title>
+      <StarDisplay stars={props.pet.star}/>
+      <Badge
+        count={props.pet.status}
+        className={"pet-card-status"}
+        style={{ backgroundColor: props.pet.status === 'free' ? '#52c41a':'#FF5E5EFF' }}
+      />
+      {
+        props.stats && stats
+      }
+    </Card.Body>
 
   return (
-    <Card className={"pet-card " + (selected ? 'selected-card' : '')} onClick={handleOnClick}>
+    <Card className={"pet-card " + (selected && props.selectable ? 'selected-card' : '')} onClick={handleOnClick}>
       <div className={"pet-card-img"}>
         <Star/>
       </div>
       {props.stats ? body
-
         : <Popover content={stats}>
           {body}
-        </Popover>}
+        </Popover>
+      }
     </Card>
   )
 }

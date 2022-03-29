@@ -35,3 +35,11 @@ div.pet-gallery-row {
 .pet-card-img {
   width: 50%;
 }
+
+span.pet-card-status {
+  margin-top: 0.5rem;
+}
+
+div.job-timer {
+  margin-bottom: 1rem;
+}

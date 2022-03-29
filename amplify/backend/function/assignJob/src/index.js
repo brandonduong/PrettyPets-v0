@@ -77,7 +77,7 @@ function calculatePayout(length, pets, jobType) {
     let starPayout = 0
     let statPayout = 0
     pets.forEach((pet) => {
-       starPayout += pet.star / 2
+       starPayout += pet.star
        switch (jobType) {
            case JobTypes.THERAPY:
                statPayout += pet.stats.cool;

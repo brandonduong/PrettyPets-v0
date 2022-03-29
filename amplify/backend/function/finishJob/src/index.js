@@ -81,6 +81,35 @@ const updateUser = gql`
     }
 `
 
+const updatePrettyPet = gql`
+    mutation UpdatePrettyPet(
+        $input: UpdatePrettyPetInput!
+        $condition: ModelPrettyPetConditionInput
+    ) {
+        updatePrettyPet(input: $input, condition: $condition) {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner
+            shiny
+            traits
+            star
+            stats {
+                cool
+                cute
+                confidence
+                control
+            }
+            variant
+            status
+            createdAt
+            updatedAt
+        }
+    }
+`
+
 async function applyPayout(email, payout) {
   let id = '';
   let pp = 0;
@@ -136,6 +165,34 @@ async function applyPayout(email, payout) {
     });
   } catch (e) {
     console.log('error adding money', e);
+  }
+}
+
+async function updatePetStatus(petIds) {
+  for (const petId of petIds) {
+    // Update pet's status to working
+    try {
+      const petInfo = {
+        id: petId,
+        status: 'free'
+      }
+
+      const petData = await axios({
+        url: url,
+        method: 'post',
+        headers: {
+          'x-api-key': key
+        },
+        data: {
+          query: print(updatePrettyPet),
+          variables: {
+            input: petInfo
+          }
+        }
+      })
+    } catch (err) {
+      console.log('error updating pet: ', err);
+    }
   }
 }
 
@@ -196,6 +253,7 @@ exports.handler = async (event) => {
   }
 
   await applyPayout(email, payout)
+  await updatePetStatus(jobData.pets)
 
   return jobData;
 };

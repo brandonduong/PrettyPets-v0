@@ -5,3 +5,7 @@
 .job-posting-card {
   height: 100%;
 }
+
+.job-posting > div {
+  height: 100%;
+}

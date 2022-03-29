@@ -4,8 +4,7 @@ import {useAuthenticator, Collection} from '@aws-amplify/ui-react';
 import {listPrettyPets} from "../../graphql/queries";
 import {Col} from "react-bootstrap";
 import PetCard from "./PetCard";
-import {useAppDispatch, useAppSelector} from "../../app/hooks";
-import {setPrettyPets} from "../../features/prettypets/prettyPetsSlice";
+import {useAppSelector} from "../../app/hooks";
 import {PrettyPet} from "../../API";
 
 interface Props {
@@ -17,8 +16,6 @@ interface Props {
 
 function PetGallery(props: Props) {
   const {user} = useAuthenticator((context) => [context.user]);
-  const petsFetched = useAppSelector((state) => state.prettyPets.fetched)
-  const dispatch = useAppDispatch()
   const pets = useAppSelector((state) => state.prettyPets.value)
   const petIds = useAppSelector((state) => state.prettyPets.selected)
   const [width, setWidth] = useState(0);
@@ -47,9 +44,6 @@ function PetGallery(props: Props) {
   }, []);
 
   useEffect(() => {
-    if (!petsFetched) {
-      fetchPets()
-    }
     if (props.profileUser) {
       console.log(props.profileUser, user.username)
       if (props.profileUser === user.username) {
@@ -59,22 +53,6 @@ function PetGallery(props: Props) {
       }
     }
   }, [props.profileUser])
-
-  async function fetchPets() {
-    const filter = {
-      owner: {
-        eq: user.username
-      }
-    }
-    try {
-      const petData: any = await API.graphql({query: listPrettyPets, variables: {filter: filter}})
-      console.log(petData)
-      const petArr = petData.data.listPrettyPets.items
-      dispatch(setPrettyPets(petArr))
-    } catch (err) {
-      console.log('error fetching pets: ', err)
-    }
-  }
 
   async function fetchStrangerPets() {
     const filter = {

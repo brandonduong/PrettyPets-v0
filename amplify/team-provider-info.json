@@ -48,11 +48,11 @@
         },
         "assignJob": {
           "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
-          "s3Key": "amplify-builds/assignJob-694243726c6c6e776850-build.zip"
+          "s3Key": "amplify-builds/assignJob-7a6255344c5663583837-build.zip"
         },
         "finishJob": {
           "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
-          "s3Key": "amplify-builds/finishJob-3152636c307864624c61-build.zip"
+          "s3Key": "amplify-builds/finishJob-552b64676f5a39303571-build.zip"
         }
       },
       "hosting": {
