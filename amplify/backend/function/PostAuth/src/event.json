@@ -1,3 +1,8 @@
 {
-  "userName": "user@example.com"
+  "userName": "brandon.duong+50@outlook.com",
+  "request": {
+    "userAttributes": {
+      "sub": "94f8757a-c6ba-4eb6-b7e1-e66d6bddf523"
+    }
+  }
 }

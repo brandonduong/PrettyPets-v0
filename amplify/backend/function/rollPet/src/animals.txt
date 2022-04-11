@@ -29,3 +29,5 @@ Axolotl
 Armadillo
 Beaver
 Sloth
+Rock
+Raccoon

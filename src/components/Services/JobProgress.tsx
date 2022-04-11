@@ -8,6 +8,7 @@ import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {removeJob} from "../../features/jobs/jobsSlice";
 import {incrementByAmount} from "../../features/prettypoints/prettyPointsSlice";
 import {updatePrettyPetsStatus} from "../../features/prettypets/prettyPetsSlice";
+import {Container} from "react-bootstrap";
 
 interface JobProgressProps {
   job: Job
@@ -62,7 +63,7 @@ function JobProgress({job}: JobProgressProps) {
       console.log(jobData)
       const jobArr = jobData.data.finishJob
       dispatch(removeJob(jobArr))
-      dispatch(updatePrettyPetsStatus({busyPets: job.pets, jobType: 'free'}))
+      dispatch(updatePrettyPetsStatus({busyPets: job.pets!.items.map((pet) => {return pet.id}), jobType: 'free'}))
       dispatch(incrementByAmount(job.payout))
     } catch (err) {
       console.log('error completing job: ', err)
@@ -72,11 +73,11 @@ function JobProgress({job}: JobProgressProps) {
   return (
     <Badge.Ribbon text={`+${job.payout} PrettyPoints`}>
       <Card className={"job-posting-card"}>
-        <h4>{job.jobType}</h4>
+        <h3>{job.jobType}</h3>
         {timer ?
-          <div>
+          <Container>
             <Progress className={"job-timer"} type="circle" percent={percentage} format={() => percentage < 100 ? timer : 'Done'} />
-          </div>
+          </Container>
           :
           <div>
             <Spin size="large"/>

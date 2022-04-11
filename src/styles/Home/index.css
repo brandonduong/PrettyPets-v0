@@ -43,3 +43,17 @@ span.pet-card-status {
 div.job-timer {
   margin-bottom: 1rem;
 }
+
+.filter-col {
+  display: flex;
+  justify-content: flex-start;
+  height:0
+}
+
+div.amplify-searchfield {
+  max-width: 60%;
+}
+
+.filter-title {
+  font-size: 1.2rem;
+}

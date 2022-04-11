@@ -39,8 +39,8 @@ function AdoptPet() {
     }
   }, [loading])
 
-  async function rollPetOnClick(email: string | undefined) {
-    if (!email || prettyPoints < ROLL_PRICE || buttonDisabled) return
+  async function rollPetOnClick(userId: string | undefined) {
+    if (!userId || prettyPoints < ROLL_PRICE || buttonDisabled) return
     try {
       setButtonDisabled(true)
       setIsModalVisible(true)
@@ -48,7 +48,7 @@ function AdoptPet() {
       // Handle loading
       setLoading(true)
 
-      const petData: any = await API.graphql({query: rollPet, variables: {email: email}})
+      const petData: any = await API.graphql({query: rollPet, variables: {userId}})
       console.log('rolled: ', petData.data.rollPet)
       setRolledPet(petData.data.rollPet)
       dispatch(incrementByAmount(-ROLL_PRICE))
@@ -60,7 +60,7 @@ function AdoptPet() {
 
   return (
     <>
-      <div onClick={() => rollPetOnClick(user.username)}>
+      <div onClick={() => rollPetOnClick(user.attributes!.sub)}>
         <div className="letter-image">
           <div className="animated-mail">
             <div className="back-fold"/>

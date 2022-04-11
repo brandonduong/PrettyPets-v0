@@ -11,6 +11,10 @@ type User @model {
   id: ID!
   email: String!
   prettyPoints: Int!
+  fashionTeam: FashionTeam @hasOne
+  pets: [PrettyPet] @hasMany
+  jobs: [Job] @hasMany
+  fashionFame: Int
 }
 
 type PrettyPet @model {
@@ -19,13 +23,14 @@ type PrettyPet @model {
   nickname: String!
   color: String!
   colorHex: String!
-  owner: String!
+  owner: User @belongsTo
   shiny: Boolean!
   traits: [[String]]!
   star: Int!
   stats: PetStats
   variant: Int!
   status: String
+  originalOwner: User @hasOne
 }
 
 type PetStats {
@@ -37,16 +42,22 @@ type PetStats {
 
 type Job @model {
   id: ID!
-  pets: [ID]
+  pets: [PrettyPet] @hasMany
   length: Int!
   jobType: String!
-  owner: String!
+  owner: User @belongsTo
   complete: Boolean
   payout: Int
 }
 
+type FashionTeam @model {
+  id: ID!
+  owner: User @belongsTo
+  pets: [PrettyPet] @hasMany
+}
+
 type Mutation {
-  rollPet(email: String): PrettyPet @function(name: "rollPet-${env}")
-  assignJob(email: String, petIds: [ID], length: Int, jobType: String): Job @function(name: "assignJob-${env}")
+  rollPet(userId: String): PrettyPet @function(name: "rollPet-${env}")
+  assignJob(userId: String, petIds: [ID], length: Int, jobType: String): Job @function(name: "assignJob-${env}")
   finishJob(id: ID!): Job @function(name: "finishJob-${env}")
 }

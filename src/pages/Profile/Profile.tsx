@@ -7,8 +7,6 @@ import {useAppSelector} from "../../app/hooks";
 import {API} from "aws-amplify";
 import {listUsers} from "../../graphql/queries";
 import {useAuthenticator} from "@aws-amplify/ui-react";
-import {Button} from "antd";
-import {CopyOutlined} from "@ant-design/icons";
 import '../../styles/Profile/index.css'
 
 function Profile() {
@@ -40,18 +38,9 @@ function Profile() {
     }
   }
 
-  function shareProfile() {
-    const getUrl = window.location;
-    const baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
-    navigator.clipboard.writeText(`${baseUrl}/${profileId}`);
-  }
-
   return (
     <Container className={"page-content"}>
-      <div className={"share-div"}>
-      <Button className={"share-button"} type={"primary"} icon={<CopyOutlined />} size={"large"} onClick={shareProfile}/>
-      </div>
-      <PetGallery selectable={false} stats={true} max={0} profileUser={profileUser}/>
+      <PetGallery selectable={false} stats={true} max={0} profileUser={profileUser} profileId={profileId}/>
     </Container>
   );
 }

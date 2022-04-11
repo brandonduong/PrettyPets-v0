@@ -28,14 +28,13 @@ const createJob = gql`
     ) {
         createJob(input: $input, condition: $condition) {
             id
-            pets
             length
             jobType
-            owner
             complete
             payout
             createdAt
             updatedAt
+            userJobsId
         }
     }
 `
@@ -51,7 +50,6 @@ const updatePrettyPet = gql`
             nickname
             color
             colorHex
-            owner
             shiny
             traits
             star
@@ -65,6 +63,7 @@ const updatePrettyPet = gql`
             status
             createdAt
             updatedAt
+            jobPetsId
         }
     }
 `
@@ -77,28 +76,37 @@ function calculatePayout(length, pets, jobType) {
     let starPayout = 0
     let statPayout = 0
     pets.forEach((pet) => {
-       starPayout += pet.star
-       switch (jobType) {
-           case JobTypes.THERAPY:
-               statPayout += pet.stats.cool;
-               break;
-           case JobTypes.EMOTIONAL:
-               statPayout += pet.stats.cute;
-               break;
-           case JobTypes.FISHING:
-               statPayout += pet.stats.control;
-               break;
-           case JobTypes.FORAGING:
-               statPayout += pet.stats.confidence;
-               break;
-           default:
-               break;
-       }
+        // Calculate money based on star
+        if (!(pet.star <= pet.traits[1].length)) {
+            starPayout += pet.star - pet.traits[1].length
+        } else {
+            // Minimum +1 from star
+            starPayout += 1
+        }
+
+        // Calculate money based on stat
+        const statPayoutFactor = (STAT_PAYOUT_FRACTION + pet.traits[1].length)
+        switch (jobType) {
+            case JobTypes.THERAPY:
+                statPayout += pet.stats.cool / statPayoutFactor;
+                break;
+            case JobTypes.EMOTIONAL:
+                statPayout += pet.stats.cute / statPayoutFactor;
+                break;
+            case JobTypes.FISHING:
+                statPayout += pet.stats.control / statPayoutFactor;
+                break;
+            case JobTypes.FORAGING:
+                statPayout += pet.stats.confidence / statPayoutFactor;
+                break;
+            default:
+                break;
+        }
     })
 
     let fullPayout = 0
     for(let i = 1; i <= length; i++) {
-        fullPayout += (starPayout + (statPayout / STAT_PAYOUT_FRACTION)) * (1/Math.sqrt(i))
+        fullPayout += (starPayout + statPayout) * (1/Math.sqrt(i))
     }
     return Math.floor(fullPayout)
 }
@@ -134,8 +142,37 @@ async function updatePetStatus(petIds, jobType) {
     return pets
 }
 
+async function updatePetJobId(petIds, jobId) {
+    console.log(petIds, jobId)
+    for (const petId of petIds) {
+        // Update pet's status to working
+        try {
+            const petInfo = {
+                id: petId,
+                jobPetsId: jobId
+            }
+
+            const updatedPet = await axios({
+                url: url,
+                method: 'post',
+                headers: {
+                    'x-api-key': key
+                },
+                data: {
+                    query: print(updatePrettyPet),
+                    variables: {
+                        input: petInfo
+                    }
+                }
+            })
+        } catch (err) {
+            console.log('error updating pet: ', err);
+        }
+    }
+}
+
 exports.handler = async (event) => {
-    if (!event.arguments.email || !lengthIsValid(event.arguments.length)) {
+    if (!event.arguments.userId || !lengthIsValid(event.arguments.length)) {
         return
     }
     const pets = await updatePetStatus(event.arguments.petIds, event.arguments.jobType)
@@ -143,11 +180,10 @@ exports.handler = async (event) => {
     // Create job in GraphQL API
     try {
         const jobInfo = {
-            owner: event.arguments.email,
-            pets: event.arguments.petIds,
             length: event.arguments.length,
             jobType: event.arguments.jobType,
             complete: false,
+            userJobsId: event.arguments.userId,
             payout: calculatePayout(event.arguments.length, pets, event.arguments.jobType)
         }
         console.log(jobInfo)
@@ -165,6 +201,8 @@ exports.handler = async (event) => {
                 }
             }
         })
+        console.log(jobData.data.data.createJob)
+        await updatePetJobId(event.arguments.petIds, jobData.data.data.createJob.id)
         return jobData.data.data.createJob
     } catch (err) {
         console.log('error creating job: ', err);

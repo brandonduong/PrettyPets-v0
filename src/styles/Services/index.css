@@ -6,6 +6,17 @@
   height: 100%;
 }
 
+.job-posting-card > .ant-card-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .job-posting > div {
   height: 100%;
+}
+
+.job-posting-row {
+  justify-content: center;
 }

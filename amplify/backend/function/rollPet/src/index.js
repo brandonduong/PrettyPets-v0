@@ -38,7 +38,14 @@ const createPet = gql`
             nickname
             color
             colorHex
-            owner
+            owner {
+                id
+                email
+                prettyPoints
+                createdAt
+                updatedAt
+                userFashionTeamId
+            }
             shiny
             traits
             star
@@ -52,25 +59,24 @@ const createPet = gql`
             status
             createdAt
             updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
         }
     }
 `
 
-const listUsers = gql`
-    query ListUsers(
-        $filter: ModelUserFilterInput
-        $limit: Int
-        $nextToken: String
-    ) {
-        listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
-            items {
-                id
-                email
-                prettyPoints
-                createdAt
-                updatedAt
-            }
-            nextToken
+const getUser = gql`
+    query GetUser($id: ID!) {
+        getUser(id: $id) {
+            id
+            email
+            prettyPoints
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
         }
     }
 `
@@ -200,21 +206,15 @@ function generateStats(stars) {
 }
 
 exports.handler = async (event) => {
-  if (!event.arguments.email) {
+  if (!event.arguments.userId) {
     return
   }
-  const email = event.arguments.email;
+  const userId = event.arguments.userId;
   let pp = 0;
   let id = '';
 
   // Check if user has enough money
   try {
-    const filter = {
-      email: {
-        eq: email
-      }
-    }
-
     const graphqlData = await axios({
       url: url,
       method: 'post',
@@ -222,11 +222,11 @@ exports.handler = async (event) => {
         'x-api-key': key
       },
       data: {
-        query: print(listUsers),
-        variables: {filter: filter}
+        query: print(getUser),
+        variables: {id: userId}
       }
     });
-    const userData = graphqlData.data.data.listUsers.items[0]
+    const userData = graphqlData.data.data.getUser
     if (userData) {
       pp = userData.prettyPoints
       id = userData.id
@@ -279,13 +279,14 @@ exports.handler = async (event) => {
       shiny: shiny,
       color: color[1],
       colorHex: color[0],
-      owner: email,
       nickname: generateDefaultNickname(shiny, color[1], animal),
       traits: generateTraits(stars),
       star: stars,
       stats: stats,
       variant,
-      status: 'free'
+      status: 'free',
+      userPetsId: id,
+      prettyPetOriginalOwnerId: id
     }
     console.log(petInfo)
 
@@ -302,6 +303,7 @@ exports.handler = async (event) => {
         }
       }
     })
+    console.log(pet.data.errors)
     return pet.data.data.createPrettyPet
   } catch (err) {
     console.log('error creating todo: ', err);

@@ -8,8 +8,246 @@ export const onCreateUser = /* GraphQL */ `
       id
       email
       prettyPoints
+      fashionTeam {
+        id
+        owner {
+          id
+          email
+          prettyPoints
+          fashionTeam {
+            id
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            pets {
+              nextToken
+            }
+            createdAt
+            updatedAt
+            fashionTeamOwnerId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          jobs {
+            items {
+              id
+              length
+              jobType
+              complete
+              payout
+              createdAt
+              updatedAt
+              userJobsId
+            }
+            nextToken
+          }
+          fashionFame
+          createdAt
+          updatedAt
+          userFashionTeamId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+        fashionTeamOwnerId
+      }
+      pets {
+        items {
+          id
+          animal
+          nickname
+          color
+          colorHex
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          shiny
+          traits
+          star
+          stats {
+            cool
+            cute
+            confidence
+            control
+          }
+          variant
+          status
+          originalOwner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          createdAt
+          updatedAt
+          userPetsId
+          jobPetsId
+          fashionTeamPetsId
+          prettyPetOriginalOwnerId
+        }
+        nextToken
+      }
+      jobs {
+        items {
+          id
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          length
+          jobType
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          complete
+          payout
+          createdAt
+          updatedAt
+          userJobsId
+        }
+        nextToken
+      }
+      fashionFame
       createdAt
       updatedAt
+      userFashionTeamId
     }
   }
 `;
@@ -19,8 +257,246 @@ export const onUpdateUser = /* GraphQL */ `
       id
       email
       prettyPoints
+      fashionTeam {
+        id
+        owner {
+          id
+          email
+          prettyPoints
+          fashionTeam {
+            id
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            pets {
+              nextToken
+            }
+            createdAt
+            updatedAt
+            fashionTeamOwnerId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          jobs {
+            items {
+              id
+              length
+              jobType
+              complete
+              payout
+              createdAt
+              updatedAt
+              userJobsId
+            }
+            nextToken
+          }
+          fashionFame
+          createdAt
+          updatedAt
+          userFashionTeamId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+        fashionTeamOwnerId
+      }
+      pets {
+        items {
+          id
+          animal
+          nickname
+          color
+          colorHex
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          shiny
+          traits
+          star
+          stats {
+            cool
+            cute
+            confidence
+            control
+          }
+          variant
+          status
+          originalOwner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          createdAt
+          updatedAt
+          userPetsId
+          jobPetsId
+          fashionTeamPetsId
+          prettyPetOriginalOwnerId
+        }
+        nextToken
+      }
+      jobs {
+        items {
+          id
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          length
+          jobType
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          complete
+          payout
+          createdAt
+          updatedAt
+          userJobsId
+        }
+        nextToken
+      }
+      fashionFame
       createdAt
       updatedAt
+      userFashionTeamId
     }
   }
 `;
@@ -30,8 +506,246 @@ export const onDeleteUser = /* GraphQL */ `
       id
       email
       prettyPoints
+      fashionTeam {
+        id
+        owner {
+          id
+          email
+          prettyPoints
+          fashionTeam {
+            id
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            pets {
+              nextToken
+            }
+            createdAt
+            updatedAt
+            fashionTeamOwnerId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          jobs {
+            items {
+              id
+              length
+              jobType
+              complete
+              payout
+              createdAt
+              updatedAt
+              userJobsId
+            }
+            nextToken
+          }
+          fashionFame
+          createdAt
+          updatedAt
+          userFashionTeamId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+        fashionTeamOwnerId
+      }
+      pets {
+        items {
+          id
+          animal
+          nickname
+          color
+          colorHex
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          shiny
+          traits
+          star
+          stats {
+            cool
+            cute
+            confidence
+            control
+          }
+          variant
+          status
+          originalOwner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          createdAt
+          updatedAt
+          userPetsId
+          jobPetsId
+          fashionTeamPetsId
+          prettyPetOriginalOwnerId
+        }
+        nextToken
+      }
+      jobs {
+        items {
+          id
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          length
+          jobType
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          complete
+          payout
+          createdAt
+          updatedAt
+          userJobsId
+        }
+        nextToken
+      }
+      fashionFame
       createdAt
       updatedAt
+      userFashionTeamId
     }
   }
 `;
@@ -43,7 +757,133 @@ export const onCreatePrettyPet = /* GraphQL */ `
       nickname
       color
       colorHex
-      owner
+      owner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
       shiny
       traits
       star
@@ -55,8 +895,139 @@ export const onCreatePrettyPet = /* GraphQL */ `
       }
       variant
       status
+      originalOwner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
       createdAt
       updatedAt
+      userPetsId
+      jobPetsId
+      fashionTeamPetsId
+      prettyPetOriginalOwnerId
     }
   }
 `;
@@ -68,7 +1039,133 @@ export const onUpdatePrettyPet = /* GraphQL */ `
       nickname
       color
       colorHex
-      owner
+      owner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
       shiny
       traits
       star
@@ -80,8 +1177,139 @@ export const onUpdatePrettyPet = /* GraphQL */ `
       }
       variant
       status
+      originalOwner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
       createdAt
       updatedAt
+      userPetsId
+      jobPetsId
+      fashionTeamPetsId
+      prettyPetOriginalOwnerId
     }
   }
 `;
@@ -93,7 +1321,133 @@ export const onDeletePrettyPet = /* GraphQL */ `
       nickname
       color
       colorHex
-      owner
+      owner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
       shiny
       traits
       star
@@ -105,8 +1459,139 @@ export const onDeletePrettyPet = /* GraphQL */ `
       }
       variant
       status
+      originalOwner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
       createdAt
       updatedAt
+      userPetsId
+      jobPetsId
+      fashionTeamPetsId
+      prettyPetOriginalOwnerId
     }
   }
 `;
@@ -114,14 +1599,209 @@ export const onCreateJob = /* GraphQL */ `
   subscription OnCreateJob {
     onCreateJob {
       id
-      pets
+      pets {
+        items {
+          id
+          animal
+          nickname
+          color
+          colorHex
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          shiny
+          traits
+          star
+          stats {
+            cool
+            cute
+            confidence
+            control
+          }
+          variant
+          status
+          originalOwner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          createdAt
+          updatedAt
+          userPetsId
+          jobPetsId
+          fashionTeamPetsId
+          prettyPetOriginalOwnerId
+        }
+        nextToken
+      }
       length
       jobType
-      owner
+      owner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
       complete
       payout
       createdAt
       updatedAt
+      userJobsId
     }
   }
 `;
@@ -129,14 +1809,209 @@ export const onUpdateJob = /* GraphQL */ `
   subscription OnUpdateJob {
     onUpdateJob {
       id
-      pets
+      pets {
+        items {
+          id
+          animal
+          nickname
+          color
+          colorHex
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          shiny
+          traits
+          star
+          stats {
+            cool
+            cute
+            confidence
+            control
+          }
+          variant
+          status
+          originalOwner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          createdAt
+          updatedAt
+          userPetsId
+          jobPetsId
+          fashionTeamPetsId
+          prettyPetOriginalOwnerId
+        }
+        nextToken
+      }
       length
       jobType
-      owner
+      owner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
       complete
       payout
       createdAt
       updatedAt
+      userJobsId
     }
   }
 `;
@@ -144,14 +2019,827 @@ export const onDeleteJob = /* GraphQL */ `
   subscription OnDeleteJob {
     onDeleteJob {
       id
-      pets
+      pets {
+        items {
+          id
+          animal
+          nickname
+          color
+          colorHex
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          shiny
+          traits
+          star
+          stats {
+            cool
+            cute
+            confidence
+            control
+          }
+          variant
+          status
+          originalOwner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          createdAt
+          updatedAt
+          userPetsId
+          jobPetsId
+          fashionTeamPetsId
+          prettyPetOriginalOwnerId
+        }
+        nextToken
+      }
       length
       jobType
-      owner
+      owner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
       complete
       payout
       createdAt
       updatedAt
+      userJobsId
+    }
+  }
+`;
+export const onCreateFashionTeam = /* GraphQL */ `
+  subscription OnCreateFashionTeam {
+    onCreateFashionTeam {
+      id
+      owner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
+      pets {
+        items {
+          id
+          animal
+          nickname
+          color
+          colorHex
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          shiny
+          traits
+          star
+          stats {
+            cool
+            cute
+            confidence
+            control
+          }
+          variant
+          status
+          originalOwner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          createdAt
+          updatedAt
+          userPetsId
+          jobPetsId
+          fashionTeamPetsId
+          prettyPetOriginalOwnerId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      fashionTeamOwnerId
+    }
+  }
+`;
+export const onUpdateFashionTeam = /* GraphQL */ `
+  subscription OnUpdateFashionTeam {
+    onUpdateFashionTeam {
+      id
+      owner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
+      pets {
+        items {
+          id
+          animal
+          nickname
+          color
+          colorHex
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          shiny
+          traits
+          star
+          stats {
+            cool
+            cute
+            confidence
+            control
+          }
+          variant
+          status
+          originalOwner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          createdAt
+          updatedAt
+          userPetsId
+          jobPetsId
+          fashionTeamPetsId
+          prettyPetOriginalOwnerId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      fashionTeamOwnerId
+    }
+  }
+`;
+export const onDeleteFashionTeam = /* GraphQL */ `
+  subscription OnDeleteFashionTeam {
+    onDeleteFashionTeam {
+      id
+      owner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
+      pets {
+        items {
+          id
+          animal
+          nickname
+          color
+          colorHex
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          shiny
+          traits
+          star
+          stats {
+            cool
+            cute
+            confidence
+            control
+          }
+          variant
+          status
+          originalOwner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          createdAt
+          updatedAt
+          userPetsId
+          jobPetsId
+          fashionTeamPetsId
+          prettyPetOriginalOwnerId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      fashionTeamOwnerId
     }
   }
 `;

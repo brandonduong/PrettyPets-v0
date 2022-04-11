@@ -19,14 +19,7 @@ const updateJob = gql`
     ) {
         updateJob(input: $input, condition: $condition) {
             id
-            pets
-            length
-            jobType
-            owner
             complete
-            payout
-            createdAt
-            updatedAt
         }
     }
 `
@@ -35,33 +28,56 @@ const getJob = gql`
     query GetJob($id: ID!) {
         getJob(id: $id) {
             id
-            pets
+            pets {
+                items {
+                    id
+                    animal
+                    nickname
+                    color
+                    colorHex
+                    shiny
+                    traits
+                    star
+                    stats {
+                        cool
+                        cute
+                        confidence
+                        control
+                    }
+                    variant
+                    status
+                    createdAt
+                    updatedAt
+                    userPetsId
+                    jobPetsId
+                    fashionTeamPetsId
+                }
+                nextToken
+            }
+            owner {
+                id
+                email
+            }
             length
             jobType
-            owner
             complete
             payout
             createdAt
             updatedAt
+            userJobsId
         }
     }
 `
 
-const listUsers = gql`
-    query ListUsers(
-        $filter: ModelUserFilterInput
-        $limit: Int
-        $nextToken: String
-    ) {
-        listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
-            items {
-                id
-                email
-                prettyPoints
-                createdAt
-                updatedAt
-            }
-            nextToken
+const getUser = gql`
+    query GetUser($id: ID!) {
+        getUser(id: $id) {
+            id
+            email
+            prettyPoints
+            fashionFame
+            createdAt
+            updatedAt
         }
     }
 `
@@ -88,40 +104,18 @@ const updatePrettyPet = gql`
     ) {
         updatePrettyPet(input: $input, condition: $condition) {
             id
-            animal
-            nickname
-            color
-            colorHex
-            owner
-            shiny
-            traits
-            star
-            stats {
-                cool
-                cute
-                confidence
-                control
-            }
-            variant
+            jobPetsId
             status
-            createdAt
-            updatedAt
         }
     }
 `
 
-async function applyPayout(email, payout) {
+async function applyPayout(userId, payout) {
   let id = '';
   let pp = 0;
 
   // Get user
   try {
-    const filter = {
-      email: {
-        eq: email
-      }
-    }
-
     const graphqlData = await axios({
       url: url,
       method: 'post',
@@ -129,13 +123,11 @@ async function applyPayout(email, payout) {
         'x-api-key': key
       },
       data: {
-        query: print(listUsers),
-        variables: {filter: filter}
+        query: print(getUser),
+        variables: {id: userId}
       }
     });
-    console.log('users', graphqlData.data.data.listUsers)
-    console.log('email', email)
-    const userData = graphqlData.data.data.listUsers.items[0]
+    const userData = graphqlData.data.data.getUser
     if (userData) {
       pp = userData.prettyPoints
       id = userData.id
@@ -168,16 +160,17 @@ async function applyPayout(email, payout) {
   }
 }
 
-async function updatePetStatus(petIds) {
-  for (const petId of petIds) {
+async function updatePetStatus(pets) {
+  for (const pet of pets) {
     // Update pet's status to working
     try {
       const petInfo = {
-        id: petId,
-        status: 'free'
+        id: pet.id,
+        status: 'free',
+        jobPetsId: null,
       }
 
-      const petData = await axios({
+      await axios({
         url: url,
         method: 'post',
         headers: {
@@ -199,7 +192,7 @@ async function updatePetStatus(petIds) {
 exports.handler = async (event) => {
   // Check job isn't already completed
   let payout = 0
-  let email = ''
+  let userId = ''
   let jobData = {}
   try {
     const graphqlData = await axios({
@@ -221,7 +214,7 @@ exports.handler = async (event) => {
       return jobData;
     } else {
       payout = jobData.payout
-      email = jobData.owner
+      userId = jobData.owner.id
     }
   } catch (err) {
     console.log('error getting job: ', err);
@@ -252,8 +245,8 @@ exports.handler = async (event) => {
     console.log('error completing job: ', err);
   }
 
-  await applyPayout(email, payout)
-  await updatePetStatus(jobData.pets)
+  await applyPayout(userId, payout)
+  await updatePetStatus(jobData.pets.items)
 
   return jobData;
 };
