@@ -74,46 +74,8 @@ const createUser = gql`
             email
             prettyPoints
             fashionFame
-            fashionTeam {
-                id
-                owner {
-                    id
-                    email
-                    prettyPoints
-                    createdAt
-                    updatedAt
-                    userFashionTeamId
-                }
-                pets {
-                    nextToken
-                }
-                createdAt
-                updatedAt
-                fashionTeamOwnerId
-            }
-            pets {
-                items {
-                    id
-                    animal
-                    nickname
-                    color
-                    colorHex
-                    shiny
-                    traits
-                    star
-                    variant
-                    status
-                    createdAt
-                    updatedAt
-                    userPetsId
-                    jobPetsId
-                    fashionTeamPetsId
-                }
-                nextToken
-            }
-            createdAt
-            updatedAt
-            userFashionTeamId
+            starDust
+            rainbowDye
         }
     }
 `
@@ -181,6 +143,14 @@ exports.handler = async (event, context, callback) => {
             email: event.userName,
             prettyPoints: 500,
             fashionFame: 100,
+            starDust: {
+                uglyStarDust: 0,
+                poorStarDust: 0,
+                fineStarDust: 0,
+                cuteStarDust: 0,
+                prettyStarDust: 0
+            },
+            rainbowDye: 0
         }
 
         const userData = await axios({

@@ -41,7 +41,7 @@ function Filters({filters, setFilters}: props) {
     <div>
       {radio('star')}
       <h6>
-        Date:
+        Date
       </h6>
       <Radio.Group
         options={dateOptions}

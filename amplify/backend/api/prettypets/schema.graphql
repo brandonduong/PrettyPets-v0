@@ -15,6 +15,8 @@ type User @model {
   pets: [PrettyPet] @hasMany
   jobs: [Job] @hasMany
   fashionFame: Int
+  rainbowDye: Int
+  starDust: Stardust
 }
 
 type PrettyPet @model {
@@ -40,6 +42,14 @@ type PetStats {
   control: Int!
 }
 
+type Stardust {
+  uglyStarDust: Int,
+  poorStarDust: Int,
+  fineStarDust: Int,
+  cuteStarDust: Int,
+  prettyStarDust: Int
+}
+
 type Job @model {
   id: ID!
   pets: [PrettyPet] @hasMany
@@ -60,4 +70,5 @@ type Mutation {
   rollPet(userId: String): PrettyPet @function(name: "rollPet-${env}")
   assignJob(userId: String, petIds: [ID], length: Int, jobType: String): Job @function(name: "assignJob-${env}")
   finishJob(id: ID!): Job @function(name: "finishJob-${env}")
+  abandonPet(petIds: [ID]): [PrettyPet] @function(name: "abandonPet-${env}")
 }

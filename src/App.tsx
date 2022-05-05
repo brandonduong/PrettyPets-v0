@@ -12,6 +12,8 @@ import "./styles/App/index.css"
 import NavMap from "./components/NavMap/NavMap";
 import Services from "./pages/Services/Services";
 import Profile from "./pages/Profile/Profile";
+import Groomer from "./pages/Groomer/Groomer";
+import Daycare from "./pages/Daycare/Daycare";
 
 
 Amplify.configure(awsExports);
@@ -44,6 +46,8 @@ function App() {
               <Route path={'/Adoption'} element={<Adoption/>}/>
               <Route path={'/Job'} element={<Services/>}/>
               <Route path={'/profile/:profileId'} element={<Profile/>}/>
+              <Route path={'/Groomer'} element={<Groomer/>}/>
+              <Route path={'/Daycare'} element={<Daycare/>}/>
             </Routes>
           </BrowserRouter>
         )}

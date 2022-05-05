@@ -20,8 +20,8 @@ export const prettyPetsSlice = createSlice({
       state.fetched = true
     },
     selectPrettyPet: (state, action) => {
-      const newId = action.payload
-      if (!state.selected.includes(newId) && state.selected.length < MAX_SELECTED) {
+      const newId = action.payload.id
+      if (!state.selected.includes(newId) && state.selected.length < action.payload.max) {
         state.selected = [...state.selected, newId]
       } else if (state.selected.includes(newId)) {
         const temp = state.selected

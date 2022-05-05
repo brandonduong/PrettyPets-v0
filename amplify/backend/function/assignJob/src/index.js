@@ -12,7 +12,7 @@ const {print} = graphql;
 const url = process.env.API_PRETTYPETS_GRAPHQLAPIENDPOINTOUTPUT
 const key = process.env.API_PRETTYPETS_GRAPHQLAPIKEYOUTPUT
 
-const STAT_PAYOUT_FRACTION = 5
+const STAT_PAYOUT_FRACTION = 3
 
 const JobTypes = {
     THERAPY: "Therapy",
@@ -77,27 +77,22 @@ function calculatePayout(length, pets, jobType) {
     let statPayout = 0
     pets.forEach((pet) => {
         // Calculate money based on star
-        if (!(pet.star <= pet.traits[1].length)) {
-            starPayout += pet.star - pet.traits[1].length
-        } else {
-            // Minimum +1 from star
-            starPayout += 1
-        }
+        starPayout += (pet.star + pet.traits[0].length) / 3
 
         // Calculate money based on stat
-        const statPayoutFactor = (STAT_PAYOUT_FRACTION + pet.traits[1].length)
+        const statPayoutFactor = STAT_PAYOUT_FRACTION
         switch (jobType) {
             case JobTypes.THERAPY:
-                statPayout += pet.stats.cool / statPayoutFactor;
+                statPayout += (pet.stats.cool + pet.traits[0].length) / statPayoutFactor;
                 break;
             case JobTypes.EMOTIONAL:
-                statPayout += pet.stats.cute / statPayoutFactor;
+                statPayout += (pet.stats.cute+ pet.traits[0].length) / statPayoutFactor;
                 break;
             case JobTypes.FISHING:
-                statPayout += pet.stats.control / statPayoutFactor;
+                statPayout += (pet.stats.control + pet.traits[0].length) / statPayoutFactor;
                 break;
             case JobTypes.FORAGING:
-                statPayout += pet.stats.confidence / statPayoutFactor;
+                statPayout += (pet.stats.confidence + pet.traits[0].length) / statPayoutFactor;
                 break;
             default:
                 break;
@@ -108,6 +103,11 @@ function calculatePayout(length, pets, jobType) {
     for(let i = 1; i <= length; i++) {
         fullPayout += (starPayout + statPayout) * (1/Math.sqrt(i))
     }
+
+    if (Math.floor(fullPayout) === 0) {
+        return 1
+    }
+
     return Math.floor(fullPayout)
 }
 

@@ -33,6 +33,14 @@ export const rollPet = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -74,6 +82,7 @@ export const rollPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -94,6 +103,7 @@ export const rollPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -120,6 +130,7 @@ export const rollPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -133,6 +144,14 @@ export const rollPet = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -171,6 +190,14 @@ export const rollPet = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -212,6 +239,7 @@ export const rollPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -232,6 +260,7 @@ export const rollPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -258,6 +287,7 @@ export const rollPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -271,6 +301,14 @@ export const rollPet = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -322,6 +360,14 @@ export const assignJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -354,6 +400,14 @@ export const assignJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -392,6 +446,14 @@ export const assignJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -433,6 +495,7 @@ export const assignJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -453,6 +516,7 @@ export const assignJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -479,6 +543,7 @@ export const assignJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -492,6 +557,14 @@ export const assignJob = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -532,6 +605,14 @@ export const finishJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -564,6 +645,14 @@ export const finishJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -602,6 +691,14 @@ export const finishJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -643,6 +740,7 @@ export const finishJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -663,6 +761,7 @@ export const finishJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -689,6 +788,7 @@ export const finishJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -702,6 +802,14 @@ export const finishJob = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -711,6 +819,326 @@ export const finishJob = /* GraphQL */ `
       createdAt
       updatedAt
       userJobsId
+    }
+  }
+`;
+export const abandonPet = /* GraphQL */ `
+  mutation AbandonPet($petIds: [ID]) {
+    abandonPet(petIds: $petIds) {
+      id
+      animal
+      nickname
+      color
+      colorHex
+      owner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              rainbowDye
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              rainbowDye
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              rainbowDye
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
+      shiny
+      traits
+      star
+      stats {
+        cool
+        cute
+        confidence
+        control
+      }
+      variant
+      status
+      originalOwner {
+        id
+        email
+        prettyPoints
+        fashionTeam {
+          id
+          owner {
+            id
+            email
+            prettyPoints
+            fashionTeam {
+              id
+              createdAt
+              updatedAt
+              fashionTeamOwnerId
+            }
+            pets {
+              nextToken
+            }
+            jobs {
+              nextToken
+            }
+            fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
+            createdAt
+            updatedAt
+            userFashionTeamId
+          }
+          pets {
+            items {
+              id
+              animal
+              nickname
+              color
+              colorHex
+              shiny
+              traits
+              star
+              variant
+              status
+              createdAt
+              updatedAt
+              userPetsId
+              jobPetsId
+              fashionTeamPetsId
+              prettyPetOriginalOwnerId
+            }
+            nextToken
+          }
+          createdAt
+          updatedAt
+          fashionTeamOwnerId
+        }
+        pets {
+          items {
+            id
+            animal
+            nickname
+            color
+            colorHex
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              rainbowDye
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            shiny
+            traits
+            star
+            stats {
+              cool
+              cute
+              confidence
+              control
+            }
+            variant
+            status
+            originalOwner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              rainbowDye
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            createdAt
+            updatedAt
+            userPetsId
+            jobPetsId
+            fashionTeamPetsId
+            prettyPetOriginalOwnerId
+          }
+          nextToken
+        }
+        jobs {
+          items {
+            id
+            pets {
+              nextToken
+            }
+            length
+            jobType
+            owner {
+              id
+              email
+              prettyPoints
+              fashionFame
+              rainbowDye
+              createdAt
+              updatedAt
+              userFashionTeamId
+            }
+            complete
+            payout
+            createdAt
+            updatedAt
+            userJobsId
+          }
+          nextToken
+        }
+        fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
+        createdAt
+        updatedAt
+        userFashionTeamId
+      }
+      createdAt
+      updatedAt
+      userPetsId
+      jobPetsId
+      fashionTeamPetsId
+      prettyPetOriginalOwnerId
     }
   }
 `;
@@ -736,6 +1164,7 @@ export const createUser = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -782,6 +1211,14 @@ export const createUser = /* GraphQL */ `
             nextToken
           }
           fashionFame
+          rainbowDye
+          starDust {
+            uglyStarDust
+            poorStarDust
+            fineStarDust
+            cuteStarDust
+            prettyStarDust
+          }
           createdAt
           updatedAt
           userFashionTeamId
@@ -798,6 +1235,7 @@ export const createUser = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -818,6 +1256,7 @@ export const createUser = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -859,6 +1298,14 @@ export const createUser = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -891,6 +1338,14 @@ export const createUser = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -947,6 +1402,14 @@ export const createUser = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -960,6 +1423,14 @@ export const createUser = /* GraphQL */ `
         nextToken
       }
       fashionFame
+      rainbowDye
+      starDust {
+        uglyStarDust
+        poorStarDust
+        fineStarDust
+        cuteStarDust
+        prettyStarDust
+      }
       createdAt
       updatedAt
       userFashionTeamId
@@ -988,6 +1459,7 @@ export const updateUser = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1034,6 +1506,14 @@ export const updateUser = /* GraphQL */ `
             nextToken
           }
           fashionFame
+          rainbowDye
+          starDust {
+            uglyStarDust
+            poorStarDust
+            fineStarDust
+            cuteStarDust
+            prettyStarDust
+          }
           createdAt
           updatedAt
           userFashionTeamId
@@ -1050,6 +1530,7 @@ export const updateUser = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1070,6 +1551,7 @@ export const updateUser = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1111,6 +1593,14 @@ export const updateUser = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -1143,6 +1633,14 @@ export const updateUser = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -1199,6 +1697,14 @@ export const updateUser = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -1212,6 +1718,14 @@ export const updateUser = /* GraphQL */ `
         nextToken
       }
       fashionFame
+      rainbowDye
+      starDust {
+        uglyStarDust
+        poorStarDust
+        fineStarDust
+        cuteStarDust
+        prettyStarDust
+      }
       createdAt
       updatedAt
       userFashionTeamId
@@ -1240,6 +1754,7 @@ export const deleteUser = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1286,6 +1801,14 @@ export const deleteUser = /* GraphQL */ `
             nextToken
           }
           fashionFame
+          rainbowDye
+          starDust {
+            uglyStarDust
+            poorStarDust
+            fineStarDust
+            cuteStarDust
+            prettyStarDust
+          }
           createdAt
           updatedAt
           userFashionTeamId
@@ -1302,6 +1825,7 @@ export const deleteUser = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1322,6 +1846,7 @@ export const deleteUser = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1363,6 +1888,14 @@ export const deleteUser = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -1395,6 +1928,14 @@ export const deleteUser = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -1451,6 +1992,14 @@ export const deleteUser = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -1464,6 +2013,14 @@ export const deleteUser = /* GraphQL */ `
         nextToken
       }
       fashionFame
+      rainbowDye
+      starDust {
+        uglyStarDust
+        poorStarDust
+        fineStarDust
+        cuteStarDust
+        prettyStarDust
+      }
       createdAt
       updatedAt
       userFashionTeamId
@@ -1504,6 +2061,14 @@ export const createPrettyPet = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -1545,6 +2110,7 @@ export const createPrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1565,6 +2131,7 @@ export const createPrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1591,6 +2158,7 @@ export const createPrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1604,6 +2172,14 @@ export const createPrettyPet = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -1642,6 +2218,14 @@ export const createPrettyPet = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -1683,6 +2267,7 @@ export const createPrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1703,6 +2288,7 @@ export const createPrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1729,6 +2315,7 @@ export const createPrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1742,6 +2329,14 @@ export const createPrettyPet = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -1789,6 +2384,14 @@ export const updatePrettyPet = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -1830,6 +2433,7 @@ export const updatePrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1850,6 +2454,7 @@ export const updatePrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1876,6 +2481,7 @@ export const updatePrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1889,6 +2495,14 @@ export const updatePrettyPet = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -1927,6 +2541,14 @@ export const updatePrettyPet = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -1968,6 +2590,7 @@ export const updatePrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -1988,6 +2611,7 @@ export const updatePrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2014,6 +2638,7 @@ export const updatePrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2027,6 +2652,14 @@ export const updatePrettyPet = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -2074,6 +2707,14 @@ export const deletePrettyPet = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -2115,6 +2756,7 @@ export const deletePrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2135,6 +2777,7 @@ export const deletePrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2161,6 +2804,7 @@ export const deletePrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2174,6 +2818,14 @@ export const deletePrettyPet = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -2212,6 +2864,14 @@ export const deletePrettyPet = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -2253,6 +2913,7 @@ export const deletePrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2273,6 +2934,7 @@ export const deletePrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2299,6 +2961,7 @@ export const deletePrettyPet = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2312,6 +2975,14 @@ export const deletePrettyPet = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -2356,6 +3027,14 @@ export const createJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -2388,6 +3067,14 @@ export const createJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -2426,6 +3113,14 @@ export const createJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -2467,6 +3162,7 @@ export const createJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2487,6 +3183,7 @@ export const createJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2513,6 +3210,7 @@ export const createJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2526,6 +3224,14 @@ export const createJob = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -2569,6 +3275,14 @@ export const updateJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -2601,6 +3315,14 @@ export const updateJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -2639,6 +3361,14 @@ export const updateJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -2680,6 +3410,7 @@ export const updateJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2700,6 +3431,7 @@ export const updateJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2726,6 +3458,7 @@ export const updateJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2739,6 +3472,14 @@ export const updateJob = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -2782,6 +3523,14 @@ export const deleteJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -2814,6 +3563,14 @@ export const deleteJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -2852,6 +3609,14 @@ export const deleteJob = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -2893,6 +3658,7 @@ export const deleteJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2913,6 +3679,7 @@ export const deleteJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2939,6 +3706,7 @@ export const deleteJob = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -2952,6 +3720,14 @@ export const deleteJob = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -2994,6 +3770,14 @@ export const createFashionTeam = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -3035,6 +3819,7 @@ export const createFashionTeam = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -3055,6 +3840,7 @@ export const createFashionTeam = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -3081,6 +3867,7 @@ export const createFashionTeam = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -3094,6 +3881,14 @@ export const createFashionTeam = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -3122,6 +3917,14 @@ export const createFashionTeam = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -3154,6 +3957,14 @@ export const createFashionTeam = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -3203,6 +4014,14 @@ export const updateFashionTeam = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -3244,6 +4063,7 @@ export const updateFashionTeam = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -3264,6 +4084,7 @@ export const updateFashionTeam = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -3290,6 +4111,7 @@ export const updateFashionTeam = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -3303,6 +4125,14 @@ export const updateFashionTeam = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -3331,6 +4161,14 @@ export const updateFashionTeam = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -3363,6 +4201,14 @@ export const updateFashionTeam = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -3412,6 +4258,14 @@ export const deleteFashionTeam = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -3453,6 +4307,7 @@ export const deleteFashionTeam = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -3473,6 +4328,7 @@ export const deleteFashionTeam = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -3499,6 +4355,7 @@ export const deleteFashionTeam = /* GraphQL */ `
               email
               prettyPoints
               fashionFame
+              rainbowDye
               createdAt
               updatedAt
               userFashionTeamId
@@ -3512,6 +4369,14 @@ export const deleteFashionTeam = /* GraphQL */ `
           nextToken
         }
         fashionFame
+        rainbowDye
+        starDust {
+          uglyStarDust
+          poorStarDust
+          fineStarDust
+          cuteStarDust
+          prettyStarDust
+        }
         createdAt
         updatedAt
         userFashionTeamId
@@ -3540,6 +4405,14 @@ export const deleteFashionTeam = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId
@@ -3572,6 +4445,14 @@ export const deleteFashionTeam = /* GraphQL */ `
               nextToken
             }
             fashionFame
+            rainbowDye
+            starDust {
+              uglyStarDust
+              poorStarDust
+              fineStarDust
+              cuteStarDust
+              prettyStarDust
+            }
             createdAt
             updatedAt
             userFashionTeamId

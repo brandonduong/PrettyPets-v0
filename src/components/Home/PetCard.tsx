@@ -30,12 +30,12 @@ function PetCard(props: PetCardData) {
       } else {
         setSelected(false)
       }
-      dispatch(selectPrettyPet(props.pet.id))
+      dispatch(selectPrettyPet({id: props.pet.id, max: props.max}))
     }
   }
 
-  const stats = <Row>
-    <Col style={{textAlign: "end"}}>
+  const stats = <Row className={props.stats ? "" : "stat-popover"}>
+    <Col className={props.stats ? "" : "trait-col"} style={{textAlign: "end"}}>
       <span className={"col-title"}>Traits:</span>
       {props.pet.traits[0]!.map((trait, index) => (
         <div key={trait + index.toString()} className={"good-trait"}>
@@ -48,7 +48,7 @@ function PetCard(props: PetCardData) {
         </div>
       ))}
     </Col>
-    <Col style={{textAlign: "start"}}>
+    <Col className={props.stats ? "" : "stat-col"} style={{textAlign: "start"}}>
       <span className={"col-title"}>Stats:</span>
       {Object.keys(props.pet.stats!).map((key, index) => (
         <div key={key + index.toString()}>

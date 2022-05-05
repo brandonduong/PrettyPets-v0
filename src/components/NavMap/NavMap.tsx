@@ -3,7 +3,7 @@ import {useAuthenticator} from '@aws-amplify/ui-react';
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {Link} from "react-router-dom";
 import {API} from "aws-amplify";
-import {getUser, listUsers} from "../../graphql/queries";
+import {getUser} from "../../graphql/queries";
 import {incrementByAmount, setUserId} from "../../features/prettypoints/prettyPointsSlice";
 import {Container, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import {logout} from '../../features/prettypoints/prettyPointsSlice'
@@ -11,6 +11,7 @@ import '../../styles/NavMap/index.css'
 import {setPrettyPets} from "../../features/prettypets/prettyPetsSlice";
 import {setJobs} from "../../features/jobs/jobsSlice";
 import {Job} from "../../API";
+import {setInventory} from "../../features/inventory/inventorySlice";
 
 function NavMap() {
   const {user, signOut} = useAuthenticator((context) => [context.user]);
@@ -38,6 +39,7 @@ function NavMap() {
       dispatch(setUserId(userData.data.getUser.id))
       dispatch(setJobs(userData.data.getUser.jobs.items.filter((job : Job) => {return !job.complete})))
       dispatch(setPrettyPets(userData.data.getUser.pets.items))
+      dispatch(setInventory({starDust: userData.data.getUser.starDust, rainbowDye: userData.data.getUser.rainbowDye}))
     } catch (err) {
       console.log('error fetching user data: ', err)
     }

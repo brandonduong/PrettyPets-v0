@@ -1,0 +1,16 @@
+.selected-counter {
+  margin: 0.4rem 0 0 1rem;
+}
+
+.stat-popover {
+  width: 13rem;
+}
+
+.stat-popover > .stat-col {
+  padding-right: 0;
+}
+
+.stat-popover > .trait-col {
+  padding-left: 0;
+  text-align: end;
+}

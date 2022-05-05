@@ -8,7 +8,7 @@ import {assignJob} from "../../graphql/mutations";
 import {setJobs} from "../../features/jobs/jobsSlice";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {setPrettyPets, setSelectedPrettyPets, updatePrettyPetsStatus} from "../../features/prettypets/prettyPetsSlice";
-import {JobTypes, STAT_PAYOUT_FRACTION} from "../../constants/Job";
+import {JobTypes, STAR_PAYOUT_FRACTION, STAT_PAYOUT_FRACTION} from "../../constants/Job";
 import {PrettyPet} from "../../API";
 import {Container, Row, Col} from "react-bootstrap";
 
@@ -55,27 +55,21 @@ function JobPosting({jobType, length, setLength}: JobPost) {
       })[0]
 
       // Calculate money based on star
-      if (!(petData.star <= petData.traits[1]!.length)) {
-        starPayout += petData.star - petData.traits[1]!.length
-      } else {
-        // Minimum +1 from star
-        starPayout += 1
-      }
+        starPayout += (petData.star + petData.traits[0]!.length) / STAR_PAYOUT_FRACTION;
 
       // Calculate money based on stat
-      const statPayoutFactor = (STAT_PAYOUT_FRACTION + petData.traits[1]!.length)
       switch (jobType) {
         case JobTypes.THERAPY:
-          statPayout += petData.stats!.cool / statPayoutFactor;
+          statPayout += (petData.stats!.cool + petData.traits[0]!.length) / STAT_PAYOUT_FRACTION;
           break;
         case JobTypes.EMOTIONAL:
-          statPayout += petData.stats!.cute / statPayoutFactor;
+          statPayout += (petData.stats!.cute+ petData.traits[0]!.length) / STAT_PAYOUT_FRACTION;
           break;
         case JobTypes.FISHING:
-          statPayout += petData.stats!.control / statPayoutFactor;
+          statPayout += (petData.stats!.control + petData.traits[0]!.length) / STAT_PAYOUT_FRACTION;
           break;
         case JobTypes.FORAGING:
-          statPayout += petData.stats!.confidence / statPayoutFactor;
+          statPayout += (petData.stats!.confidence + petData.traits[0]!.length) / STAT_PAYOUT_FRACTION;
           break;
         default:
           break;
@@ -85,6 +79,9 @@ function JobPosting({jobType, length, setLength}: JobPost) {
     let fullPayout = 0
     for (let i = 1; i <= length; i++) {
       fullPayout += (starPayout + statPayout) * (1 / Math.sqrt(i))
+    }
+    if (Math.floor(fullPayout) === 0 && petIds.length > 0 && length) {
+      return 1
     }
     return Math.floor(fullPayout)
   }

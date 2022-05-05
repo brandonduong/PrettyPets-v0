@@ -241,12 +241,11 @@ exports.handler = async (event) => {
         }
       }
     })
+
+    await applyPayout(userId, payout)
+    await updatePetStatus(jobData.pets.items)
+    return jobData;
   } catch (err) {
     console.log('error completing job: ', err);
   }
-
-  await applyPayout(userId, payout)
-  await updatePetStatus(jobData.pets.items)
-
-  return jobData;
 };

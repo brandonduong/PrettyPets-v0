@@ -2,11 +2,13 @@ import {AnyAction, combineReducers, configureStore} from '@reduxjs/toolkit'
 import prettyPointsReducer from "../features/prettypoints/prettyPointsSlice";
 import jobsReducer from "../features/jobs/jobsSlice"
 import prettyPetsReducer from "../features/prettypets/prettyPetsSlice"
+import inventoryReducer from "../features/inventory/inventorySlice"
 
 const combinedReducer = combineReducers({
   prettyPoints: prettyPointsReducer,
   jobs: jobsReducer,
   prettyPets: prettyPetsReducer,
+  inventory: inventoryReducer
 });
 
 const rootReducer = (state: any, action: AnyAction) => {

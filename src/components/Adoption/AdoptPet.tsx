@@ -11,7 +11,15 @@ import PetCard from "../Home/PetCard";
 
 const ROLL_PRICE = 100;
 
-function AdoptPet() {
+interface props {
+  baseColour: string,
+  secondColour: string,
+  thirdColour: string,
+  paperColour: string,
+  currency: string
+}
+
+function AdoptPet({baseColour, secondColour, thirdColour, paperColour, currency}: props) {
   const {user} = useAuthenticator((context) => [context.user]);
   const prettyPoints = useAppSelector((state) => state.prettyPoints.value)
   const prettyPets = useAppSelector((state) => state.prettyPets.value)
@@ -40,6 +48,9 @@ function AdoptPet() {
   }, [loading])
 
   async function rollPetOnClick(userId: string | undefined) {
+    // Temp disabled (blocked due to FashionFame not done yet)
+    if (currency === 'FashionFame') return
+
     if (!userId || prettyPoints < ROLL_PRICE || buttonDisabled) return
     try {
       setButtonDisabled(true)
@@ -59,23 +70,23 @@ function AdoptPet() {
   }
 
   return (
-    <>
-      <div onClick={() => rollPetOnClick(user.attributes!.sub)}>
+    <div className="roll-btn">
+      <div>
         <div className="letter-image">
-          <div className="animated-mail">
-            <div className="back-fold"/>
-            <Tooltip title="Adopt pet for 100 PrettyPoints">
+          <div className="animated-mail" onClick={() => rollPetOnClick(user.attributes!.sub)}>
+            <div className="back-fold" style={{background: baseColour}}/>
+            <Tooltip title={`Adopt pet for 100 ${currency}`}>
               <div className="letter">
-                <div className="letter-border"/>
-                <div className="letter-title"/>
-                <div className="letter-context"/>
-                <div className="letter-stamp">
+                <div className="letter-border" style={{background: `repeating-linear-gradient(-45deg, ${paperColour}, ${paperColour} 8px, transparent 8px, transparent 18px)`}}/>
+                <div className="letter-title" style={{background: paperColour}}/>
+                <div className="letter-context" style={{background: paperColour}}/>
+                <div className="letter-stamp" style={{background: paperColour}}>
                   <div className="letter-stamp-inner"/>
                 </div>
               </div>
-              <div className="top-fold"/>
-              <div className="body"/>
-              <div className="left-fold"/>
+              <div className="top-fold" style={{borderColor: `${baseColour} transparent transparent transparent`}}/>
+              <div className="body" style={{borderColor: `transparent transparent ${secondColour} transparent`}}/>
+              <div className="left-fold" style={{borderColor: `transparent transparent transparent ${thirdColour}`}}/>
             </Tooltip>
           </div>
         </div>
@@ -95,7 +106,7 @@ function AdoptPet() {
         <Button type={"primary"} onClick={handleOk}>Welcome home!</Button>
 
       </Modal>
-    </>
+    </div>
   );
 }
 

@@ -4,11 +4,13 @@ import {useAuthenticator, Collection} from '@aws-amplify/ui-react';
 import {listPrettyPets} from "../../graphql/queries";
 import {Col, Row} from "react-bootstrap";
 import PetCard from "./PetCard";
-import {useAppSelector} from "../../app/hooks";
+import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {PrettyPet} from "../../API";
 import {Button, Popover} from "antd";
 import {CopyOutlined, FilterOutlined} from "@ant-design/icons";
 import Filters from "./Filters";
+import '../../styles/PetGallery/index.css';
+import {setSelectedPrettyPets} from "../../features/prettypets/prettyPetsSlice";
 
 interface Props {
   selectable: boolean
@@ -32,6 +34,7 @@ function PetGallery(props: Props) {
   const pets = useAppSelector((state) => state.prettyPets.value)
   const petIds = useAppSelector((state) => state.prettyPets.selected)
   const [width, setWidth] = useState(0);
+  const dispatch = useAppDispatch()
   const [strangerPets, setStrangerPets] = useState<Array<PrettyPet>>()
 
   // Filters
@@ -59,7 +62,10 @@ function PetGallery(props: Props) {
 
     window.addEventListener('resize', updateSize);
     updateSize();
-    return () => window.removeEventListener('resize', updateSize);
+    return () => {
+      window.removeEventListener('resize', updateSize)
+      dispatch(setSelectedPrettyPets([]))
+    };
   }, []);
 
   useEffect(() => {
@@ -165,9 +171,6 @@ function PetGallery(props: Props) {
 
   return (
     <>
-      {props.selectable &&
-      <h5 className={"selected-counter"}>{petIds.length}/{props.max} selected</h5>
-      }
       <Row>
         <Col className={"filter-col"}>
           <Popover
@@ -180,6 +183,7 @@ function PetGallery(props: Props) {
           >
             <Button type={"primary"} icon={<FilterOutlined/>} size={"large"}/>
           </Popover>
+          {props.selectable && <h5 className={"selected-counter"}>{petIds.length}/{props.max} {width >= 768 && <>selected</>}</h5>}
         </Col>
         {
           props.profileUser &&

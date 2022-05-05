@@ -32,7 +32,7 @@
         },
         "rollPet": {
           "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
-          "s3Key": "amplify-builds/rollPet-564a4f6a4f2b4e314f6f-build.zip"
+          "s3Key": "amplify-builds/rollPet-6a4a7852427554365678-build.zip"
         },
         "createTodoFunction": {
           "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
@@ -40,7 +40,7 @@
         },
         "PostAuth": {
           "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
-          "s3Key": "amplify-builds/PostAuth-4545584c2b6d736e6f47-build.zip"
+          "s3Key": "amplify-builds/PostAuth-4c594457697874484238-build.zip"
         },
         "rollPetV2": {
           "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
@@ -48,11 +48,15 @@
         },
         "assignJob": {
           "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
-          "s3Key": "amplify-builds/assignJob-5571694d7158684d7162-build.zip"
+          "s3Key": "amplify-builds/assignJob-52647675626838367736-build.zip"
         },
         "finishJob": {
           "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
-          "s3Key": "amplify-builds/finishJob-774d4b6b534d74793639-build.zip"
+          "s3Key": "amplify-builds/finishJob-3848735232726b71494d-build.zip"
+        },
+        "abandonPet": {
+          "deploymentBucketName": "amplify-prettypets-dev-02336-deployment",
+          "s3Key": "amplify-builds/abandonPet-31717437714956567955-build.zip"
         }
       },
       "hosting": {
