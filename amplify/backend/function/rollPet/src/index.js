@@ -11,6 +11,7 @@ const graphql = require('graphql');
 const fs = require('fs');
 const {print} = graphql;
 const ntc = require('ntc');
+const FilterCalculator = require("./ColorFilterCalculator");
 
 const url = process.env.API_PRETTYPETS_GRAPHQLAPIENDPOINTOUTPUT
 const key = process.env.API_PRETTYPETS_GRAPHQLAPIKEYOUTPUT
@@ -36,8 +37,11 @@ const createPet = gql`
             id
             animal
             nickname
-            color
-            colorHex
+            color {
+                name
+                hex
+                filter
+            }
             owner {
                 id
                 email
@@ -60,7 +64,6 @@ const createPet = gql`
             createdAt
             updatedAt
             userPetsId
-            jobPetsId
             fashionTeamPetsId
             prettyPetOriginalOwnerId
         }
@@ -205,6 +208,19 @@ function generateStats(stars) {
   return stats
 }
 
+function calculateFilter(hex) {
+  const rgb = FilterCalculator.hexToRgb(hex);
+  if (!rgb || rgb.length !== 3) {
+    return 'invert(0%)';
+  }
+
+  const color = new FilterCalculator.Color(rgb[0], rgb[1], rgb[2]);
+  const solver = new FilterCalculator.Solver(color);
+  const result = solver.solve();
+  console.log(hex, rgb, result)
+  return result.filter
+}
+
 exports.handler = async (event) => {
   if (!event.arguments.userId) {
     return
@@ -277,8 +293,11 @@ exports.handler = async (event) => {
     const petInfo = {
       animal: animal,
       shiny: shiny,
-      color: color[1],
-      colorHex: color[0],
+      color: {
+        name: color[1],
+        hex: color[0],
+        filter: calculateFilter(color[0])
+      },
       nickname: generateDefaultNickname(shiny, color[1], animal),
       traits: generateTraits(stars),
       star: stars,

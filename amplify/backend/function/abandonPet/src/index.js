@@ -32,8 +32,6 @@ const updatePrettyPet = gql`
             id
             animal
             nickname
-            color
-            colorHex
             shiny
             traits
             star
@@ -47,7 +45,6 @@ const updatePrettyPet = gql`
             status
             createdAt
             updatedAt
-            jobPetsId
             userPetsId
         }
     }
@@ -242,8 +239,6 @@ async function calculatePayout(pets) {
 }
 
 exports.handler = async (event) => {
-  // TODO implement
-
   try {
     // Get user id
     const userId = await getUserId(event.arguments.petIds[0])

@@ -23,8 +23,7 @@ type PrettyPet @model {
   id: ID!
   animal: String!
   nickname: String!
-  color: String!
-  colorHex: String!
+  color: Color
   owner: User @belongsTo
   shiny: Boolean!
   traits: [[String]]!
@@ -33,6 +32,12 @@ type PrettyPet @model {
   variant: Int!
   status: String
   originalOwner: User @hasOne
+}
+
+type Color {
+  name: String
+  hex: String
+  filter: String
 }
 
 type PetStats {
@@ -52,11 +57,10 @@ type Stardust {
 
 type Job @model {
   id: ID!
-  pets: [PrettyPet] @hasMany
+  pets: [ID!]
   length: Int!
   jobType: String!
   owner: User @belongsTo
-  complete: Boolean
   payout: Int
 }
 

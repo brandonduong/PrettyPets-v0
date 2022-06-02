@@ -63,7 +63,7 @@ function JobProgress({job}: JobProgressProps) {
       console.log(jobData)
       const jobArr = jobData.data.finishJob
       dispatch(removeJob(jobArr))
-      dispatch(updatePrettyPetsStatus({busyPets: job.pets!.items.map((pet) => {return pet.id}), jobType: 'free'}))
+      dispatch(updatePrettyPetsStatus({busyPets: job.pets, jobType: 'free'}))
       dispatch(incrementByAmount(job.payout))
     } catch (err) {
       console.log('error completing job: ', err)
@@ -83,7 +83,7 @@ function JobProgress({job}: JobProgressProps) {
             <Spin size="large"/>
           </div>
         }
-        <Button type={"primary"} onClick={completeJob} disabled={!(timer === 'Complete') || disabled}>Complete</Button>
+        <Button type={"primary"} onClick={completeJob} disabled={disabled}>Complete</Button>
       </Card>
     </Badge.Ribbon>
   );

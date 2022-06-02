@@ -33,11 +33,11 @@ function NavMap() {
 
   async function fetchUser(id: string) {
     try {
-      const userData: any = await API.graphql({query: getUser, variables: {id}})
+      const userData: any = await API.graphql({query: getUser, variables: {id, limit: 250}})
       console.log(userData)
       dispatch(incrementByAmount(userData.data.getUser.prettyPoints))
       dispatch(setUserId(userData.data.getUser.id))
-      dispatch(setJobs(userData.data.getUser.jobs.items.filter((job : Job) => {return !job.complete})))
+      dispatch(setJobs(userData.data.getUser.jobs.items))
       dispatch(setPrettyPets(userData.data.getUser.pets.items))
       dispatch(setInventory({starDust: userData.data.getUser.starDust, rainbowDye: userData.data.getUser.rainbowDye}))
     } catch (err) {

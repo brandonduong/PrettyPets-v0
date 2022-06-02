@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Card, Col, Row} from "react-bootstrap";
 import StarDisplay from "../Adoption/StarDisplay";
-import Star from "../../assets/icons/Star";
 import {PrettyPet, PetStats} from "../../API";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {selectPrettyPet} from "../../features/prettypets/prettyPetsSlice";
@@ -18,6 +17,7 @@ function PetCard(props: PetCardData) {
   const petIds = useAppSelector((state) => state.prettyPets.selected)
   const [selected, setSelected] = useState(petIds.includes(props.pet.id))
   const dispatch = useAppDispatch()
+  const fish = require('../../assets/pets/fish/TEST.png')
 
   useEffect(() => {
     setSelected(petIds.includes(props.pet.id))
@@ -66,7 +66,7 @@ function PetCard(props: PetCardData) {
       <Badge
         count={props.pet.status}
         className={"pet-card-status"}
-        style={{ backgroundColor: props.pet.status === 'free' ? '#52c41a':'#FF5E5EFF' }}
+        style={{backgroundColor: props.pet.status === 'free' ? '#52c41a' : '#FF5E5EFF'}}
       />
       {
         props.stats && stats
@@ -75,8 +75,9 @@ function PetCard(props: PetCardData) {
 
   return (
     <Card className={"pet-card " + (selected && props.selectable ? 'selected-card' : '')} onClick={handleOnClick}>
-      <div className={"pet-card-img"}>
-        <Star/>
+      <div className={"pet-card-img"}
+           style={{filter: `${props.pet.color!.filter}`}}>
+        <img src={fish} alt={'fish'} style={{width: '100%'}}/>
       </div>
       {props.stats ? body
         : <Popover content={stats}>

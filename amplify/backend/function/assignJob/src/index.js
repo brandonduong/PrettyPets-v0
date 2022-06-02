@@ -30,11 +30,11 @@ const createJob = gql`
             id
             length
             jobType
-            complete
             payout
             createdAt
             updatedAt
             userJobsId
+            pets
         }
     }
 `
@@ -48,8 +48,6 @@ const updatePrettyPet = gql`
             id
             animal
             nickname
-            color
-            colorHex
             shiny
             traits
             star
@@ -63,7 +61,6 @@ const updatePrettyPet = gql`
             status
             createdAt
             updatedAt
-            jobPetsId
         }
     }
 `
@@ -75,6 +72,7 @@ function lengthIsValid(length) {
 function calculatePayout(length, pets, jobType) {
     let starPayout = 0
     let statPayout = 0
+    console.log(pets)
     pets.forEach((pet) => {
         // Calculate money based on star
         starPayout += (pet.star + pet.traits[0].length) / 3
@@ -134,41 +132,13 @@ async function updatePetStatus(petIds, jobType) {
                     }
                 }
             })
+            console.log(petData.data)
             pets.push(petData.data.data.updatePrettyPet)
         } catch (err) {
             console.log('error updating pet: ', err);
         }
     }
     return pets
-}
-
-async function updatePetJobId(petIds, jobId) {
-    console.log(petIds, jobId)
-    for (const petId of petIds) {
-        // Update pet's status to working
-        try {
-            const petInfo = {
-                id: petId,
-                jobPetsId: jobId
-            }
-
-            const updatedPet = await axios({
-                url: url,
-                method: 'post',
-                headers: {
-                    'x-api-key': key
-                },
-                data: {
-                    query: print(updatePrettyPet),
-                    variables: {
-                        input: petInfo
-                    }
-                }
-            })
-        } catch (err) {
-            console.log('error updating pet: ', err);
-        }
-    }
 }
 
 exports.handler = async (event) => {
@@ -182,9 +152,9 @@ exports.handler = async (event) => {
         const jobInfo = {
             length: event.arguments.length,
             jobType: event.arguments.jobType,
-            complete: false,
             userJobsId: event.arguments.userId,
-            payout: calculatePayout(event.arguments.length, pets, event.arguments.jobType)
+            payout: calculatePayout(event.arguments.length, pets, event.arguments.jobType),
+            pets: event.arguments.petIds
         }
         console.log(jobInfo)
 
@@ -201,8 +171,8 @@ exports.handler = async (event) => {
                 }
             }
         })
+        console.log(jobData.data)
         console.log(jobData.data.data.createJob)
-        await updatePetJobId(event.arguments.petIds, jobData.data.data.createJob.id)
         return jobData.data.data.createJob
     } catch (err) {
         console.log('error creating job: ', err);

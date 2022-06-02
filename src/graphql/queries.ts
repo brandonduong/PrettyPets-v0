@@ -38,8 +38,6 @@ export const getUser = /* GraphQL */ `
               id
               animal
               nickname
-              color
-              colorHex
               shiny
               traits
               star
@@ -48,7 +46,6 @@ export const getUser = /* GraphQL */ `
               createdAt
               updatedAt
               userPetsId
-              jobPetsId
               fashionTeamPetsId
               prettyPetOriginalOwnerId
             }
@@ -57,9 +54,9 @@ export const getUser = /* GraphQL */ `
           jobs {
             items {
               id
+              pets
               length
               jobType
-              complete
               payout
               createdAt
               updatedAt
@@ -85,8 +82,11 @@ export const getUser = /* GraphQL */ `
             id
             animal
             nickname
-            color
-            colorHex
+            color {
+              name
+              hex
+              filter
+            }
             owner {
               id
               email
@@ -121,7 +121,6 @@ export const getUser = /* GraphQL */ `
             createdAt
             updatedAt
             userPetsId
-            jobPetsId
             fashionTeamPetsId
             prettyPetOriginalOwnerId
           }
@@ -136,8 +135,11 @@ export const getUser = /* GraphQL */ `
           id
           animal
           nickname
-          color
-          colorHex
+          color {
+            name
+            hex
+            filter
+          }
           owner {
             id
             email
@@ -210,7 +212,6 @@ export const getUser = /* GraphQL */ `
           createdAt
           updatedAt
           userPetsId
-          jobPetsId
           fashionTeamPetsId
           prettyPetOriginalOwnerId
         }
@@ -219,27 +220,7 @@ export const getUser = /* GraphQL */ `
       jobs {
         items {
           id
-          pets {
-            items {
-              id
-              animal
-              nickname
-              color
-              colorHex
-              shiny
-              traits
-              star
-              variant
-              status
-              createdAt
-              updatedAt
-              userPetsId
-              jobPetsId
-              fashionTeamPetsId
-              prettyPetOriginalOwnerId
-            }
-            nextToken
-          }
+          pets
           length
           jobType
           owner {
@@ -271,7 +252,6 @@ export const getUser = /* GraphQL */ `
             updatedAt
             userFashionTeamId
           }
-          complete
           payout
           createdAt
           updatedAt
@@ -341,8 +321,6 @@ export const listUsers = /* GraphQL */ `
               id
               animal
               nickname
-              color
-              colorHex
               shiny
               traits
               star
@@ -351,7 +329,6 @@ export const listUsers = /* GraphQL */ `
               createdAt
               updatedAt
               userPetsId
-              jobPetsId
               fashionTeamPetsId
               prettyPetOriginalOwnerId
             }
@@ -366,8 +343,11 @@ export const listUsers = /* GraphQL */ `
             id
             animal
             nickname
-            color
-            colorHex
+            color {
+              name
+              hex
+              filter
+            }
             owner {
               id
               email
@@ -402,7 +382,6 @@ export const listUsers = /* GraphQL */ `
             createdAt
             updatedAt
             userPetsId
-            jobPetsId
             fashionTeamPetsId
             prettyPetOriginalOwnerId
           }
@@ -411,9 +390,7 @@ export const listUsers = /* GraphQL */ `
         jobs {
           items {
             id
-            pets {
-              nextToken
-            }
+            pets
             length
             jobType
             owner {
@@ -426,7 +403,6 @@ export const listUsers = /* GraphQL */ `
               updatedAt
               userFashionTeamId
             }
-            complete
             payout
             createdAt
             updatedAt
@@ -457,8 +433,11 @@ export const getPrettyPet = /* GraphQL */ `
       id
       animal
       nickname
-      color
-      colorHex
+      color {
+        name
+        hex
+        filter
+      }
       owner {
         id
         email
@@ -499,8 +478,6 @@ export const getPrettyPet = /* GraphQL */ `
               id
               animal
               nickname
-              color
-              colorHex
               shiny
               traits
               star
@@ -509,7 +486,6 @@ export const getPrettyPet = /* GraphQL */ `
               createdAt
               updatedAt
               userPetsId
-              jobPetsId
               fashionTeamPetsId
               prettyPetOriginalOwnerId
             }
@@ -524,8 +500,11 @@ export const getPrettyPet = /* GraphQL */ `
             id
             animal
             nickname
-            color
-            colorHex
+            color {
+              name
+              hex
+              filter
+            }
             owner {
               id
               email
@@ -560,7 +539,6 @@ export const getPrettyPet = /* GraphQL */ `
             createdAt
             updatedAt
             userPetsId
-            jobPetsId
             fashionTeamPetsId
             prettyPetOriginalOwnerId
           }
@@ -569,9 +547,7 @@ export const getPrettyPet = /* GraphQL */ `
         jobs {
           items {
             id
-            pets {
-              nextToken
-            }
+            pets
             length
             jobType
             owner {
@@ -584,7 +560,6 @@ export const getPrettyPet = /* GraphQL */ `
               updatedAt
               userFashionTeamId
             }
-            complete
             payout
             createdAt
             updatedAt
@@ -656,8 +631,6 @@ export const getPrettyPet = /* GraphQL */ `
               id
               animal
               nickname
-              color
-              colorHex
               shiny
               traits
               star
@@ -666,7 +639,6 @@ export const getPrettyPet = /* GraphQL */ `
               createdAt
               updatedAt
               userPetsId
-              jobPetsId
               fashionTeamPetsId
               prettyPetOriginalOwnerId
             }
@@ -681,8 +653,11 @@ export const getPrettyPet = /* GraphQL */ `
             id
             animal
             nickname
-            color
-            colorHex
+            color {
+              name
+              hex
+              filter
+            }
             owner {
               id
               email
@@ -717,7 +692,6 @@ export const getPrettyPet = /* GraphQL */ `
             createdAt
             updatedAt
             userPetsId
-            jobPetsId
             fashionTeamPetsId
             prettyPetOriginalOwnerId
           }
@@ -726,9 +700,7 @@ export const getPrettyPet = /* GraphQL */ `
         jobs {
           items {
             id
-            pets {
-              nextToken
-            }
+            pets
             length
             jobType
             owner {
@@ -741,7 +713,6 @@ export const getPrettyPet = /* GraphQL */ `
               updatedAt
               userFashionTeamId
             }
-            complete
             payout
             createdAt
             updatedAt
@@ -765,7 +736,6 @@ export const getPrettyPet = /* GraphQL */ `
       createdAt
       updatedAt
       userPetsId
-      jobPetsId
       fashionTeamPetsId
       prettyPetOriginalOwnerId
     }
@@ -782,8 +752,11 @@ export const listPrettyPets = /* GraphQL */ `
         id
         animal
         nickname
-        color
-        colorHex
+        color {
+          name
+          hex
+          filter
+        }
         owner {
           id
           email
@@ -812,8 +785,6 @@ export const listPrettyPets = /* GraphQL */ `
               id
               animal
               nickname
-              color
-              colorHex
               shiny
               traits
               star
@@ -822,7 +793,6 @@ export const listPrettyPets = /* GraphQL */ `
               createdAt
               updatedAt
               userPetsId
-              jobPetsId
               fashionTeamPetsId
               prettyPetOriginalOwnerId
             }
@@ -831,9 +801,9 @@ export const listPrettyPets = /* GraphQL */ `
           jobs {
             items {
               id
+              pets
               length
               jobType
-              complete
               payout
               createdAt
               updatedAt
@@ -893,8 +863,6 @@ export const listPrettyPets = /* GraphQL */ `
               id
               animal
               nickname
-              color
-              colorHex
               shiny
               traits
               star
@@ -903,7 +871,6 @@ export const listPrettyPets = /* GraphQL */ `
               createdAt
               updatedAt
               userPetsId
-              jobPetsId
               fashionTeamPetsId
               prettyPetOriginalOwnerId
             }
@@ -912,9 +879,9 @@ export const listPrettyPets = /* GraphQL */ `
           jobs {
             items {
               id
+              pets
               length
               jobType
-              complete
               payout
               createdAt
               updatedAt
@@ -938,7 +905,6 @@ export const listPrettyPets = /* GraphQL */ `
         createdAt
         updatedAt
         userPetsId
-        jobPetsId
         fashionTeamPetsId
         prettyPetOriginalOwnerId
       }
@@ -950,91 +916,7 @@ export const getJob = /* GraphQL */ `
   query GetJob($id: ID!) {
     getJob(id: $id) {
       id
-      pets {
-        items {
-          id
-          animal
-          nickname
-          color
-          colorHex
-          owner {
-            id
-            email
-            prettyPoints
-            fashionTeam {
-              id
-              createdAt
-              updatedAt
-              fashionTeamOwnerId
-            }
-            pets {
-              nextToken
-            }
-            jobs {
-              nextToken
-            }
-            fashionFame
-            rainbowDye
-            starDust {
-              uglyStarDust
-              poorStarDust
-              fineStarDust
-              cuteStarDust
-              prettyStarDust
-            }
-            createdAt
-            updatedAt
-            userFashionTeamId
-          }
-          shiny
-          traits
-          star
-          stats {
-            cool
-            cute
-            confidence
-            control
-          }
-          variant
-          status
-          originalOwner {
-            id
-            email
-            prettyPoints
-            fashionTeam {
-              id
-              createdAt
-              updatedAt
-              fashionTeamOwnerId
-            }
-            pets {
-              nextToken
-            }
-            jobs {
-              nextToken
-            }
-            fashionFame
-            rainbowDye
-            starDust {
-              uglyStarDust
-              poorStarDust
-              fineStarDust
-              cuteStarDust
-              prettyStarDust
-            }
-            createdAt
-            updatedAt
-            userFashionTeamId
-          }
-          createdAt
-          updatedAt
-          userPetsId
-          jobPetsId
-          fashionTeamPetsId
-          prettyPetOriginalOwnerId
-        }
-        nextToken
-      }
+      pets
       length
       jobType
       owner {
@@ -1077,8 +959,6 @@ export const getJob = /* GraphQL */ `
               id
               animal
               nickname
-              color
-              colorHex
               shiny
               traits
               star
@@ -1087,7 +967,6 @@ export const getJob = /* GraphQL */ `
               createdAt
               updatedAt
               userPetsId
-              jobPetsId
               fashionTeamPetsId
               prettyPetOriginalOwnerId
             }
@@ -1102,8 +981,11 @@ export const getJob = /* GraphQL */ `
             id
             animal
             nickname
-            color
-            colorHex
+            color {
+              name
+              hex
+              filter
+            }
             owner {
               id
               email
@@ -1138,7 +1020,6 @@ export const getJob = /* GraphQL */ `
             createdAt
             updatedAt
             userPetsId
-            jobPetsId
             fashionTeamPetsId
             prettyPetOriginalOwnerId
           }
@@ -1147,9 +1028,7 @@ export const getJob = /* GraphQL */ `
         jobs {
           items {
             id
-            pets {
-              nextToken
-            }
+            pets
             length
             jobType
             owner {
@@ -1162,7 +1041,6 @@ export const getJob = /* GraphQL */ `
               updatedAt
               userFashionTeamId
             }
-            complete
             payout
             createdAt
             updatedAt
@@ -1183,7 +1061,6 @@ export const getJob = /* GraphQL */ `
         updatedAt
         userFashionTeamId
       }
-      complete
       payout
       createdAt
       updatedAt
@@ -1200,53 +1077,7 @@ export const listJobs = /* GraphQL */ `
     listJobs(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        pets {
-          items {
-            id
-            animal
-            nickname
-            color
-            colorHex
-            owner {
-              id
-              email
-              prettyPoints
-              fashionFame
-              rainbowDye
-              createdAt
-              updatedAt
-              userFashionTeamId
-            }
-            shiny
-            traits
-            star
-            stats {
-              cool
-              cute
-              confidence
-              control
-            }
-            variant
-            status
-            originalOwner {
-              id
-              email
-              prettyPoints
-              fashionFame
-              rainbowDye
-              createdAt
-              updatedAt
-              userFashionTeamId
-            }
-            createdAt
-            updatedAt
-            userPetsId
-            jobPetsId
-            fashionTeamPetsId
-            prettyPetOriginalOwnerId
-          }
-          nextToken
-        }
+        pets
         length
         jobType
         owner {
@@ -1277,8 +1108,6 @@ export const listJobs = /* GraphQL */ `
               id
               animal
               nickname
-              color
-              colorHex
               shiny
               traits
               star
@@ -1287,7 +1116,6 @@ export const listJobs = /* GraphQL */ `
               createdAt
               updatedAt
               userPetsId
-              jobPetsId
               fashionTeamPetsId
               prettyPetOriginalOwnerId
             }
@@ -1296,9 +1124,9 @@ export const listJobs = /* GraphQL */ `
           jobs {
             items {
               id
+              pets
               length
               jobType
-              complete
               payout
               createdAt
               updatedAt
@@ -1319,7 +1147,6 @@ export const listJobs = /* GraphQL */ `
           updatedAt
           userFashionTeamId
         }
-        complete
         payout
         createdAt
         updatedAt
@@ -1373,8 +1200,6 @@ export const getFashionTeam = /* GraphQL */ `
               id
               animal
               nickname
-              color
-              colorHex
               shiny
               traits
               star
@@ -1383,7 +1208,6 @@ export const getFashionTeam = /* GraphQL */ `
               createdAt
               updatedAt
               userPetsId
-              jobPetsId
               fashionTeamPetsId
               prettyPetOriginalOwnerId
             }
@@ -1398,8 +1222,11 @@ export const getFashionTeam = /* GraphQL */ `
             id
             animal
             nickname
-            color
-            colorHex
+            color {
+              name
+              hex
+              filter
+            }
             owner {
               id
               email
@@ -1434,7 +1261,6 @@ export const getFashionTeam = /* GraphQL */ `
             createdAt
             updatedAt
             userPetsId
-            jobPetsId
             fashionTeamPetsId
             prettyPetOriginalOwnerId
           }
@@ -1443,9 +1269,7 @@ export const getFashionTeam = /* GraphQL */ `
         jobs {
           items {
             id
-            pets {
-              nextToken
-            }
+            pets
             length
             jobType
             owner {
@@ -1458,7 +1282,6 @@ export const getFashionTeam = /* GraphQL */ `
               updatedAt
               userFashionTeamId
             }
-            complete
             payout
             createdAt
             updatedAt
@@ -1484,8 +1307,11 @@ export const getFashionTeam = /* GraphQL */ `
           id
           animal
           nickname
-          color
-          colorHex
+          color {
+            name
+            hex
+            filter
+          }
           owner {
             id
             email
@@ -1558,7 +1384,6 @@ export const getFashionTeam = /* GraphQL */ `
           createdAt
           updatedAt
           userPetsId
-          jobPetsId
           fashionTeamPetsId
           prettyPetOriginalOwnerId
         }
@@ -1607,8 +1432,6 @@ export const listFashionTeams = /* GraphQL */ `
               id
               animal
               nickname
-              color
-              colorHex
               shiny
               traits
               star
@@ -1617,7 +1440,6 @@ export const listFashionTeams = /* GraphQL */ `
               createdAt
               updatedAt
               userPetsId
-              jobPetsId
               fashionTeamPetsId
               prettyPetOriginalOwnerId
             }
@@ -1626,9 +1448,9 @@ export const listFashionTeams = /* GraphQL */ `
           jobs {
             items {
               id
+              pets
               length
               jobType
-              complete
               payout
               createdAt
               updatedAt
@@ -1654,8 +1476,11 @@ export const listFashionTeams = /* GraphQL */ `
             id
             animal
             nickname
-            color
-            colorHex
+            color {
+              name
+              hex
+              filter
+            }
             owner {
               id
               email
@@ -1690,7 +1515,6 @@ export const listFashionTeams = /* GraphQL */ `
             createdAt
             updatedAt
             userPetsId
-            jobPetsId
             fashionTeamPetsId
             prettyPetOriginalOwnerId
           }

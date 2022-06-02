@@ -12,14 +12,13 @@ const {print} = graphql;
 const url = process.env.API_PRETTYPETS_GRAPHQLAPIENDPOINTOUTPUT
 const key = process.env.API_PRETTYPETS_GRAPHQLAPIKEYOUTPUT
 
-const updateJob = gql`
-    mutation UpdateJob(
-        $input: UpdateJobInput!
+const deleteJob = gql`
+    mutation DeleteJob(
+        $input: DeleteJobInput!
         $condition: ModelJobConditionInput
     ) {
-        updateJob(input: $input, condition: $condition) {
+        deleteJob(input: $input, condition: $condition) {
             id
-            complete
         }
     }
 `
@@ -28,39 +27,13 @@ const getJob = gql`
     query GetJob($id: ID!) {
         getJob(id: $id) {
             id
-            pets {
-                items {
-                    id
-                    animal
-                    nickname
-                    color
-                    colorHex
-                    shiny
-                    traits
-                    star
-                    stats {
-                        cool
-                        cute
-                        confidence
-                        control
-                    }
-                    variant
-                    status
-                    createdAt
-                    updatedAt
-                    userPetsId
-                    jobPetsId
-                    fashionTeamPetsId
-                }
-                nextToken
-            }
+            pets
             owner {
                 id
                 email
             }
             length
             jobType
-            complete
             payout
             createdAt
             updatedAt
@@ -104,7 +77,6 @@ const updatePrettyPet = gql`
     ) {
         updatePrettyPet(input: $input, condition: $condition) {
             id
-            jobPetsId
             status
         }
     }
@@ -161,16 +133,17 @@ async function applyPayout(userId, payout) {
 }
 
 async function updatePetStatus(pets) {
-  for (const pet of pets) {
+  console.log(pets)
+  for (const id of pets) {
     // Update pet's status to working
+    console.log('setting pet to free:', id)
     try {
       const petInfo = {
-        id: pet.id,
+        id,
         status: 'free',
-        jobPetsId: null,
       }
 
-      await axios({
+      const petData = await axios({
         url: url,
         method: 'post',
         headers: {
@@ -183,6 +156,8 @@ async function updatePetStatus(pets) {
           }
         }
       })
+
+      console.log('set free:', petData.data)
     } catch (err) {
       console.log('error updating pet: ', err);
     }
@@ -210,12 +185,8 @@ exports.handler = async (event) => {
     })
     console.log('Job info',graphqlData.data.data)
     jobData = graphqlData.data.data.getJob
-    if (jobData.complete) {
-      return jobData;
-    } else {
-      payout = jobData.payout
-      userId = jobData.owner.id
-    }
+    payout = jobData.payout
+    userId = jobData.owner.id
   } catch (err) {
     console.log('error getting job: ', err);
   }
@@ -225,7 +196,6 @@ exports.handler = async (event) => {
   try {
     const jobInfo = {
       id: event.arguments.id,
-      complete: true
     }
 
     await axios({
@@ -235,7 +205,7 @@ exports.handler = async (event) => {
         'x-api-key': key
       },
       data: {
-        query: print(updateJob),
+        query: print(deleteJob),
         variables: {
           input: jobInfo
         }
@@ -243,7 +213,7 @@ exports.handler = async (event) => {
     })
 
     await applyPayout(userId, payout)
-    await updatePetStatus(jobData.pets.items)
+    await updatePetStatus(jobData.pets)
     return jobData;
   } catch (err) {
     console.log('error completing job: ', err);
